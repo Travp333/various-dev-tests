@@ -31,11 +31,11 @@ public class HandAnim : MonoBehaviour
     float OnGroundBuffer = .5f;
     [SerializeField]
     [Tooltip("how long isJumping stays true after pressing it ( maybe should be in movingsphere?)")]
-    float JumpBuffer = .5f;
+    //float JumpBuffer = .5f;
 
-    bool JumpSwitch = true;
+    //bool JumpSwitch = true;
     float Groundstopwatch = 0;
-    float Jumpstopwatch = 0;
+    //float Jumpstopwatch = 0;
     bool JumpPressed;
     Grab grab;
     // Start is called before the first frame update

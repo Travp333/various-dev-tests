@@ -9,6 +9,8 @@ TagManager:
   - wp
   - Hitbox
   - bball
+  - trash
+  - Roomba
   layers:
   - Default
   - TransparentFX
