@@ -12,10 +12,10 @@ public class dumpSpot : MonoBehaviour
     /// </summary>
     void Update()
     {
-        Debug.Log("--------------------------------------------------------");
-        Debug.Log(dumpType);
-        Debug.Log(gate);
-        Debug.Log("--------------------------------------------------------");
+       // Debug.Log("--------------------------------------------------------");
+        //Debug.Log(dumpType);
+        //Debug.Log(gate);
+        //Debug.Log("--------------------------------------------------------");
     }
     void OnTriggerEnter(Collider other){
         if(gate){

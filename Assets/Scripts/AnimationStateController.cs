@@ -57,7 +57,7 @@ public class AnimationStateController : MonoBehaviour
 
     public void ChooseEmotion(int index){
         if (index == 0){
-            Debug.Log("smile");
+            //Debug.Log("smile");
             animator.SetBool(isSmileHash, true);
             animator.SetBool(isSurprisedHash, false);
             animator.SetBool(isHorrorHash, false);
