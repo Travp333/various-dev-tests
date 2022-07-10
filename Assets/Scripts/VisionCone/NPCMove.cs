@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class NPCMove : MonoBehaviour
 {
+    jerryAnimScript anim;
     [SerializeField]
     public GameObject carrot;
     [SerializeField]
@@ -16,14 +17,11 @@ public class NPCMove : MonoBehaviour
     [SerializeField]
     private GameObject uninfectedList;
     private uninfectedList list;
-    RaycastHit ray;
-    NavMeshAgent agent;
     [SerializeField]
-    private float stickLength;
-    [SerializeField]
-    private float rayDistance;
-    [SerializeField]
-    private LayerMask mask;
+    float stickLength = 5f;
+    [HideInInspector]
+    public NavMeshAgent agent;
+
     [SerializeField]
     private float turnRate;
     public bool scared;
@@ -44,6 +42,8 @@ public class NPCMove : MonoBehaviour
     float counter2 = 0f;
     float counter3 = 0f;
     Vector3 meshy;
+    [SerializeField]
+    LayerMask layerMask;
     public void infectAgain(Collider other)
     {
         list.Infected(other.gameObject);
@@ -129,6 +129,7 @@ public class NPCMove : MonoBehaviour
 
     void Start()
     {
+        anim = GetComponent<jerryAnimScript>();
         meshy = RandomNavmeshLocation(400f);
         path = new NavMeshPath();
         list = uninfectedList.GetComponent<uninfectedList>();
@@ -146,11 +147,17 @@ public class NPCMove : MonoBehaviour
             }
             if(scared){
                 agent.speed = runSpeed;
-                NavMesh.CalculatePath(this.transform.position, carrot.transform.position, NavMesh.AllAreas, path);
+                //carrot.transform.position
+                //Debug.Log(this.transform.position);
+                Vector3 dirToThreat = this.transform.position - Min.transform.position;
+                dirToThreat.Normalize();
+                Vector3 newPos = (transform.position + dirToThreat);
+                NavMesh.CalculatePath(this.transform.position, newPos, NavMesh.AllAreas, path);
                 agent.SetPath(path);
+                //agent.SetDestination(dirToThreat);
                 //agent.destination = path;
-                Debug.DrawRay(this.transform.position, carrot.transform.localPosition);
-                Quaternion toRotation = Quaternion.LookRotation((this.transform.position - Min.transform.position), Vector3.up);
+                //Debug.DrawRay(this.transform.position, newPos);
+                Quaternion toRotation = Quaternion.LookRotation(dirToThreat, Vector3.up);
                 this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
                 updateCount = updateCount + Time.deltaTime;
                 if(updateCount > updateCap && dist > fearRadius){
@@ -164,7 +171,7 @@ public class NPCMove : MonoBehaviour
                     counter2 += Time.deltaTime;
                 }
                 else{
-                    Debug.Log("AGGHHH");
+                    //Debug.Log("AGGHHH");
                     meshy = RandomNavmeshLocation(400f);
                     counter2 = 0;
                 }
@@ -187,6 +194,7 @@ public class NPCMove : MonoBehaviour
             else{
                 agent.speed = defaultSpeed;
             }
+
         }
     }
 }
