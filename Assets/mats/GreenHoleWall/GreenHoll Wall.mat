@@ -8,18 +8,21 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GreenHoll Wall
-  m_Shader: {fileID: 4800000, guid: 917b37092bae034459c28c00a3a19b54, type: 3}
-  m_ValidKeywords:
+  m_Shader: {fileID: 4800000, guid: 78eec882a96edaa4ca9a4c9fc9609bc5, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - VIGNETTE_MASKED
   - _EMISSION
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   - _SPECGLOSSMAP
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    OptimizedShaderFolder: GreenHoll Wall-2b727d8a
+    OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -193,7 +196,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 391f070652aa9a442910a3d0e4d20fd6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 36caaa60191c57b419a0bd21aab2db34, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Matcap:
@@ -448,7 +451,7 @@ Material:
     - _BumpMapPanAnimated: 0
     - _BumpMapUV: 0
     - _BumpMapUVAnimated: 0
-    - _BumpScale: 0.5
+    - _BumpScale: 0.58
     - _BumpScaleAnimated: 0
     - _CameraAngleMax: 90
     - _CameraAngleMaxAnimated: 0
@@ -1321,13 +1324,13 @@ Material:
     - _SSSThicknessModAnimated: 0
     - _SampleWorld: 0
     - _SampleWorldAnimated: 0
-    - _Saturation: -0.107
+    - _Saturation: -0.348
     - _SaturationAnimated: 0
     - _ScrollingEmission: 0
     - _ScrollingEmission1: 0
     - _ScrollingEmission1Animated: 0
     - _ScrollingEmissionAnimated: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShadowMix: 0
     - _ShadowMixAnimated: 0
     - _ShadowMixThreshold: 0.5
@@ -1435,13 +1438,13 @@ Material:
     - _SpecularSmoothnessAnimated: 0
     - _SpecularTint1Animated: 0
     - _SpecularTintAnimated: 0
-    - _SpecularToonEnd: 1.102
+    - _SpecularToonEnd: 1.276
     - _SpecularToonEnd1: 1
     - _SpecularToonEnd1Animated: 0
     - _SpecularToonEndAnimated: 0
     - _SpecularToonInnerOuter1Animated: 0
     - _SpecularToonInnerOuterAnimated: 0
-    - _SpecularToonStart: 0.866
+    - _SpecularToonStart: 0.718
     - _SpecularToonStart1: 0.95
     - _SpecularToonStart1Animated: 0
     - _SpecularToonStartAnimated: 0
