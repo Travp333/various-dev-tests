@@ -16,8 +16,8 @@ public class infector : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.GetComponent<NPCMove>() != null){
-            if(move.infected && !other.gameObject.GetComponent<NPCMove>().infected){
-                move.infectAgain(other);
+            if(move.infected && !other.gameObject.GetComponent<NPCMove>().infected && !move.gate){
+                move.Infect(other);
                 move.resetScared();
             }
 

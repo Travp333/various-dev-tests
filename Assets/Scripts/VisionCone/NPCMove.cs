@@ -7,59 +7,129 @@ public class NPCMove : MonoBehaviour
 {
     jerryAnimScript anim;
     [SerializeField]
-    public GameObject carrot;
-    [SerializeField]
+    [Tooltip("Speeds of default roaming, boosted scared speed, and post attack cooldown speed")]
     public float runSpeed, defaultSpeed, slowSpeed;
+    [SerializeField]
+    [Tooltip("Speeds of Zombie roaming, boosted scared speed, and post attack cooldown speed")]
+    public float ZrunSpeed, ZdefaultSpeed, ZslowSpeed;
 
     float updateCount = 0;
     [SerializeField]
+    [Tooltip("How long an NPC stays scared")]
     public float updateCap = 60;
-    [SerializeField]
-    private GameObject uninfectedList;
+    GameObject uninfectedList;
     private uninfectedList list;
-    [SerializeField]
-    float stickLength = 5f;
     [HideInInspector]
     public NavMeshAgent agent;
-
     [SerializeField]
+    [Tooltip("the rate at which the npc turns")]
     private float turnRate;
-    public bool scared;
-    [SerializeField]
-    private GameObject home;
 
-    [SerializeField]
-    public bool infected;
     MaterialSelector select;
-    private int counter;
     GameObject Min;
     [SerializeField]
+    [Tooltip("Radius where npcs get scared by infected")]
     private float fearRadius;
-    bool gate;
+
     [SerializeField]
+    [Tooltip("Amount of time infected stay slow after infecting someone")]
     public float slowCoolDown;
     NavMeshPath path;
     float counter2 = 0f;
-    float counter3 = 0f;
     Vector3 meshy;
     [SerializeField]
-    LayerMask layerMask;
-    public void infectAgain(Collider other)
+    [Tooltip("Upper cap of how long an npc waits until roaming to new position")]
+    float roamTimerUp = 15;
+    [SerializeField]
+    [Tooltip("Lower cap of how long an npc waits until roaming to new position")]
+    float roamTimerLow = 5;
+    public bool chasing;
+    public bool scared;
+    [SerializeField]
+    public bool infected;
+    public bool gate;
+    void Start()
     {
-        list.Infected(other.gameObject);
-        other.gameObject.GetComponent<NPCMove>().infected = true;
-        flipGate();
-        list.updateInfectedList();
+        //finds the game object holding the list script
+        foreach(GameObject g in GameObject.FindObjectsOfType<GameObject>()){
+            if(g.GetComponent<uninfectedList>()!=null){
+                uninfectedList = g;
+            }
+        }
+        //plugging referenences
+        anim = GetComponent<jerryAnimScript>();
+        meshy = RandomNavmeshLocation(400f);
+        path = new NavMeshPath();
+        list = uninfectedList.GetComponent<uninfectedList>();
+        select = GetComponent<MaterialSelector>();
+        agent = GetComponent<NavMeshAgent>();
 
     }
-    void flipGate(){
-        gate = true;
-        Invoke("resetGate", slowCoolDown);
-    }
-    void resetGate(){
-        gate = false;
-    }
 
+    void Update()
+    {
+        if(!infected){
+            list.updateUninfectedList(this.gameObject);
+            //You are uninfected
+            select.Select(0);
+            GetClosestInfected();
+            // if min is null, there are not any infected so not scared by default
+            if(Min != null){
+                float dist = Vector3.Distance(this.transform.position, Min.transform.position);
+                if(dist < fearRadius){
+                    //There are infected in the level, and one is near you
+                    setScared();
+                    agent.speed = runSpeed;
+                    Vector3 dirToThreat = this.transform.position - Min.transform.position;
+                    dirToThreat.Normalize();
+                    Vector3 newPos = (transform.position + dirToThreat);
+                    NavMesh.CalculatePath(this.transform.position, newPos, NavMesh.AllAreas, path);
+                    agent.SetPath(path);
+                    Quaternion toRotation = Quaternion.LookRotation(dirToThreat, Vector3.up);
+                    this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
+                    updateCount = updateCount + Time.deltaTime;
+                    if(updateCount > updateCap && dist > fearRadius){
+                        resetScared();
+                        updateCount = 0;
+                    }
+                }
+                else{
+                    //there are infected in the level, but none are near you
+                    Roam();
+                }
+            }
+            else{
+                //There are no infected in the level
+                Roam();
+
+            }
+        }
+        else{
+            list.updateInfectedList(this.gameObject);
+            list.removeFromUninfected(this.gameObject);
+            //you are infected!
+            select.Select(1);
+            GetClosestUninfected();
+            if(Min != null){
+                //there are uninfected in the level, finding path to closest one
+                NavMesh.CalculatePath(this.transform.position, Min.transform.position, NavMesh.AllAreas, path);
+                agent.SetPath(path);
+                agent.speed = ZrunSpeed;
+                chasing = true;
+            }
+            else{
+                //there are no uninfected left in the level
+                Roam();
+                chasing = false;
+            }
+            //movement cooldown after having just infected someone
+            if(gate){
+                agent.speed = ZslowSpeed;
+                chasing = false;
+            }
+
+        }
+    }
     void GetClosestInfected(){
         Min = null;
         float minDist = Mathf.Infinity;
@@ -74,9 +144,40 @@ public class NPCMove : MonoBehaviour
                 }
             }
         }
-        else if (list.infected.Count <= 0){
-            Min = home;
+        //else if (list.infected.Count <= 0){
+        //    Min = home;
+        //}
+    }
+    void Roam(){
+        if(infected){
+            agent.speed = ZdefaultSpeed;
         }
+        else{
+            resetScared();
+            agent.speed = defaultSpeed;
+        }
+        if(counter2 < Random.Range(roamTimerLow, roamTimerUp)){
+            counter2 += Time.deltaTime;
+        }
+        else{
+            meshy = RandomNavmeshLocation(400f);
+            counter2 = 0;
+        }
+        NavMesh.CalculatePath(this.transform.position, meshy, NavMesh.AllAreas, path);
+        agent.SetPath(path);
+    }
+    public void setScared(){
+        scared = true;
+    }
+    public void resetScared(){
+        scared = false;
+    }
+    public void Infect(Collider other)
+    {
+        list.removeFromUninfected(other.gameObject);
+        other.gameObject.GetComponent<NPCMove>().infected = true;
+        flipGate();
+        list.updateInfectedList(other.gameObject);
 
     }
 
@@ -84,8 +185,8 @@ public class NPCMove : MonoBehaviour
         Min = null;
         float minDist = Mathf.Infinity;
         Vector3 currentPos = transform.position;
-        if(list.unscareduninfected.Count > 0 ){
-            foreach (GameObject g in list.unscareduninfected){
+        if(list.uninfected.Count > 0 ){
+            foreach (GameObject g in list.uninfected){
                 float dist = Vector3.Distance(g.gameObject.transform.position, currentPos);
                 if (dist < minDist){
                     Min = g;
@@ -93,28 +194,13 @@ public class NPCMove : MonoBehaviour
                 }
             }
         }
-        else if(list.unscareduninfected.Count <= 0 && list.scareduninfected.Count > 0){
-            foreach (GameObject g in list.scareduninfected){
-                float dist = Vector3.Distance(g.gameObject.transform.position, currentPos);
-                if (dist < minDist){
-                    Min = g;
-                    minDist = dist;
-                }
-            }
-        }
-        else if (list.unscareduninfected.Count <= 0 && list.scareduninfected.Count <= 0){
-            Min = home;
-        }
+        //else if (list.uninfected.Count <= 0){
+        //    Min = home;
+        //}
 
     }
-    public void setScared(){
-        scared = true;
-        list.updateUninfectedList();
-    }
-    public void resetScared(){
-        scared = false;
-        list.updateUninfectedList();
-    }
+
+
 
     public Vector3 RandomNavmeshLocation(float radius) {
          Vector3 randomDirection = Random.insideUnitSphere * radius;
@@ -127,74 +213,13 @@ public class NPCMove : MonoBehaviour
          return finalPosition;
      }
 
-    void Start()
-    {
-        anim = GetComponent<jerryAnimScript>();
-        meshy = RandomNavmeshLocation(400f);
-        path = new NavMeshPath();
-        list = uninfectedList.GetComponent<uninfectedList>();
-        select = GetComponent<MaterialSelector>();
-        agent = GetComponent<NavMeshAgent>();
-    }
-    void Update()
-    {
-        if(!infected){
-            select.Select(0);
-            GetClosestInfected();
-            float dist = Vector3.Distance(this.transform.position, Min.transform.position);
-            if(dist < fearRadius && !scared){
-                setScared();
-            }
-            if(scared){
-                agent.speed = runSpeed;
-                //carrot.transform.position
-                //Debug.Log(this.transform.position);
-                Vector3 dirToThreat = this.transform.position - Min.transform.position;
-                dirToThreat.Normalize();
-                Vector3 newPos = (transform.position + dirToThreat);
-                NavMesh.CalculatePath(this.transform.position, newPos, NavMesh.AllAreas, path);
-                agent.SetPath(path);
-                //agent.SetDestination(dirToThreat);
-                //agent.destination = path;
-                //Debug.DrawRay(this.transform.position, newPos);
-                Quaternion toRotation = Quaternion.LookRotation(dirToThreat, Vector3.up);
-                this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
-                updateCount = updateCount + Time.deltaTime;
-                if(updateCount > updateCap && dist > fearRadius){
-                    resetScared();
-                    updateCount = 0;
-                }
-            }
-            else{
-                agent.speed = defaultSpeed;
-                if(counter2 < 5){
-                    counter2 += Time.deltaTime;
-                }
-                else{
-                    //Debug.Log("AGGHHH");
-                    meshy = RandomNavmeshLocation(400f);
-                    counter2 = 0;
-                }
-                NavMesh.CalculatePath(this.transform.position, meshy, NavMesh.AllAreas, path);
-                agent.SetPath(path);
-                //agent.destination = home.transform.position;
-            }
-            
-            //this.transform.Rotate(0, this.transform.rotation.y + turnRate, 0);
-        }
-        else{
-            select.Select(1);
-            GetClosestUninfected();
-            NavMesh.CalculatePath(this.transform.position, Min.transform.position, NavMesh.AllAreas, path);
-            agent.SetPath(path);
-            //agent.destination = Min.transform.position; 
-            if(gate){
-                agent.speed = slowSpeed;
-            }
-            else{
-                agent.speed = defaultSpeed;
-            }
 
-        }
+
+    void flipGate(){
+        gate = true;
+        Invoke("resetGate", slowCoolDown);
+    }
+    void resetGate(){
+        gate = false;
     }
 }
