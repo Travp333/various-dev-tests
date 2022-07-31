@@ -5,14 +5,15 @@ using UnityEngine.AI;
 
 public class NPCMove : MonoBehaviour
 {
+    [SerializeField]
+    LayerMask mask;
     jerryAnimScript anim;
     [SerializeField]
-    [Tooltip("Speeds of default roaming, boosted scared speed, and post attack cooldown speed")]
+    [Tooltip("Speeds of default roaming, boosted scared speed, and a currently unused slow speed(injured?)")]
     public float runSpeed, defaultSpeed, slowSpeed;
     [SerializeField]
-    [Tooltip("Speeds of Zombie roaming, boosted scared speed, and post attack cooldown speed")]
+    [Tooltip("Speeds of Zombie roaming, chasing speed, and post attack cooldown speed")]
     public float ZrunSpeed, ZdefaultSpeed, ZslowSpeed;
-
     float updateCount = 0;
     [SerializeField]
     [Tooltip("How long an NPC stays scared")]
@@ -32,6 +33,10 @@ public class NPCMove : MonoBehaviour
     private float fearRadius;
 
     [SerializeField]
+    [Tooltip("distance at which the npc will use panicked movement, should be less than fearRadius")]
+    float criticalDist;
+
+    [SerializeField]
     [Tooltip("Amount of time infected stay slow after infecting someone")]
     public float slowCoolDown;
     NavMeshPath path;
@@ -48,15 +53,37 @@ public class NPCMove : MonoBehaviour
     [SerializeField]
     public bool infected;
     public bool gate;
+    RaycastHit hit;
+    Quaternion spreadAngle;
+    Vector3 newVector;
+    float raycastCount;
+    [SerializeField]
+    [Tooltip("How often an npc will recalculate its running away path(Upper Bound)")]
+    float raycastCapUpper;
+    [SerializeField]
+    [Tooltip("How often an npc will recalculate its running away path (Lower Bound)")]
+    float raycastCapLower;
+    float raycastCap;
+    [SerializeField]
+    [Tooltip("Angle at which the ai will choose its running away route from")]
+    float runningAngle;
+    Vector3 raycast;
+    float magnitude;
+    [SerializeField]
+    [Tooltip("Space between player and the hit point that cannot be selected by the npc when choosing an escape route")]
+    float raycastBuffer;
+
     void Start()
     {
+        raycastCap = Random.Range(raycastCapLower, raycastCapUpper);
+        raycastCount = raycastCap;
         //finds the game object holding the list script
         foreach(GameObject g in GameObject.FindObjectsOfType<GameObject>()){
             if(g.GetComponent<uninfectedList>()!=null){
                 uninfectedList = g;
             }
         }
-        //plugging referenences
+        //plugging references
         anim = GetComponent<jerryAnimScript>();
         meshy = RandomNavmeshLocation(400f);
         path = new NavMeshPath();
@@ -72,46 +99,76 @@ public class NPCMove : MonoBehaviour
             list.updateUninfectedList(this.gameObject);
             //You are uninfected
             select.Select(0);
-            GetClosestInfected();
-            // if min is null, there are not any infected so not scared by default
-            if(Min != null){
+            if(list.infected.Count > 0){
+                GetClosestInfected();
                 float dist = Vector3.Distance(this.transform.position, Min.transform.position);
-                if(dist < fearRadius){
-                    //There are infected in the level, and one is near you
-                    setScared();
-                    agent.speed = runSpeed;
-                    Vector3 dirToThreat = this.transform.position - Min.transform.position;
-                    dirToThreat.Normalize();
-                    Vector3 newPos = (transform.position + dirToThreat);
-                    NavMesh.CalculatePath(this.transform.position, newPos, NavMesh.AllAreas, path);
-                    agent.SetPath(path);
-                    Quaternion toRotation = Quaternion.LookRotation(dirToThreat, Vector3.up);
-                    this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
+                if(dist > fearRadius){
                     updateCount = updateCount + Time.deltaTime;
-                    if(updateCount > updateCap && dist > fearRadius){
+                    if(updateCount > updateCap){
+                        Debug.Log("Reset Scared!");
                         resetScared();
                         updateCount = 0;
                     }
                 }
-                else{
-                    //there are infected in the level, but none are near you
-                    Roam();
+                else if(dist < fearRadius){
+                    //There are infected in the level, and one is near you
+                    setScared();
                 }
             }
             else{
                 //There are no infected in the level
+                resetScared();
                 Roam();
 
             }
+            if(scared){
+                GetClosestInfected();
+                float dist = Vector3.Distance(this.transform.position, Min.transform.position);
+                Vector3 dirToThreat = this.transform.position - Min.transform.position;
+                dirToThreat.Normalize();
+                Vector3 newPos = (transform.position + dirToThreat);
+                spreadAngle = Quaternion.AngleAxis(Random.Range(-runningAngle, runningAngle), new Vector3(0, 1, 0));
+                newVector = spreadAngle * dirToThreat;
+                Quaternion toRotation = Quaternion.LookRotation(dirToThreat, Vector3.up);
+                this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
+                raycastCount = raycastCount + Time.deltaTime;
+                if(dist < criticalDist){
+                    //infected VERY CLOSE 
+                    Debug.Log("CRITICAL");
+                    agent.ResetPath();
+                    agent.SetDestination(newPos);
+                }
+                else if(raycastCount > raycastCap){
+                    Debug.Log("finding path away from enemy");
+                    raycastCap = Random.Range(raycastCapLower, raycastCapUpper);
+                    if(Physics.Raycast(this.transform.position, newVector, out hit, mask)){
+                        raycast = hit.point - this.transform.position;
+                        magnitude = raycast.magnitude;
+                        raycast.Normalize();
+                        raycast = raycast * Random.Range(raycastBuffer, magnitude - raycastBuffer);
+                        Debug.DrawRay(this.transform.position, raycast, Color.red, 1f);
+                        agent.ResetPath();
+                        //agent.SetDestination(raycast);
+                        NavMesh.CalculatePath(transform.position, raycast, NavMesh.AllAreas, path);
+                        Debug.Log(path.status);
+                        //agent.SetDestination(path.status);
+                        //agent.SetPath(path);
+                    }
+                    raycastCount = 0;
+
+                }
+                   
+            }
         }
         else{
+            //you are infected!
             list.updateInfectedList(this.gameObject);
             list.removeFromUninfected(this.gameObject);
-            //you are infected!
             select.Select(1);
             GetClosestUninfected();
             if(Min != null){
                 //there are uninfected in the level, finding path to closest one
+                agent.ResetPath();
                 NavMesh.CalculatePath(this.transform.position, Min.transform.position, NavMesh.AllAreas, path);
                 agent.SetPath(path);
                 agent.speed = ZrunSpeed;
@@ -152,8 +209,8 @@ public class NPCMove : MonoBehaviour
         if(infected){
             agent.speed = ZdefaultSpeed;
         }
-        else{
-            resetScared();
+        else if(!infected){
+            Debug.Log("Roaming");
             agent.speed = defaultSpeed;
         }
         if(counter2 < Random.Range(roamTimerLow, roamTimerUp)){
@@ -163,13 +220,16 @@ public class NPCMove : MonoBehaviour
             meshy = RandomNavmeshLocation(400f);
             counter2 = 0;
         }
+        agent.ResetPath();
         NavMesh.CalculatePath(this.transform.position, meshy, NavMesh.AllAreas, path);
         agent.SetPath(path);
     }
     public void setScared(){
+        agent.speed = runSpeed;
         scared = true;
     }
     public void resetScared(){
+        agent.speed = defaultSpeed;
         scared = false;
     }
     public void Infect(Collider other)
@@ -178,7 +238,6 @@ public class NPCMove : MonoBehaviour
         other.gameObject.GetComponent<NPCMove>().infected = true;
         flipGate();
         list.updateInfectedList(other.gameObject);
-
     }
 
     void GetClosestUninfected(){
