@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class NPCMove : MonoBehaviour
 {
     [SerializeField]
+    GameObject carrot;
+    [SerializeField]
     LayerMask mask;
     jerryAnimScript anim;
     [SerializeField]
@@ -53,7 +55,7 @@ public class NPCMove : MonoBehaviour
     [SerializeField]
     public bool infected;
     public bool gate;
-    RaycastHit hit;
+    RaycastHit hit, hit2, hit3;
     Quaternion spreadAngle;
     Vector3 newVector;
     float raycastCount;
@@ -67,14 +69,29 @@ public class NPCMove : MonoBehaviour
     [SerializeField]
     [Tooltip("Angle at which the ai will choose its running away route from")]
     float runningAngle;
-    Vector3 raycast;
-    float magnitude;
+    bool moveBlocked;
+    Vector3 reflect, reflect2;
     [SerializeField]
-    [Tooltip("Space between player and the hit point that cannot be selected by the npc when choosing an escape route")]
-    float raycastBuffer;
+    float reflectRange = 5f;
+    bool raycastBlock;
+    bool uninfectedBlock = false;
+    bool infectedBlock = false;
+    [SerializeField]
+    [Tooltip("How often this agent searches for uninfected agents in level")]
+    float uninfectedSearchCap = 1f;
+    float uninfectedSearchCount;
+    [SerializeField]
+    [Tooltip("How often this agent searches for infected agents in level")]
+    float infectedSearchCap = 1f;
+    float infectedSearchCount;
+    float roamTimer;
+
 
     void Start()
     {
+        counter2 = roamTimer;
+        infectedSearchCount = infectedSearchCap;
+        uninfectedSearchCount = uninfectedSearchCap;
         raycastCap = Random.Range(raycastCapLower, raycastCapUpper);
         raycastCount = raycastCap;
         //finds the game object holding the list script
@@ -90,24 +107,50 @@ public class NPCMove : MonoBehaviour
         list = uninfectedList.GetComponent<uninfectedList>();
         select = GetComponent<MaterialSelector>();
         agent = GetComponent<NavMeshAgent>();
+        Roam();
 
     }
+
+    void uninfectedUpdate(){
+        if(!uninfectedBlock){
+            select.Select(0);
+            list.removeFromInfected(this.gameObject);
+            list.updateUninfectedList(this.gameObject);
+            uninfectedBlock = true;
+            infectedBlock = false;
+        }
+    }
+    void infectedUpdate(){
+        if(!infectedBlock){
+            select.Select(1);
+            list.updateInfectedList(this.gameObject);
+            list.removeFromUninfected(this.gameObject);
+            infectedBlock = true;
+            uninfectedBlock = false;
+        }
+
+    }
+
 
     void Update()
     {
         if(!infected){
-            list.updateUninfectedList(this.gameObject);
             //You are uninfected
-            select.Select(0);
+            uninfectedUpdate();
             if(list.infected.Count > 0){
-                GetClosestInfected();
+                infectedSearchCount += Time.deltaTime;
+                if(infectedSearchCount > infectedSearchCap){
+                    GetClosestInfected();
+                    infectedSearchCount = 0;
+                }
                 float dist = Vector3.Distance(this.transform.position, Min.transform.position);
-                if(dist > fearRadius){
+                if(dist > fearRadius && scared){
                     updateCount = updateCount + Time.deltaTime;
                     if(updateCount > updateCap){
-                        Debug.Log("Reset Scared!");
+                        //Debug.Log("Reset Scared!");
                         resetScared();
                         updateCount = 0;
+                        Roam();
                     }
                 }
                 else if(dist < fearRadius){
@@ -122,53 +165,23 @@ public class NPCMove : MonoBehaviour
 
             }
             if(scared){
-                GetClosestInfected();
-                float dist = Vector3.Distance(this.transform.position, Min.transform.position);
-                Vector3 dirToThreat = this.transform.position - Min.transform.position;
-                dirToThreat.Normalize();
-                Vector3 newPos = (transform.position + dirToThreat);
-                spreadAngle = Quaternion.AngleAxis(Random.Range(-runningAngle, runningAngle), new Vector3(0, 1, 0));
-                newVector = spreadAngle * dirToThreat;
-                Quaternion toRotation = Quaternion.LookRotation(dirToThreat, Vector3.up);
-                this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
-                raycastCount = raycastCount + Time.deltaTime;
-                if(dist < criticalDist){
-                    //infected VERY CLOSE 
-                    Debug.Log("CRITICAL");
-                    agent.ResetPath();
-                    agent.SetDestination(newPos);
-                }
-                else if(raycastCount > raycastCap){
-                    Debug.Log("finding path away from enemy");
-                    raycastCap = Random.Range(raycastCapLower, raycastCapUpper);
-                    if(Physics.Raycast(this.transform.position, newVector, out hit, mask)){
-                        raycast = hit.point - this.transform.position;
-                        magnitude = raycast.magnitude;
-                        raycast.Normalize();
-                        raycast = raycast * Random.Range(raycastBuffer, magnitude - raycastBuffer);
-                        Debug.DrawRay(this.transform.position, raycast, Color.red, 1f);
-                        agent.ResetPath();
-                        //agent.SetDestination(raycast);
-                        NavMesh.CalculatePath(transform.position, raycast, NavMesh.AllAreas, path);
-                        Debug.Log(path.status);
-                        //agent.SetDestination(path.status);
-                        //agent.SetPath(path);
-                    }
-                    raycastCount = 0;
-
-                }
-                   
+                findEscape();
+            }
+            else{
+                Roam();
             }
         }
         else{
             //you are infected!
-            list.updateInfectedList(this.gameObject);
-            list.removeFromUninfected(this.gameObject);
-            select.Select(1);
-            GetClosestUninfected();
+            infectedUpdate();
+            uninfectedSearchCount += Time.deltaTime;
+            if(uninfectedSearchCount > uninfectedSearchCap){
+                GetClosestUninfected();
+                uninfectedSearchCount = 0;
+            }
+            
             if(Min != null){
                 //there are uninfected in the level, finding path to closest one
-                agent.ResetPath();
                 NavMesh.CalculatePath(this.transform.position, Min.transform.position, NavMesh.AllAreas, path);
                 agent.SetPath(path);
                 agent.speed = ZrunSpeed;
@@ -186,6 +199,106 @@ public class NPCMove : MonoBehaviour
             }
 
         }
+    }
+    void resetRaycastBlock(){
+        raycastBlock = false;
+        
+    }
+    void findEscape(){
+        GetClosestInfected();
+        float dist = Vector3.Distance(this.transform.position, Min.transform.position);
+        Vector3 dirToThreat = this.transform.position - Min.transform.position;
+        dirToThreat.Normalize();
+        Vector3 newPos = (transform.position + dirToThreat);
+        raycastCount = raycastCount + Time.deltaTime;
+        //check if a wall is in front of you
+        if(dist < criticalDist){
+            //Debug.Log("Critical Distance");
+            if(NavMesh.CalculatePath(transform.position, carrot.transform.position, NavMesh.AllAreas, path)){
+                agent.ResetPath();
+                agent.SetPath(path);
+                Quaternion toRotation = Quaternion.LookRotation(dirToThreat, Vector3.up);
+                this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
+            }
+        }
+        else if(Physics.Raycast(transform.position, this.transform.forward, out hit, reflectRange, mask) && ! raycastBlock){
+            //There is a wall! clear current path, stop movement
+            agent.ResetPath();
+            moveBlocked = true; 
+            //Debug.Log("Hit wall");
+            //Debug.DrawRay(transform.position, hit.point - transform.position, Color.red, 1f);
+            //reflect off of that wall to find alternate escape route
+            reflect = (Vector3.Reflect(hit.point - transform.position, hit.normal));
+            spreadAngle = Quaternion.AngleAxis(Random.Range(-runningAngle, runningAngle), new Vector3(0, 1, 0));
+            reflect = spreadAngle * reflect;
+            //check if wall is in front of reflected ray
+            if(Physics.Raycast(hit.point, reflect, out hit2, reflectRange, mask)){
+                //yes something is in the way of the reflected ray, reflect again!
+                reflect2 = (Vector3.Reflect(((hit2.point - hit.point).normalized * (hit.point - transform.position).magnitude), hit2.normal));
+                spreadAngle = Quaternion.AngleAxis(Random.Range(-runningAngle, runningAngle), new Vector3(0, 1, 0));
+                reflect2 = spreadAngle * reflect2;
+                //Debug.DrawRay(hit.point, reflect, Color.magenta, 1f);
+                //is something in the way of that reflection?
+                if(Physics.Raycast(hit2.point, reflect2, out hit3, reflectRange, mask)){
+                    //yes, then just run somewhere random??
+                    PanicRoam();
+                    //Debug.DrawLine(hit2.point, hit3.point, Color.green, 1f);
+                }
+                else{
+                    //nothing in the way, navigate to that point!
+                    Ray ble2 = new Ray(hit2.point, reflect2);
+                    if(NavMesh.CalculatePath(transform.position, ble2.GetPoint(reflectRange * 5), NavMesh.AllAreas, path)){
+                        raycastBlock = true;
+                        Invoke("resetRaycastBlock", raycastCap);
+                        // yes, navigate there
+                        //Debug.DrawRay(hit2.point, reflect2 * 5, Color.green,1f);
+                        agent.ResetPath();
+                        agent.SetPath(path);
+                        
+                        //agent.SetDestination(reflect2);
+                        //rotate towards that point
+                        Quaternion toRotation = Quaternion.LookRotation(reflect2, Vector3.up);
+                        this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
+                        //Debug.Log("navigating to second reflected point");
+                    }
+
+                }
+            }
+            // theres nothing in the way of the reflected ray, navigate there!
+            else{
+                //is the path to the reflected point valid? 
+                Ray ble = new Ray(hit.point, reflect);
+                if(NavMesh.CalculatePath(transform.position, ble.GetPoint(reflectRange), NavMesh.AllAreas, path)){
+                    raycastBlock = true;
+                    Invoke("resetRaycastBlock", raycastCap);
+                    // yes, navigate there
+                    //Debug.DrawRay(hit.point, reflect, Color.magenta,1f);
+                    agent.ResetPath();
+                    agent.SetPath(path);
+                    //agent.SetDestination(reflect);
+                    //rotate towards that point
+                    Quaternion toRotation = Quaternion.LookRotation(reflect, Vector3.up);
+                    this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
+                    //Debug.Log("navigating to reflected point");
+                }
+            }
+
+        }
+        if(moveBlocked){
+            if(Vector3.Distance(transform.position, agent.pathEndPosition) < 3){
+                moveBlocked = false;
+            }
+        }
+
+        if(NavMesh.CalculatePath(transform.position, carrot.transform.position, NavMesh.AllAreas, path) && !moveBlocked){
+            //Debug.Log("Running Straight Away");
+            agent.ResetPath();
+            agent.SetPath(path);
+            Quaternion toRotation = Quaternion.LookRotation(dirToThreat, Vector3.up);
+            this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
+        }
+        
+       
     }
     void GetClosestInfected(){
         Min = null;
@@ -210,8 +323,26 @@ public class NPCMove : MonoBehaviour
             agent.speed = ZdefaultSpeed;
         }
         else if(!infected){
-            Debug.Log("Roaming");
+            //Debug.Log("Roaming");
             agent.speed = defaultSpeed;
+        }
+        if(counter2 < roamTimer){
+            counter2 += Time.deltaTime;
+        }
+        else{
+            roamTimer = Random.Range(roamTimerLow, roamTimerUp);
+            meshy = RandomNavmeshLocation(400f);
+            counter2 = 0;
+            agent.ResetPath();
+            NavMesh.CalculatePath(this.transform.position, meshy, NavMesh.AllAreas, path);
+            agent.SetPath(path);
+        }
+
+    }
+    void PanicRoam(){
+        if(!infected){
+            //Debug.Log("Panic Roaming");
+            agent.speed = runSpeed;
         }
         if(counter2 < Random.Range(roamTimerLow, roamTimerUp)){
             counter2 += Time.deltaTime;
@@ -220,7 +351,7 @@ public class NPCMove : MonoBehaviour
             meshy = RandomNavmeshLocation(400f);
             counter2 = 0;
         }
-        agent.ResetPath();
+        //agent.ResetPath();
         NavMesh.CalculatePath(this.transform.position, meshy, NavMesh.AllAreas, path);
         agent.SetPath(path);
     }

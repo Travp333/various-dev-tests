@@ -12,6 +12,12 @@ public class uninfectedList : MonoBehaviour
         }
         
     }
+    public void removeFromInfected(GameObject agent){
+        if(infected.Contains(agent)){
+            infected.Remove(agent);
+        }
+        
+    }
     public void updateInfectedList(GameObject g){
         if(!infected.Contains(g)){
             infected.Add(g);

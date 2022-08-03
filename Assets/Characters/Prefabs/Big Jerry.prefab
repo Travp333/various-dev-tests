@@ -732,9 +732,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f50179dbc3a89b4b9b9ce72b2e4d167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carrot: {fileID: 7199693365180649136}
   mask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 130615
   runSpeed: 10
   defaultSpeed: 2
   slowSpeed: 1
@@ -745,19 +746,20 @@ MonoBehaviour:
   agent: {fileID: 0}
   turnRate: 500
   fearRadius: 20
+  criticalDist: 5
   slowCoolDown: 10
   roamTimerUp: 15
   roamTimerLow: 5
-  runTimerUp: 15
-  runTimerLow: 5
   chasing: 0
   scared: 0
   infected: 0
   gate: 0
-  raycastCapUpper: 5
-  raycastCapLower: 2
-  runningAngle: 45
-  raycastBuffer: 10
+  raycastCapUpper: 0.8
+  raycastCapLower: 0.3
+  runningAngle: 90
+  reflectRange: 10
+  uninfectedSearchCap: 1
+  infectedSearchCap: 1
 --- !u!195 &7199693364152437254
 NavMeshAgent:
   m_ObjectHideFlags: 0
