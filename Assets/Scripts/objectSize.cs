@@ -28,13 +28,15 @@ public class objectSize : MonoBehaviour
 
     void Update()
     {
-        if(isTargeted == true){
-            if(timeRemaining > 0){
-                timeRemaining -= Time.deltaTime;
-            }
-            else{
-                isTargeted = false;
-                timeRemaining = 10f;
+        if(isTrash){
+            if(isTargeted == true){
+                if(timeRemaining > 0){
+                    timeRemaining -= Time.deltaTime;
+                }
+                else{
+                    isTargeted = false;
+                    timeRemaining = 10f;
+                }
             }
         }
     }

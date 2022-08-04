@@ -182,7 +182,6 @@ public class FPSMovingSphere : MonoBehaviour {
 			desiresClimbing = Input.GetButton("Duck");
 		}
 		ExplosiveForce();
-		// light that shows if youre on the ground or not
 		if (Swimming){
 			lt.color = Color.blue;
 		}
