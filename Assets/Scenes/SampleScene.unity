@@ -15634,7 +15634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dummy: {x: 0, y: 0, z: 0}
 --- !u!54 &279140663
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16659,7 +16658,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 306325356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 077c7c29210e3304f9426e5539d51fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: 897cd8203c32840448b5a8ba7502fcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Gate: 0
@@ -23749,8 +23748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4f4367b4b25804ea090f7545d11a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 9.81
-  range: 551.81
 --- !u!4 &458061660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8759627509269907371, guid: 0ba26cdcbff527445ab8becc21c4908e, type: 3}
@@ -58679,21 +58676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e316c1e602f8e4dbad1c3ceac70897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergence: 0
-  gravity: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1
-  waterDrag: 1
-  waterMask:
-    m_Bits: 16
-  floatToSleep: 1
-  floatDelay: 0
-  color: {fileID: 0}
-  body: {fileID: 0}
-  DummyGrav: {x: 0, y: 0, z: 0}
-  showSleep: 0
 --- !u!1001 &1242084345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84458,7 +84440,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1758313467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 077c7c29210e3304f9426e5539d51fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: 897cd8203c32840448b5a8ba7502fcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Gate: 1
@@ -97645,7 +97627,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1992331373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 077c7c29210e3304f9426e5539d51fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: 897cd8203c32840448b5a8ba7502fcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Gate: 1
@@ -101944,11 +101926,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7de04392015a5249b5d44c7ddec7fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hunger: 100
-  hp: 100
-  coins: 0
-  stopwatch: 0
-  countdown: 2
 --- !u!114 &2085300213
 MonoBehaviour:
   m_ObjectHideFlags: 0
