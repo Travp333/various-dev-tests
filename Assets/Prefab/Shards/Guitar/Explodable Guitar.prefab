@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6445881240331749707}
   - component: {fileID: 5671663020419769919}
   - component: {fileID: 5671663020419769913}
-  - component: {fileID: 5671663020419769912}
   - component: {fileID: 5845182725207603314}
   - component: {fileID: -455387078490907958}
   - component: {fileID: -6782167662197062051}
@@ -34,6 +33,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 344.878, y: 9.187, z: -123.195}
   m_LocalScale: {x: 16.3032, y: 16.3032, z: 16.3032}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5671663021510199958}
   m_Father: {fileID: 0}
@@ -58,6 +58,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -117,21 +118,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24218415, y: 0.081597276, z: 0.01571038}
   m_Center: {x: -0.013266417, y: 0.000039614726, z: -0.006493971}
---- !u!114 &5671663020419769912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4788631138404640926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd8f62791add1a4dbe3052c1e028d36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shatterPrefab: {fileID: 6078001717102491270, guid: 766230095b9b75046bbc389b39275ae2, type: 3}
-  shatterSpawnPos: {fileID: 5671663021510199957}
-  hitPoints: 1
 --- !u!65 &5845182725207603314
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -154,9 +140,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4788631138404640926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 16f86a5e3c3f23645bae0f9e99a54e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 0}
+  shatterPrefab: {fileID: 6078001717102491270, guid: 766230095b9b75046bbc389b39275ae2, type: 3}
+  shatterSpawnPos: {fileID: 5671663021510199957}
+  hitPoints: 1
+  breakSpeed: 40
+  punchAble: 1
+  throwableBreak: 1
+  bombBreak: 1
 --- !u!114 &-6782167662197062051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,9 +163,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce63cbfe659afae4e9728ca9c753e595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSmall: 0
-  isMedium: 1
-  isLarge: 0
+  objectName: Blue Guitar
+  sizes: 2
+  isTrash: 0
+  trashType: 0
+  isTargeted: 0
+  timeRemaining: 10
 --- !u!1 &5671663021510199957
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +198,7 @@ Transform:
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.0001, z: -0.1976}
   m_LocalScale: {x: 0.0225995, y: 0.0225995, z: 0.0225995}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5278062678635180580}
   m_RootOrder: 0
@@ -224,6 +222,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

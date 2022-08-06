@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6025158764176895336}
   - component: {fileID: 8392843493877782946}
   - component: {fileID: 8171535403174057704}
-  - component: {fileID: 7298265179501388056}
   - component: {fileID: 352994626998075484}
   - component: {fileID: 1554691678132780243}
   m_Layer: 13
@@ -101,18 +100,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 6d138333ced4d3049b814cb2b3cb96f5, type: 3}
---- !u!114 &7298265179501388056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8032630359980456055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &352994626998075484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,11 +113,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: R.Strawberry Jam
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
+  sizes: 0
   isTrash: 1
   trashType: 2
+  isTargeted: 0
+  timeRemaining: 10
 --- !u!54 &1554691678132780243
 Rigidbody:
   m_ObjectHideFlags: 0

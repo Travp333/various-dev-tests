@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.0001, z: -0.1976}
   m_LocalScale: {x: 0.0225995, y: 0.0225995, z: 0.0225995}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5104728135874710510}
   m_RootOrder: 0
@@ -52,6 +53,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -108,7 +110,6 @@ GameObject:
   - component: {fileID: 6241021432266944641}
   - component: {fileID: 4709949701608972277}
   - component: {fileID: 4709949701608972275}
-  - component: {fileID: 4709949701608972274}
   - component: {fileID: 2336867603185191796}
   - component: {fileID: -1515734340992888359}
   - component: {fileID: 4198669375541973287}
@@ -129,6 +130,7 @@ Transform:
   m_LocalRotation: {x: -0.40532357, y: 0.0429171, z: -0.627743, w: 0.66318154}
   m_LocalPosition: {x: 341.69, y: 4.92, z: -151.85}
   m_LocalScale: {x: 16.3032, y: 16.3032, z: 16.3032}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4709949702666154844}
   m_Father: {fileID: 0}
@@ -153,6 +155,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -212,21 +215,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24218415, y: 0.081597276, z: 0.01571038}
   m_Center: {x: -0.013266417, y: 0.000039614726, z: -0.006493971}
---- !u!114 &4709949701608972274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5592471955827675476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd8f62791add1a4dbe3052c1e028d36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shatterPrefab: {fileID: 6078001717102491270, guid: 10a2c74d9ba39b64293b9197260e1133, type: 3}
-  shatterSpawnPos: {fileID: 4709949702666154847}
-  hitPoints: 1
 --- !u!65 &2336867603185191796
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -249,9 +237,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5592471955827675476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 16f86a5e3c3f23645bae0f9e99a54e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 0}
+  shatterPrefab: {fileID: 6078001717102491270, guid: 10a2c74d9ba39b64293b9197260e1133, type: 3}
+  shatterSpawnPos: {fileID: 4709949702666154847}
+  hitPoints: 2
+  breakSpeed: 40
+  punchAble: 1
+  throwableBreak: 1
+  bombBreak: 1
 --- !u!114 &4198669375541973287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce63cbfe659afae4e9728ca9c753e595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSmall: 0
-  isMedium: 1
-  isLarge: 0
+  objectName: Red Guitar
+  sizes: 2
+  isTrash: 0
+  trashType: 0
+  isTargeted: 0
+  timeRemaining: 10

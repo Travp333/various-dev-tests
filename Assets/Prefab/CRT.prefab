@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3213538816356063000}
   - component: {fileID: 4276551742544877122}
   - component: {fileID: 4276551742544877123}
-  - component: {fileID: 561939395623423649}
   - component: {fileID: 8158062901923244950}
   m_Layer: 13
   m_Name: CRT
@@ -32,6 +31,7 @@ Transform:
   m_LocalRotation: {x: -0.28943458, y: 0.6586907, z: 0.6330845, w: 0.28558418}
   m_LocalPosition: {x: -3.5911865, y: 9.877655, z: -2.0898438}
   m_LocalScale: {x: 50.00002, y: 50.00002, z: 50}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,6 +55,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -117,18 +118,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 9843e0f0794a07a45b94e21bb7f6d523, type: 3}
---- !u!114 &561939395623423649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4006010104854525645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8158062901923244950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce63cbfe659afae4e9728ca9c753e595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
+  objectName: CRT
+  sizes: 1
+  isTrash: 0
+  trashType: 0
+  isTargeted: 0
+  timeRemaining: 10

@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Travis Parks
+//This script controls the speed that the barrage aniamtion plays
 public class BarrageSpeed : MonoBehaviour
 {
-    bool gate;
     float speed = .7f;
     Animator animator;
     // Start is called before the first frame update

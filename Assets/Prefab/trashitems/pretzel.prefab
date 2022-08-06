@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1390424848460742099}
   - component: {fileID: 7532057054898681807}
   - component: {fileID: 6409990899544360383}
-  - component: {fileID: 8389735401421379288}
   - component: {fileID: 3208265192229375364}
   m_Layer: 13
   m_Name: pretzel
@@ -117,18 +116,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8389735401421379288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597629067131313158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3208265192229375364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,8 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: F.Pretzel
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
+  sizes: 0
   isTrash: 1
   trashType: 1
+  isTargeted: 0
+  timeRemaining: 10

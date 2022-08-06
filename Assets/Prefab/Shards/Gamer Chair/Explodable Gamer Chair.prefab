@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2172403490799434252}
   - component: {fileID: 3409819628688021309}
   - component: {fileID: 6189512262673169270}
-  - component: {fileID: 8290996714222422473}
   - component: {fileID: 1671889363536368557}
   - component: {fileID: 8315410206088248847}
   m_Layer: 13
@@ -34,6 +33,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 335.66, y: 3.938, z: -105.03}
   m_LocalScale: {x: 79.09685, y: 79.09685, z: 79.09685}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2342274074566385348}
   m_Father: {fileID: 0}
@@ -58,6 +58,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -131,21 +132,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.021225592, y: 0.021748444, z: 0.049074803}
   m_Center: {x: 0, y: 0.0004520104, z: 0.01}
---- !u!114 &8290996714222422473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883294572696222891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd8f62791add1a4dbe3052c1e028d36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shatterPrefab: {fileID: 1732789411703240844, guid: b62c7db8b826b7d498b15ba51e722f20, type: 3}
-  shatterSpawnPos: {fileID: 1811861912008067713}
-  hitPoints: 1
 --- !u!114 &1671889363536368557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,9 +141,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 883294572696222891}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 16f86a5e3c3f23645bae0f9e99a54e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 0}
+  shatterPrefab: {fileID: 1732789411703240844, guid: b62c7db8b826b7d498b15ba51e722f20, type: 3}
+  shatterSpawnPos: {fileID: 1811861912008067713}
+  hitPoints: 2
+  breakSpeed: 40
+  punchAble: 1
+  throwableBreak: 1
+  bombBreak: 1
 --- !u!114 &8315410206088248847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,9 +164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce63cbfe659afae4e9728ca9c753e595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSmall: 0
-  isMedium: 1
-  isLarge: 0
+  objectName: Gamer Chair
+  sizes: 2
+  isTrash: 0
+  trashType: 0
+  isTargeted: 0
+  timeRemaining: 10
 --- !u!1 &1811861912008067713
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +199,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0.002}
   m_LocalScale: {x: 0.013432, y: 0.013432, z: 0.013432}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 507155336787322385}
   m_RootOrder: 0
@@ -225,6 +223,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

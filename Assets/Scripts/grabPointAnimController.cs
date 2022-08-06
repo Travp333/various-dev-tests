@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//this script controls where your "grab point " is, that being where a held object it pinned to. It moves depending on the size of the object, and when you charge up a throw
+//Travis Parks
 public class grabPointAnimController : MonoBehaviour
 {
     Animator anim;
@@ -13,11 +14,26 @@ public class grabPointAnimController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        anim.SetBool("Large", false);
+        anim.SetBool("Medium", false);
+        anim.SetBool("Small", false);
+        anim.SetBool("Tiny", false);
+    }
+
+    void setisDropped(bool plug){
+        anim.SetBool("isDropped", plug);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(hand.getisHolding() == false){
+            anim.SetBool("isDropped", true);
+        }
+        else if (hand.getisHolding()){
+            anim.SetBool("isDropped", false);
+        }
+
         if (hand.getisThrowing()){
             anim.SetBool("isThrowing", true);
         }
@@ -30,26 +46,37 @@ public class grabPointAnimController : MonoBehaviour
         else{
             anim.SetBool("isCharging", false);
         }
-        if (grab.SmallMediumLarge == "LARGE" && grab.SmallMediumLarge != "MEDIUM" && grab.SmallMediumLarge != "SMALL"){
+        if (grab.sizes == Grab.objectSizes.none){
+            anim.SetBool("Large", false);
+            anim.SetBool("Medium", false);
+            anim.SetBool("Small", false);
+            anim.SetBool("Tiny", false);
+        }
+        if (grab.sizes == Grab.objectSizes.large){
             anim.SetBool("Large", true);
             anim.SetBool("Medium", false);
             anim.SetBool("Small", false);
+            anim.SetBool("Tiny", false);
         }
-        if (grab.SmallMediumLarge == "MEDIUM" && grab.SmallMediumLarge != "LARGE" && grab.SmallMediumLarge != "SMALL"){
+        if (grab.sizes == Grab.objectSizes.medium){
             anim.SetBool("Large", false);
             anim.SetBool("Medium", true);
             anim.SetBool("Small", false);
+            anim.SetBool("Tiny", false);
         }
-        if (grab.SmallMediumLarge == "SMALL" && grab.SmallMediumLarge != "MEDIUM" && grab.SmallMediumLarge != "LARGE"){
+        if (grab.sizes == Grab.objectSizes.small){
             anim.SetBool("Large", false);
             anim.SetBool("Medium", false);
             anim.SetBool("Small", true);
+            anim.SetBool("Tiny", false);
         }
-        else if (grab.SmallMediumLarge == "NULL"){
+        else if (grab.sizes == Grab.objectSizes.tiny){
             anim.SetBool("Large", false);
             anim.SetBool("Medium", false);
             anim.SetBool("Small", false);
+            anim.SetBool("Tiny", true);
         }
+
 
     }
 }

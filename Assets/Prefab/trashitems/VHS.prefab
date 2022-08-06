@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7627793831909014724}
   - component: {fileID: 3625333108135426792}
   - component: {fileID: 1737047686631589798}
-  - component: {fileID: 2539663884337218797}
   - component: {fileID: 2002046251225656477}
   m_Layer: 13
   m_Name: VHS
@@ -116,18 +115,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2539663884337218797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8276387289470704913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2002046251225656477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: E.VHS Tape
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
+  sizes: 0
   isTrash: 1
   trashType: 0
+  isTargeted: 0
+  timeRemaining: 10

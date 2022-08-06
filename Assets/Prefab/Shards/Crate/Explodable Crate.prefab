@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.00000013296, y: 0.00000023304, z: 0.000000014998}
   m_LocalScale: {x: 0.019914, y: 0.019914, z: 0.019914}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1487551826114242803}
   m_RootOrder: 0
@@ -52,6 +53,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -109,7 +111,6 @@ GameObject:
   - component: {fileID: 1382149871946714561}
   - component: {fileID: 1382149871946714564}
   - component: {fileID: 1382149871946714590}
-  - component: {fileID: 1382149871946714565}
   - component: {fileID: 6189203155664035815}
   - component: {fileID: -757199769655447199}
   m_Layer: 13
@@ -129,6 +130,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.51255, y: 0.14536, z: -0.2487}
   m_LocalScale: {x: 142.09604, y: 142.096, z: 142.096}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1382149871380790079}
   m_Father: {fileID: 0}
@@ -153,6 +155,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -226,21 +229,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 369e62afa86def84891bfd616348eeb2, type: 3}
---- !u!114 &1382149871946714565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2301066927167353417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd8f62791add1a4dbe3052c1e028d36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shatterPrefab: {fileID: 2751956294498618463, guid: 6b0e2de898be62741815e3751d542552, type: 3}
-  shatterSpawnPos: {fileID: 1382149871380790076}
-  hitPoints: 2
 --- !u!114 &6189203155664035815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,9 +238,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2301066927167353417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 16f86a5e3c3f23645bae0f9e99a54e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 0}
+  shatterPrefab: {fileID: 2751956294498618463, guid: 6b0e2de898be62741815e3751d542552, type: 3}
+  shatterSpawnPos: {fileID: 1382149871380790076}
+  hitPoints: 2
+  breakSpeed: 40
+  punchAble: 1
+  throwableBreak: 1
+  bombBreak: 1
 --- !u!114 &-757199769655447199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce63cbfe659afae4e9728ca9c753e595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSmall: 0
-  isMedium: 0
-  isLarge: 1
+  objectName: Crate
+  sizes: 2
+  isTrash: 0
+  trashType: 0
+  isTargeted: 0
+  timeRemaining: 10

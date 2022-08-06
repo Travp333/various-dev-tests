@@ -106,7 +106,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6767202171487743642}
-  - component: {fileID: 2358949063927046572}
   - component: {fileID: 8685689143644670163}
   - component: {fileID: 2435460284502915693}
   - component: {fileID: 2836972507633821101}
@@ -133,18 +132,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2358949063927046572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6242620382666765344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8685689143644670163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,9 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: M.Placebo Book
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
+  sizes: 0
   isTrash: 1
   trashType: 3
   isTargeted: 0

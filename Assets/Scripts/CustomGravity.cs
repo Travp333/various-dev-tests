@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public static class CustomGravity {
-
+	//Adapted from https://catlikecoding.com by Travis Parks
 	public static void Register (GravitySource source) {
 		Debug.Assert(
 			!sources.Contains(source),

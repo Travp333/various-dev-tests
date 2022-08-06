@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1840173173831175770}
   - component: {fileID: 2998659199551847530}
   - component: {fileID: 5303791627108244009}
-  - component: {fileID: 1918693804207973131}
   - component: {fileID: 7184699155109630161}
   m_Layer: 13
   m_Name: base cone
@@ -100,9 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Traffic Cone
-  isSmall: 0
-  isMedium: 1
-  isLarge: 0
+  sizes: 1
   isTrash: 0
   trashType: 0
   isTargeted: 0
@@ -123,18 +120,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1918693804207973131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182791266734878607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &7184699155109630161
 MeshCollider:
   m_ObjectHideFlags: 0

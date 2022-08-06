@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7515971178688979275}
   - component: {fileID: 6909028026552135406}
   - component: {fileID: 8648383717918333476}
-  - component: {fileID: 4481431274257799881}
   - component: {fileID: 3878744648341405686}
   - component: {fileID: 4440762065877034237}
   - component: {fileID: 7678321392090143396}
@@ -87,18 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4481431274257799881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7135328381203446769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &3878744648341405686
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,9 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Tall Cone
-  isSmall: 0
-  isMedium: 1
-  isLarge: 0
+  sizes: 2
   isTrash: 0
   trashType: 0
   isTargeted: 0

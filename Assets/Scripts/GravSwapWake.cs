@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //The whole point of this script is to prevent "sleeping" props from getting stuck in place when gravity suddenly changes. can be removed if we never plan to change gravity
-
+//Travis Parks
 public class GravSwapWake : MonoBehaviour
 {
     Vector3 dummy;

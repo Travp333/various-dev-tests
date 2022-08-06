@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -0.0168}
   m_LocalScale: {x: 0.036490645, y: 0.025781916, z: 0.027936295}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4718998247282915400}
   m_RootOrder: 0
@@ -52,6 +53,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -110,7 +112,6 @@ GameObject:
   - component: {fileID: 5113703899614453696}
   - component: {fileID: 5113703899614453697}
   - component: {fileID: 5113703899614453702}
-  - component: {fileID: -6310603483092995670}
   - component: {fileID: -7354694041042589291}
   m_Layer: 13
   m_Name: Exploding Barrel
@@ -129,6 +130,7 @@ Transform:
   m_LocalRotation: {x: 0.010596217, y: 0.0041429196, z: 0.0026172914, w: 0.9999319}
   m_LocalPosition: {x: 0.36216, y: 0.10516, z: -0.26875}
   m_LocalScale: {x: 84.47054, y: 84.470535, z: 84.470535}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5113703899769361497}
   m_Father: {fileID: 0}
@@ -153,6 +155,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -235,24 +238,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5347724716344697586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd8f62791add1a4dbe3052c1e028d36, type: 3}
+  m_Script: {fileID: 11500000, guid: 16f86a5e3c3f23645bae0f9e99a54e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 0}
   shatterPrefab: {fileID: 5649284301109738235, guid: 96a33fc3579663446901790ded7e4a8c, type: 3}
   shatterSpawnPos: {fileID: 5113703899769361496}
   hitPoints: 2
---- !u!114 &-6310603483092995670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5347724716344697586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  breakSpeed: 40
+  punchAble: 1
+  throwableBreak: 1
+  bombBreak: 1
 --- !u!114 &-7354694041042589291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce63cbfe659afae4e9728ca9c753e595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSmall: 0
-  isMedium: 1
-  isLarge: 0
+  objectName: Barrel
+  sizes: 2
+  isTrash: 0
+  trashType: 0
+  isTargeted: 0
+  timeRemaining: 10

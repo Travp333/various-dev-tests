@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 9024525311302590519}
   - component: {fileID: 1635747058136344591}
   - component: {fileID: 7219084507176642106}
-  - component: {fileID: 5212550404201253479}
   - component: {fileID: 1542547182443787842}
   m_Layer: 13
   m_Name: Briefcase
@@ -116,18 +115,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5212550404201253479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7367169380688970210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1542547182443787842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: M.Briefcase
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
+  sizes: 1
   isTrash: 1
   trashType: 3
+  isTargeted: 0
+  timeRemaining: 10

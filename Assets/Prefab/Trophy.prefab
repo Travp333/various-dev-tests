@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 135268299374520991}
   - component: {fileID: 1594560607775411142}
   - component: {fileID: 1594560607775411145}
-  - component: {fileID: 1594560607775411143}
   - component: {fileID: 3562079538881791004}
   m_Layer: 13
   m_Name: Trophy
@@ -32,6 +31,7 @@ Transform:
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -130.458, y: -171.753, z: 147.203}
   m_LocalScale: {x: 0.1874088, y: 0.1874088, z: 0.1874088}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,6 +55,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -115,18 +116,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 631f3307a35b9f946854232a05007b25, type: 3}
---- !u!114 &1594560607775411143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1936668498339646282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3562079538881791004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce63cbfe659afae4e9728ca9c753e595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
+  objectName: Trophy
+  sizes: 1
+  isTrash: 0
+  trashType: 0
+  isTargeted: 0
+  timeRemaining: 10

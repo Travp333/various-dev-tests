@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//this script handles the first person camera movement, sensitivity, acelleration, etc.
+//Adapted from Mcdogsman by Travis Parks
 public class SimpleCameraMovement : MonoBehaviour
 {
     [SerializeField]
@@ -16,8 +17,8 @@ public class SimpleCameraMovement : MonoBehaviour
     float mouseSmoothTime = 0.03f;
     float pitch = 0f;
     
-    [SerializeField, Range(0.1f, 10f)]
-    float sens = 3.5f;
+    [SerializeField, Range(50, 500f)]
+    float sens;
 
 
     void Awake() {
@@ -39,12 +40,12 @@ public class SimpleCameraMovement : MonoBehaviour
         currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, targetMouseDelta, ref currentMouseDeltaVelocity, mouseSmoothTime);
 
         
-            pitch -= currentMouseDelta.y * sens;
+            pitch -= currentMouseDelta.y * (sens*Time.deltaTime);
             pitch = Mathf.Clamp(pitch, -90f, 90f);
 
             playerCamera.localEulerAngles = Vector3.right * pitch;
 
-            transform.Rotate(Vector3.up * currentMouseDelta.x * sens);
+            transform.Rotate(Vector3.up * currentMouseDelta.x * (sens*Time.deltaTime));
             
     }
 	

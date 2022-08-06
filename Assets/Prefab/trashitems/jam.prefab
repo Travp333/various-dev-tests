@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2172113948976394236}
   - component: {fileID: 2172113948976394239}
   - component: {fileID: 2172113948976394234}
-  - component: {fileID: 2172113948976394237}
   m_Layer: 13
   m_Name: jam
   m_TagString: Untagged
@@ -130,20 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: R.Grape Jam
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
+  sizes: 0
   isTrash: 1
   trashType: 2
---- !u!114 &2172113948976394237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361652728411296425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  isTargeted: 0
+  timeRemaining: 10

@@ -1,4 +1,6 @@
 using UnityEngine;
+//Adapted from https://catlikecoding.com by Travis Parks
+//this script allows rigibodies to be affected by custom gravity
 
 [RequireComponent(typeof(Rigidbody))]
 public class CustomGravityRigidbody : MonoBehaviour {

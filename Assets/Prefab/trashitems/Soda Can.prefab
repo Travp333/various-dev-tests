@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 164180639354436942}
   - component: {fileID: 2712220453940185476}
   - component: {fileID: 4811648909336367230}
-  - component: {fileID: 6385919432239365917}
   - component: {fileID: -1937606484741921364}
   - component: {fileID: 6137875113015241675}
   m_Layer: 13
@@ -103,18 +102,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6385919432239365917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4513524172366342225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-1937606484741921364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,9 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: R.Grape Soda Can
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
+  sizes: 0
   isTrash: 1
   trashType: 2
   isTargeted: 0

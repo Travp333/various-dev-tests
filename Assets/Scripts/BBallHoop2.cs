@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
  
-
-
+//Travis Parks
+// This script finalizes the basketball going through the hoop
 public class BBallHoop2 : MonoBehaviour
 {
     GameObject[] balls;

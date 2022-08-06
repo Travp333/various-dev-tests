@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2603101877700106082}
   - component: {fileID: 2570053595378202030}
-  - component: {fileID: 3565257430922634778}
   - component: {fileID: -6798130075701368594}
   - component: {fileID: 2038262550}
   m_Layer: 13
@@ -53,18 +52,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3565257430922634778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3417040183030697432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-6798130075701368594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,9 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: M.Tissue Box
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
+  sizes: 0
   isTrash: 1
   trashType: 3
   isTargeted: 0

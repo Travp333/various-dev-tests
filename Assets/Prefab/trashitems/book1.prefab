@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 58001482847553900}
   - component: {fileID: 8144120395769347338}
-  - component: {fileID: 8520599730264566812}
   - component: {fileID: 6863161758063845249}
   - component: {fileID: 2837960991512808870}
   m_Layer: 13
@@ -49,25 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: M.Push-up Book
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
+  sizes: 0
   isTrash: 1
   trashType: 3
   isTargeted: 0
   timeRemaining: 10
---- !u!114 &8520599730264566812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830281525770802134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &6863161758063845249
 Rigidbody:
   m_ObjectHideFlags: 0

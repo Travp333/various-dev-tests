@@ -1,9 +1,10 @@
 using UnityEngine;
-
+//Adapted from https://catlikecoding.com by Travis Parks
+//This script makes gravity dependent on a planes direction rather than just a float value, currently only applies to the player
 public class GravityPlane : GravitySource {
 
 	[SerializeField]
-	float gravity = 9.81f;
+	public float gravity = 9.81f;
 
 	[SerializeField, Min(0f)]
 	float range = 1f;

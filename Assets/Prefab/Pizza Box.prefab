@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8577098690613550438}
   - component: {fileID: 5828518394037397932}
   - component: {fileID: 6825600342278182083}
-  - component: {fileID: -5976540215014863953}
   - component: {fileID: -4896562069346936862}
   m_Layer: 13
   m_Name: Pizza Box
@@ -31,6 +30,7 @@ Transform:
   m_LocalRotation: {x: -0.7138323, y: 0.027668383, z: -0.03205675, w: 0.6990352}
   m_LocalPosition: {x: -154.78, y: -168.654, z: 168.008}
   m_LocalScale: {x: 100, y: 99.99999, z: 100}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2652955104223541807}
   m_Father: {fileID: 0}
@@ -55,6 +55,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -101,18 +102,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-5976540215014863953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5468481455330052217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-4896562069346936862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,9 +114,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce63cbfe659afae4e9728ca9c753e595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
+  objectName: Pizza Box
+  sizes: 1
+  isTrash: 0
+  trashType: 0
+  isTargeted: 0
+  timeRemaining: 10
 --- !u!1 &6006247882335329412
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +147,7 @@ Transform:
   m_LocalRotation: {x: -0.000000029802326, y: 0.000000009313227, z: -0.13069747, w: 0.99142236}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.011398002, y: 0.011435668, z: 0.0009421125}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4659011496803701443}
   m_RootOrder: 0

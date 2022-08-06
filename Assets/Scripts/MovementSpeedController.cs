@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//this script is meant to control the character's speed and allow other scripts to place boosts or limits upon it.
+//Travis Parks
 public class MovementSpeedController : MonoBehaviour
 {
-    FPSMovingSphere player;
+    Movement movement;
+    Controls controls;
 
     [SerializeField, Range(0f, 100f)]
 	[Tooltip("speeds of the character, these states represent the speed when your character is jogging, sprinting, walking, swimming, and climbing")]
@@ -29,29 +31,30 @@ public class MovementSpeedController : MonoBehaviour
     }
 
     void Start() {
-        player = GetComponent<FPSMovingSphere>();
+        movement = GetComponent<Movement>();
+        controls = GameObject.Find("Data").GetComponent<Controls>();
     }
     void MovementState(float factor){
 		//change movement speeds universally
-        bool duckPressed = player.divingPrep;
-		bool SprintPressed = Input.GetButton("Sprint");
-		bool moving = Input.GetButton("Up") || Input.GetButton("Down") || Input.GetButton("Left") || Input.GetButton("Right");
+        bool duckPressed = movement.divingPrep;
+		bool SprintPressed = Input.GetKey(controls.keys["sprint"]);
+		bool moving = Input.GetKey(controls.keys["walkUp"]) || Input.GetKey(controls.keys["walkDown"]) || Input.GetKey(controls.keys["walkLeft"]) || Input.GetKey(controls.keys["walkRight"]);
 		// default situation
 		if ((!SprintPressed) && moving && !duckPressed ){
 			currentSpeed = baseSpeed;
 		}
 		//sprinting
-        if (moving && SprintPressed && player.velocity.magnitude >= 5f && !duckPressed && player.OnGround){
+        if (moving && SprintPressed && movement.velocity.magnitude >= 5f && !duckPressed && movement.OnGround){
 			currentSpeed = sprintSpeed;
         }
 		//walking / crouching
-		if (moving && duckPressed && !SprintPressed && player.OnGround && !player.ClimbingADJ){
+		if (moving && duckPressed && !SprintPressed && movement.OnGround && !movement.ClimbingADJ){
 			currentSpeed = walkSpeed;
 		}
-        else if (duckPressed && !player.OnGround && player.ClimbingADJ){
+        else if (duckPressed && !movement.OnGround && movement.ClimbingADJ){
             currentSpeed  = maxClimbSpeed;
         }
-        if(!player.OnGround){
+        if(!movement.OnGround){
             currentSpeed = baseSpeed;
         }
         if(currentSpeed <= 0){

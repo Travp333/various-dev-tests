@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6550371801029000879}
   - component: {fileID: 6383869558425824233}
   - component: {fileID: 6383869558425824234}
-  - component: {fileID: 6383869558425824237}
   - component: {fileID: 9120787412537796090}
   m_Layer: 0
   m_Name: Neck.002
@@ -32,6 +31,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 21.45, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6850739157148101692}
   m_RootOrder: 2
@@ -55,6 +55,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -114,20 +115,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.080476195, y: 0.07829099, z: 0.013641234}
   m_Center: {x: 0.045913875, y: -0.0016144753, z: -0.0007443936}
---- !u!114 &6383869558425824237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4176458656099108692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d26ca6ec18f3d247aa01339b81aa506, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeMin: 5
-  lifeMax: 10
 --- !u!114 &9120787412537796090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,9 +124,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4176458656099108692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f6e2f15f1eda9b41a1b9c6b45d71b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeMin: 5
+  lifeMax: 10
 --- !u!1 &4592629962570011307
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +142,6 @@ GameObject:
   - component: {fileID: 5621886496397182632}
   - component: {fileID: 6383869559204219853}
   - component: {fileID: 6383869559204219854}
-  - component: {fileID: 6383869559204219857}
   - component: {fileID: 2079682092339272792}
   m_Layer: 0
   m_Name: Neck.001
@@ -172,6 +160,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 21.45, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6850739157148101692}
   m_RootOrder: 1
@@ -195,6 +184,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -254,20 +244,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.035743665, y: 0.080337696, z: 0.0066853077}
   m_Center: {x: 0.089953795, y: 0.00066845474, z: -0.0042223562}
---- !u!114 &6383869559204219857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4592629962570011307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d26ca6ec18f3d247aa01339b81aa506, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeMin: 5
-  lifeMax: 10
 --- !u!114 &2079682092339272792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,9 +253,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4592629962570011307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f6e2f15f1eda9b41a1b9c6b45d71b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeMin: 5
+  lifeMax: 10
 --- !u!1 &5708537419506968192
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +271,6 @@ GameObject:
   - component: {fileID: 4747150160572478838}
   - component: {fileID: 6383869558447220846}
   - component: {fileID: 6383869558447220847}
-  - component: {fileID: 6383869558447220850}
   - component: {fileID: 2022671369153010274}
   m_Layer: 0
   m_Name: Neck.003
@@ -312,6 +289,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 21.45, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6850739157148101692}
   m_RootOrder: 3
@@ -335,6 +313,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -394,20 +373,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.03719099, y: 0.020269608, z: 0.0066853077}
   m_Center: {x: 0.02489364, y: 0.023128305, z: -0.0042223562}
---- !u!114 &6383869558447220850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5708537419506968192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d26ca6ec18f3d247aa01339b81aa506, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeMin: 5
-  lifeMax: 10
 --- !u!114 &2022671369153010274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,9 +382,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5708537419506968192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f6e2f15f1eda9b41a1b9c6b45d71b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeMin: 5
+  lifeMax: 10
 --- !u!1 &6078001717102491270
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6850739157148101692}
   - component: {fileID: 6383869559175838919}
+  - component: {fileID: 3127194280053086252}
   m_Layer: 0
   m_Name: guitar shards Prefab yellow
   m_TagString: Untagged
@@ -447,6 +415,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 333.219, y: 3.663, z: -118.906}
   m_LocalScale: {x: 0.14794464, y: 0.14794464, z: 0.14794464}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7296874859997184238}
   - {fileID: 518977310198472710}
@@ -465,14 +434,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 6078001717102491270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05da9ef2a37f9334199317e73344ac24, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f6e2f15f1eda9b41a1b9c6b45d71b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeMin: 11
+  lifeMax: 11
+--- !u!114 &3127194280053086252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078001717102491270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9346b1c2837afb4686bd9878f654fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombAudioSource: []
   radius: 100
   power: 200
   upModifier: 1
   isBomb: 0
-  otherExplosiveTime: 1
+  playerDamageMax: 0
+  playerDamageMin: 0
 --- !u!1 &6996100595123187678
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +471,6 @@ GameObject:
   - component: {fileID: 3289931578335524281}
   - component: {fileID: 6383869558545735191}
   - component: {fileID: 6383869558545735192}
-  - component: {fileID: 6383869558545735195}
   - component: {fileID: 6368150066569352104}
   m_Layer: 0
   m_Name: Neck
@@ -505,6 +489,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 21.45, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6850739157148101692}
   m_RootOrder: 0
@@ -528,6 +513,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -587,20 +573,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.101496145, y: 0.021943912, z: 0.018701985}
   m_Center: {x: -0.08361041, y: -0.0000009536743, z: -0.0049981684}
---- !u!114 &6383869558545735195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6996100595123187678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d26ca6ec18f3d247aa01339b81aa506, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeMin: 5
-  lifeMax: 10
 --- !u!114 &6368150066569352104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,9 +582,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6996100595123187678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f6e2f15f1eda9b41a1b9c6b45d71b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeMin: 5
+  lifeMax: 10
 --- !u!1 &7719373621137197605
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +600,6 @@ GameObject:
   - component: {fileID: 7750948221304702161}
   - component: {fileID: 6383869557351036095}
   - component: {fileID: 6383869557351035968}
-  - component: {fileID: 6383869557351035971}
   - component: {fileID: 2672917526394157496}
   m_Layer: 0
   m_Name: Neck.004
@@ -645,6 +618,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 21.45, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6850739157148101692}
   m_RootOrder: 4
@@ -668,6 +642,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -727,20 +702,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.050705545, y: 0.013042214, z: 0.008875806}
   m_Center: {x: 0.004332797, y: -0.0000009534415, z: -0.0037424704}
---- !u!114 &6383869557351035971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7719373621137197605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d26ca6ec18f3d247aa01339b81aa506, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeMin: 5
-  lifeMax: 10
 --- !u!114 &2672917526394157496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,6 +711,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7719373621137197605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f6e2f15f1eda9b41a1b9c6b45d71b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeMin: 5
+  lifeMax: 10

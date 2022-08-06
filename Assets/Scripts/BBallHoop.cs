@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Travis Parks
+//this script controls the basketball hoop checking whether or not a basketball has gone through it
 public class BBallHoop : MonoBehaviour
 {
     GameObject[] balls;

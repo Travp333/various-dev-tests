@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1188981258615395023}
   - component: {fileID: 3991574028884043269}
   - component: {fileID: 2459820335033795305}
-  - component: {fileID: -7874144706449186746}
   - component: {fileID: -5178516156296341042}
   - component: {fileID: 8123281152079705274}
   m_Layer: 13
@@ -103,18 +102,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-7874144706449186746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3198707054581729232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-5178516156296341042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,9 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: F.Ketchup
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
+  sizes: 0
   isTrash: 1
   trashType: 1
   isTargeted: 0

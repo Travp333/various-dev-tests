@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5580782798741498735}
   - component: {fileID: 5580782798741498732}
   - component: {fileID: 5580782798741498728}
-  - component: {fileID: 5580782798741498731}
   - component: {fileID: 362164042445131774}
   - component: {fileID: -1149643358417826349}
   m_Layer: 13
@@ -34,6 +33,7 @@ Transform:
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0.36086, y: 0.09909, z: -0.2697}
   m_LocalScale: {x: 32.74092, y: 32.740917, z: 32.740906}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5580782799703230386}
   m_Father: {fileID: 0}
@@ -58,6 +58,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -131,21 +132,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.13560562, y: 0.0680276, z: 0.07899561}
   m_Center: {x: 0.0000009542609, y: 0.0076975254, z: -0.002464813}
---- !u!114 &5580782798741498731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4734274636079867787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd8f62791add1a4dbe3052c1e028d36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shatterPrefab: {fileID: 8384142459413333977, guid: 3920ee56cdbdb8044a6934416cf9d4d5, type: 3}
-  shatterSpawnPos: {fileID: 5580782799703230387}
-  hitPoints: 3
 --- !u!114 &362164042445131774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,9 +141,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4734274636079867787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6fe35308d54744db558ae6ccc37ea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 16f86a5e3c3f23645bae0f9e99a54e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 0}
+  shatterPrefab: {fileID: 8384142459413333977, guid: 3920ee56cdbdb8044a6934416cf9d4d5, type: 3}
+  shatterSpawnPos: {fileID: 5580782799703230387}
+  hitPoints: 2
+  breakSpeed: 40
+  punchAble: 1
+  throwableBreak: 1
+  bombBreak: 1
 --- !u!114 &-1149643358417826349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,9 +164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce63cbfe659afae4e9728ca9c753e595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSmall: 0
-  isMedium: 0
-  isLarge: 1
+  objectName: Bench
+  sizes: 2
+  isTrash: 0
+  trashType: 0
+  isTargeted: 0
+  timeRemaining: 10
 --- !u!1 &5580782799703230387
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +199,7 @@ Transform:
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: -0, z: -0.0008}
   m_LocalScale: {x: 0.038009126, y: 0.038009126, z: 0.038009126}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5402161341880270129}
   m_RootOrder: 0
@@ -225,6 +223,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
