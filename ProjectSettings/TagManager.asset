@@ -12,6 +12,7 @@ TagManager:
   - trash
   - Roomba
   - Wall
+  - ragdoll
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - heldItemCollider
   - Fists
   - NoCollideWithPlayer
-  - 
+  - otherAgent
   - 
   - 
   - 

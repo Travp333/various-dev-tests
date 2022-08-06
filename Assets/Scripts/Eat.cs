@@ -33,7 +33,7 @@ public class Eat : MonoBehaviour
     public void eatFood(playerHunger ph)
     {
         hideFood();
-        ph.increaseHunger(food);
+        //ph.increaseHunger(food);
 
     }
 
@@ -42,7 +42,7 @@ public class Eat : MonoBehaviour
         
         foreach(GameObject G in GameObject.FindGameObjectsWithTag("Player")){
             if(G.GetComponent<Movement>()){
-                G.GetComponent<playerHunger>().increaseHunger(food);
+                //G.GetComponent<playerHunger>().increaseHunger(food);
             }
         }
 

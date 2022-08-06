@@ -26,11 +26,11 @@ public class SettingsMenu : MonoBehaviour
         resolutions = Screen.resolutions.Where(resolution => resolution.refreshRate == Screen.currentResolution.refreshRate).ToArray();
         fullToggle = GameObject.Find("Fullscreen").GetComponent<Toggle>();
         fullToggle.isOn = Screen.fullScreen;
-        qualDrop = GameObject.Find("Quality").GetComponent<Dropdown>();
+        //qualDrop = GameObject.Find("Quality").GetComponent<Dropdown>();
         //Get available, current resolutions for resolutions dropdown
         GetResolutions();
 
-        GetQuality();
+        //GetQuality();
     }
 
     //On volume slider change
@@ -82,19 +82,19 @@ public class SettingsMenu : MonoBehaviour
         Screen.SetResolution(Screen.width, Screen.height, fullscreen);
     }
 
-    private void GetQuality()
-    {
+  //  private void GetQuality()
+  //  {
         //Get current quality index
-        int currentQuality = QualitySettings.GetQualityLevel();
+   //     int currentQuality = QualitySettings.GetQualityLevel();
 
         //IF there are available quality settings
-        if (QualitySettings.names.Length > 0) {
+    //    if (QualitySettings.names.Length > 0) {
             //Remove placeholder
-            qualDrop.ClearOptions();
+    //        qualDrop.ClearOptions();
             //Set dropdown options to all available quality settings
-            qualDrop.AddOptions(new List<string>(QualitySettings.names));
-        }
-    }
+   //         qualDrop.AddOptions(new List<string>(QualitySettings.names));
+   //     }
+   // }
 
     //Set graphics engine quality preset
     public void setQuality(int quality)

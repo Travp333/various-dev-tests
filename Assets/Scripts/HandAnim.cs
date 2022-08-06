@@ -174,26 +174,6 @@ public class HandAnim : MonoBehaviour
         barragePrep = animator.GetBool("barragePrep");
         //IF not paused
         if (!FindObjectOfType<PauseMenu>().isPaused) {
-
-            if ((grab.isHolding && grab.isFood) != holdingDummy) {
-                animator.SetBool("holdingChange", true);
-                Invoke("resetHoldingChange", .1f);
-                holdingDummy = (grab.isHolding && grab.isFood);
-            }
-
-            if (grab.isFood) {
-                animator.SetBool("isFood", true);
-            }
-            else if (!grab.isFood) {
-                animator.SetBool("isFood", false);
-            }
-            //Debug.Log(" is food "+ grab.isFood+" holding "+ grab.isHolding);
-            if (grab.isFood && grab.isHolding) {
-                animator.SetFloat("isHoldingFood", 1);
-            }
-            else if (!grab.isFood || !grab.isHolding) {
-                animator.SetFloat("isHoldingFood", 0);
-            }
             if (movement.ClimbingADJ) {
                 animator.SetFloat("ClimbingX", movement.velocity.x);
                 animator.SetFloat("ClimbingY", movement.velocity.y);

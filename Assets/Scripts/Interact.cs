@@ -189,19 +189,13 @@ public class Interact : MonoBehaviour
                     }
                 }
                 // if you are already holding something, drop it. 
-                else if (grab.isHolding && !grab.isFood)
+                else if (grab.isHolding)
                 {
                     detach();
                     //clear the temps for next loop
                     prop = null;
                     propRB = null;
                     grab.throwingforce = grab.throwingTemp;
-                }
-                else if (grab.isHolding && grab.isFood)
-                {
-                    foodDetach();
-                    prop = null;
-                    propRB = null;
                 }
             }
         }

@@ -32,9 +32,7 @@ public class Controls : MonoBehaviour
                 {"duck",KeyCode.LeftControl},
                 {"sprint",KeyCode.LeftShift},
                 {"interact",KeyCode.E},
-                {"warp",KeyCode.R},
                 {"throw",KeyCode.Mouse0},
-                {"eat",KeyCode.Mouse1}
             };
 
             //Dictionary for what keys on the keyboard are in use

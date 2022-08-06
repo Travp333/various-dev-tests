@@ -14,11 +14,8 @@ public class PlayerData
     public PlayerData (PlayerStats playerStats)
     {
         health = playerStats.hp;
-        hunger = playerStats.hunger;
         position = new float[3];
         position[0] = playerStats.transform.position.x;
         position[1] = playerStats.transform.position.y;
-        position[2] = playerStats.transform.position.z;
-        hollOrReal = playerStats.gameObject.GetComponent<WorldShift>().hollOrReal;
-    }
+        position[2] = playerStats.transform.position.z;    }
 }

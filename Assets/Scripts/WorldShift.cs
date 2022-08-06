@@ -70,7 +70,7 @@ public class WorldShift : MonoBehaviour
                 dummy.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + warpOffset);
         }
         if (Input.GetKeyDown(controls.keys["warp"]) && !FindObjectOfType<PauseMenu>().isPaused){
-            if(GetComponent<PlayerStats>().hunger > shiftCost){
+            //if(GetComponent<PlayerStats>().hunger > shiftCost){
                 if (hollOrReal){
                     desiresShift = true;
                     if(!shiftBlocked){
@@ -88,7 +88,7 @@ public class WorldShift : MonoBehaviour
                                     soundTrack.gameObject.GetComponent<soundTrackToggler>().swap(false);
                                 }
                                 transform.position = dummy.transform.position;
-                                GetComponent<PlayerStats>().hunger = GetComponent<PlayerStats>().hunger - shiftCost;
+                                //GetComponent<PlayerStats>().hunger = GetComponent<PlayerStats>().hunger - shiftCost;
                                 hollOrReal = false;
 
                             }
@@ -103,7 +103,7 @@ public class WorldShift : MonoBehaviour
                                 if(soundTrack != null){
                                     soundTrack.gameObject.GetComponent<soundTrackToggler>().swap(false);
                                 }
-                                GetComponent<PlayerStats>().hunger = GetComponent<PlayerStats>().hunger - shiftCost;
+                                //GetComponent<PlayerStats>().hunger = GetComponent<PlayerStats>().hunger - shiftCost;
                                 hollOrReal = false;
                             }
 
@@ -121,7 +121,7 @@ public class WorldShift : MonoBehaviour
                                     if(soundTrack != null){
                                         soundTrack.gameObject.GetComponent<soundTrackToggler>().swap(false);
                                     }
-                                    GetComponent<PlayerStats>().hunger = GetComponent<PlayerStats>().hunger - shiftCost;
+                                    //GetComponent<PlayerStats>().hunger = GetComponent<PlayerStats>().hunger - shiftCost;
                                     subDummy = true;
                                     hollOrReal = false;
                                     return;
@@ -157,7 +157,7 @@ public class WorldShift : MonoBehaviour
                                 soundTrack.gameObject.GetComponent<soundTrackToggler>().swap(true);
                             }
                             transform.position = dummy.transform.position;
-                            GetComponent<PlayerStats>().hunger = GetComponent<PlayerStats>().hunger - shiftCost;
+                            //GetComponent<PlayerStats>().hunger = GetComponent<PlayerStats>().hunger - shiftCost;
                             hollOrReal = true;
                         }
                         else{
@@ -171,7 +171,7 @@ public class WorldShift : MonoBehaviour
                                 soundTrack.gameObject.GetComponent<soundTrackToggler>().swap(true);
                             }
                             transform.position = dummy.transform.position;
-                            GetComponent<PlayerStats>().hunger = GetComponent<PlayerStats>().hunger - shiftCost;
+                            //GetComponent<PlayerStats>().hunger = GetComponent<PlayerStats>().hunger - shiftCost;
                             hollOrReal = true;
                         }
 
@@ -189,7 +189,7 @@ public class WorldShift : MonoBehaviour
                                 if(soundTrack != null){
                                     soundTrack.gameObject.GetComponent<soundTrackToggler>().swap(true);
                                 }
-                                GetComponent<PlayerStats>().hunger = GetComponent<PlayerStats>().hunger - shiftCost;
+                                //GetComponent<PlayerStats>().hunger = GetComponent<PlayerStats>().hunger - shiftCost;
                                 subDummy = true;
                                 hollOrReal = true;
                                 return;
@@ -213,14 +213,14 @@ public class WorldShift : MonoBehaviour
                     Debug.Log("Not enough hunger to shift!");
                 }
             }
-        else{
-            desiresShift = false;
-        }
-        if (dummies[0].gameObject.GetComponent<canShift>().getShiftable() || dummies[1].gameObject.GetComponent<canShift>().getShiftable() || dummies[2].gameObject.GetComponent<canShift>().getShiftable() || dummies[3].gameObject.GetComponent<canShift>().getShiftable() || dummies[4].gameObject.GetComponent<canShift>().getShiftable() || dummy.gameObject.GetComponent<canShift>().getShiftable()){
-            possibleShift = true;
-        }
-        else{
-            possibleShift = false;
-        }
-    }
+        //else{
+        //    desiresShift = false;
+        //}
+       // if (dummies[0].gameObject.GetComponent<canShift>().getShiftable() || dummies[1].gameObject.GetComponent<canShift>().getShiftable() || dummies[2].gameObject.GetComponent<canShift>().getShiftable() || dummies[3].gameObject.GetComponent<canShift>().getShiftable() || dummies[4].gameObject.GetComponent<canShift>().getShiftable() || dummy.gameObject.GetComponent<canShift>().getShiftable()){
+       //     possibleShift = true;
+       // }
+       // else{
+       //     possibleShift = false;
+       // }
+   // }
 }

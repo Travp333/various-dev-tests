@@ -19,24 +19,24 @@ public class playerHunger : MonoBehaviour
     }
 
     //Increases player's hunger by specified value
-    public void increaseHunger(float food){
+   // public void increaseHunger(float food){
 
-        int index = Random.Range(0, eatingAudioSource.Length - 1);
-        eatingAudioSource[index].Play();
-        eatingAudioSource[5].Play();
+        //int index = Random.Range(0, eatingAudioSource.Length - 1);
+        //eatingAudioSource[index].Play();
+        //eatingAudioSource[5].Play();
 
         //IF increase would put player at or over the max value
-        if (stats.hunger + food >= maxHunger){
+        //if (stats.hunger + food >= maxHunger){
             //Set to max value
-            stats.hunger = maxHunger;
-            stats.restoreHP(food/2);
-        }
-        else{
+           // stats.hunger = maxHunger;
+           // stats.restoreHP(food/2);
+       // }
+       // else{
             //ELSE add value to current
-            stats.hunger += food;
-            stats.restoreHP(food/2);
-        }
-    }
+        //    stats.hunger += food;
+        //    stats.restoreHP(food/2);
+       // }
+   // }
 
     //Old method, may be useful in the future
     //Decrease player hunger on a set interval

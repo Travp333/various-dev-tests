@@ -5762,7 +5762,7 @@ GameObject:
   - component: {fileID: 3890495772722480245}
   - component: {fileID: 3890495772722480244}
   - component: {fileID: 3890495772722480243}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Standing
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -9148,7 +9148,7 @@ GameObject:
   - component: {fileID: 6205407371399663530}
   - component: {fileID: 6205407371399663531}
   - component: {fileID: 6205407371399663528}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Crouched
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -11289,9 +11289,7 @@ MonoBehaviour:
   - {fileID: 5569692776843425099}
   - {fileID: 6329067347261556761}
   - {fileID: 6121232251671675607}
-  hunger: 100
   hp: 100
-  hungerBar: {fileID: 0}
   healthBar: {fileID: 0}
   portalWarp: 0
   playerDeath: {fileID: 3941264005942276419}
@@ -14774,7 +14772,6 @@ MonoBehaviour:
   isgrabCharging: 0
   sizes: 4
   interact: {fileID: 2336594996463805830}
-  isFood: 0
   justThrew: 0
   foodHoldingPoint: {fileID: 232698155}
 --- !u!114 &7197834581697023860
