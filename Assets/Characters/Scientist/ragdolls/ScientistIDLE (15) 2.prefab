@@ -334,6 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8112192572321430205}
   - component: {fileID: 6814568475381058434}
+  - component: {fileID: 3257636558427176320}
   m_Layer: 13
   m_Name: ScientistIDLE (15) 2
   m_TagString: ragdoll
@@ -403,6 +404,25 @@ MonoBehaviour:
   - {fileID: 6023829132771274746}
   - {fileID: 8698811986405333639}
   - {fileID: 5777547927881742442}
+--- !u!114 &3257636558427176320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8112192572321430206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce63cbfe659afae4e9728ca9c753e595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  sizes: 3
+  isTrash: 0
+  trashType: 0
+  isTargeted: 0
+  timeRemaining: 10
+  portalWarp: 0
 --- !u!1 &8112192572554202703
 GameObject:
   m_ObjectHideFlags: 0

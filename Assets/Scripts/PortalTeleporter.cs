@@ -8,6 +8,8 @@ using UnityEngine;
 public class PortalTeleporter : MonoBehaviour
 {
     [SerializeField]
+    GameObject ragdollSpawn;
+    [SerializeField]
     GameObject largeSpawn;
     [SerializeField]
     AudioSource shiftNoise;
@@ -20,6 +22,7 @@ public class PortalTeleporter : MonoBehaviour
     private bool playerIsOverlapping = false;
     private bool objectIsOverlapping = false;
     bool justWarped;
+    private bool ragdollOverlapping = false;
 
     void Update()
     {
@@ -44,14 +47,25 @@ public class PortalTeleporter : MonoBehaviour
             Invoke("resetJustWarpedP", .5f);
           }
         }
+        if (ragdollOverlapping){
+          //the distance between the player and portal
+          Vector3 portalToPlayer = Object.position - transform.position;
+          float rotationDiff = Quaternion.Angle(transform.rotation, receiver.rotation);
+          rotationDiff += 180;
+          Object.Rotate(Vector3.up, rotationDiff);
+          Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
+          Object.position = receiver.transform.GetChild(0).gameObject.GetComponent<PortalTeleporter>().ragdollSpawn.transform.position + positionOffset;
+          Object.GetComponent<objectSize>().portalWarp = true;
+          ragdollOverlapping = false;
+          Invoke("resetJustWarpedO", .5f);
+        }
         else if(objectIsOverlapping){
 
           if(Object.GetComponent<objectSize>().sizes == objectSize.objectSizes.large){
 
-            Debug.Log("object overlapping, object is " + Object);
+            Debug.Log("Large object overlapping, object is " + Object);
             //the distance between the player and portal
             Vector3 portalToObject = Object.position - largeSpawn.transform.position;
-            Debug.Log("passed dot product");
             float rotationDiff = Quaternion.Angle(largeSpawn.transform.rotation, receiver.rotation);
             rotationDiff += 180;
             Object.Rotate(Vector3.up, rotationDiff);
@@ -66,7 +80,6 @@ public class PortalTeleporter : MonoBehaviour
             Debug.Log("object overlapping, object is " + Object);
             //the distance between the player and portal
             Vector3 portalToObject = Object.position - transform.position;
-            Debug.Log("passed dot product");
             float rotationDiff = Quaternion.Angle(transform.rotation, receiver.rotation);
             rotationDiff += 180;
             Object.Rotate(Vector3.up, rotationDiff);
@@ -88,13 +101,24 @@ public class PortalTeleporter : MonoBehaviour
     }
     void resetJustWarpedO(){
       Debug.Log("reset just warped status");
-      Object.GetComponent<objectSize>().portalWarp = false;
+      if(Object!= null){
+        Object.GetComponent<objectSize>().portalWarp = false;
+      }
+      
+
+
     }
 
     //This method checks whether player is colliding with the portal
     void OnTriggerEnter(Collider other)
     {
-      if (player.GetComponent<PlayerStats>() != null && other.tag == "Player" && !player.GetComponent<PlayerStats>().portalWarp)
+      if(other.tag == "ragdoll" && other.gameObject.layer != 16){
+        shiftNoise.Play();
+        Object = other.gameObject.transform.root.gameObject.transform;
+        Debug.Log("THIS IS " + Object);
+        ragdollOverlapping = true;
+      }
+      else if (player.GetComponent<PlayerStats>() != null && other.tag == "Player" && !player.GetComponent<PlayerStats>().portalWarp)
       {
         shiftNoise.Play(); 
         playerIsOverlapping = true;

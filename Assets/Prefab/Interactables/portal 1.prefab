@@ -38,6 +38,7 @@ Transform:
   - {fileID: 8005051468508893900}
   - {fileID: 3777474533402310474}
   - {fileID: 1564044530422405432}
+  - {fileID: 528994876136828779}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -239,7 +240,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -523,6 +524,37 @@ Transform:
   m_Father: {fileID: 641454788781644679}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!1 &5833010042203413379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 528994876136828779}
+  m_Layer: 0
+  m_Name: ragdollSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &528994876136828779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833010042203413379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.37, y: 5.69, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 641454788781644679}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7976302642520093501
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,6 +929,10 @@ PrefabInstance:
       propertyPath: shiftNoise
       value: 
       objectReference: {fileID: 2257771026411656091}
+    - target: {fileID: 7631970374527862217, guid: 2efa9ed3c9ae53d46b56c922a6749037, type: 3}
+      propertyPath: ragdollSpawn
+      value: 
+      objectReference: {fileID: 5833010042203413379}
     - target: {fileID: 7631970374527862219, guid: 2efa9ed3c9ae53d46b56c922a6749037, type: 3}
       propertyPath: m_Enabled
       value: 0

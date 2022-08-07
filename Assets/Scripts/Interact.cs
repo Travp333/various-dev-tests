@@ -49,6 +49,20 @@ public class Interact : MonoBehaviour
         
     }
 
+    List<Transform> GetAllChilds(Transform _t)
+    {
+        List<Transform> ts = new List<Transform>();
+ 
+        foreach (Transform t in _t)
+        {
+            ts.Add(t);
+            if (t.childCount > 0)
+                ts.AddRange(GetAllChilds(t));
+        }
+ 
+        return ts;
+    }
+
     //If not already holding an object, get object components, pass to Grab to do the work
     public void pickUp(GameObject obj){
         if (!grab.isHolding) { 
@@ -58,34 +72,29 @@ public class Interact : MonoBehaviour
 
             if(prop.gameObject.tag == "ragdoll"){
                 ragdollParent = prop.parent;
-                foreach (GameObject G in GameObject.FindGameObjectsWithTag("ragdoll")){
-                        G.layer = 16;
-                        foreach (Rigidbody R in G.GetComponentsInChildren<Rigidbody>()){
-                            R.gameObject.layer = 16;
-                        }
-                    }
+                
+                foreach(Transform G in obj.transform.root.GetComponentsInChildren<Transform>()){
+                    G.gameObject.layer = 16;
+                }
+
+
+
+
+
+                //foreach (GameObject G in GameObject.FindGameObjectsWithTag("ragdoll")){
+                //    if(G.GetComponent<objectSize>()!= null && G.GetComponent<objectSize>().isHeld){
+                //        G.layer = 16;
+                //        foreach (Rigidbody R in G.GetComponentsInChildren<Rigidbody>()){
+                 //           R.gameObject.layer = 16;
+                 //       }
+                //    }
+                //}
             }
 
             grab.pickUp(dummy, prop, propRB, obj);
  
         }
 
-    }
-
-    public void foodDetach(){
-        propParent.transform.localScale = new Vector3(.005f, .005f, .005f);
-        //opposite of the pick up section, just undoing all of that back to its default state
-        hand.setisHolding(false);
-        grab.foodHoldingPoint.GetChild(0).SetParent(null);
-        grab.isHolding = false;
-        propRB.isKinematic=(false);
-        prop.transform.gameObject.layer = 13;
-        foreach ( Transform child in prop.transform){
-            child.transform.gameObject.layer = 13;
-            foreach ( Transform child2 in child.transform){
-                child2.transform.gameObject.layer = 13;
-            }
-        }
     }
     // this just makes you drop whatever you are holding
     public void detach(){
@@ -106,6 +115,7 @@ public class Interact : MonoBehaviour
         propRB.isKinematic=(false);
         grab.isHolding = false;
         foreach (GameObject G in GameObject.FindGameObjectsWithTag("ragdoll")){
+
             G.layer = 13;
             foreach (Rigidbody R in G.GetComponentsInChildren<Rigidbody>()){
                 R.gameObject.layer = 13;

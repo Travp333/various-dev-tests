@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1478598141453375691}
   - component: {fileID: 8987078354497889374}
   - component: {fileID: 1251709582959550810}
+  - component: {fileID: 321600305908415807}
   m_Layer: 13
   m_Name: Wardrobe
   m_TagString: Untagged
@@ -119,3 +120,18 @@ MonoBehaviour:
   trashType: 0
   isTargeted: 0
   timeRemaining: 10
+  portalWarp: 0
+--- !u!64 &321600305908415807
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118569861384911134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: b836387f99733214f863994215a7132a, type: 3}
