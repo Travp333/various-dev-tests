@@ -33,6 +33,9 @@ public class NPCMove : MonoBehaviour
     [SerializeField]
     [Tooltip("Radius where npcs get scared by infected")]
     private float fearRadius;
+    [SerializeField]
+    [Tooltip("Radius where npcs infected npcs will find uninfected targets")]
+    private float detectRadius = 60f;
 
     [SerializeField]
     [Tooltip("distance at which the npc will use panicked movement, should be less than fearRadius")]
@@ -102,7 +105,7 @@ public class NPCMove : MonoBehaviour
         }
         //plugging references
         anim = GetComponent<jerryAnimScript>();
-        meshy = RandomNavmeshLocation(400f);
+        //meshy = RandomNavmeshLocation(Random.Range(50f, 300f));
         path = new NavMeshPath();
         list = uninfectedList.GetComponent<uninfectedList>();
         select = GetComponent<MaterialSelector>();
@@ -143,6 +146,7 @@ public class NPCMove : MonoBehaviour
                     GetClosestInfected();
                     infectedSearchCount = 0;
                 }
+                NavMesh.CalculatePath(Min.transform.position, this.transform.position , NavMesh.AllAreas, path);
                 float dist = Vector3.Distance(this.transform.position, Min.transform.position);
                 if(dist > fearRadius && scared){
                     updateCount = updateCount + Time.deltaTime;
@@ -153,7 +157,8 @@ public class NPCMove : MonoBehaviour
                         Roam();
                     }
                 }
-                else if(dist < fearRadius){
+                else if(dist < fearRadius && path.status == NavMeshPathStatus.PathComplete){ 
+                    Debug.Log("VALID ROUTE");
                     //There are infected in the level, and one is near you
                     setScared();
                 }
@@ -181,8 +186,13 @@ public class NPCMove : MonoBehaviour
             }
             
             if(Min != null){
-                //there are uninfected in the level, finding path to closest one
                 NavMesh.CalculatePath(this.transform.position, Min.transform.position, NavMesh.AllAreas, path);
+            }
+            
+
+            if(Min != null && path.status == NavMeshPathStatus.PathComplete && Vector3.Distance(this.transform.position, Min.transform.position) <= detectRadius){
+                //there are uninfected in the level, finding path to closest one
+                //NavMesh.CalculatePath(this.transform.position, Min.transform.position, NavMesh.AllAreas, path);
                 agent.SetPath(path);
                 agent.speed = ZrunSpeed;
                 chasing = true;
@@ -331,13 +341,12 @@ public class NPCMove : MonoBehaviour
         }
         else{
             roamTimer = Random.Range(roamTimerLow, roamTimerUp);
-            meshy = RandomNavmeshLocation(400f);
+            meshy = RandomNavmeshLocation(Random.Range(50f, 300f));
             counter2 = 0;
             agent.ResetPath();
             NavMesh.CalculatePath(this.transform.position, meshy, NavMesh.AllAreas, path);
             agent.SetPath(path);
         }
-
     }
     void PanicRoam(){
         if(!infected){
@@ -348,7 +357,7 @@ public class NPCMove : MonoBehaviour
             counter2 += Time.deltaTime;
         }
         else{
-            meshy = RandomNavmeshLocation(400f);
+            meshy = RandomNavmeshLocation(Random.Range(50f, 300f));
             counter2 = 0;
         }
         //agent.ResetPath();
