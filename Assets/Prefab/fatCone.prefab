@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 905572714463031095}
   - component: {fileID: 4936478398501226498}
   - component: {fileID: 715015110933515384}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: fatCone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,6 +104,7 @@ MonoBehaviour:
   trashType: 0
   isTargeted: 0
   timeRemaining: 10
+  portalWarp: 0
 --- !u!54 &4936478398501226498
 Rigidbody:
   m_ObjectHideFlags: 0

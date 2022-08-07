@@ -5762,7 +5762,7 @@ GameObject:
   - component: {fileID: 3890495772722480245}
   - component: {fileID: 3890495772722480244}
   - component: {fileID: 3890495772722480243}
-  m_Layer: 17
+  m_Layer: 0
   m_Name: Standing
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -9148,7 +9148,7 @@ GameObject:
   - component: {fileID: 6205407371399663530}
   - component: {fileID: 6205407371399663531}
   - component: {fileID: 6205407371399663528}
-  m_Layer: 17
+  m_Layer: 0
   m_Name: Crouched
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -11147,6 +11147,7 @@ GameObject:
   - component: {fileID: 7197834583306505050}
   - component: {fileID: 7197834583306505053}
   - component: {fileID: 8481454172899552393}
+  - component: {fileID: 130062652677496377}
   - component: {fileID: 8997915682440978713}
   - component: {fileID: 2336594995385906158}
   - component: {fileID: 3941264005942276419}
@@ -11293,6 +11294,26 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   portalWarp: 0
   playerDeath: {fileID: 3941264005942276419}
+--- !u!114 &130062652677496377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7197834583306505045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24523dcc2d7e83144b2935ea904d200f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eatingAudioSource:
+  - {fileID: 2130586210647411725}
+  - {fileID: 1598637978679985352}
+  - {fileID: 8937126868527255301}
+  - {fileID: 4390163454711579439}
+  - {fileID: 2533716321688404137}
+  - {fileID: 2572182329325216009}
+  hungerRate: 1
 --- !u!114 &8997915682440978713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14710,7 +14731,7 @@ Animator:
   m_GameObject: {fileID: 8008158505458239079}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ed97c6cfef450184f9331d52e3f49eed, type: 2}
+  m_Controller: {fileID: 9100000, guid: c9cda6ed250893749b20a5c24f6b3d63, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -14734,6 +14755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphere: {fileID: 7197834583306505045}
   barragePrep: 0
+  animator: {fileID: 7197834581697023858}
   isOnGroundADJ: 0
   OnGroundBuffer: 0.25
 --- !u!114 &7197834581697023859

@@ -18,7 +18,7 @@ public class HandAnim : MonoBehaviour
     //bool flipflop2 = true;
     bool blocker = true;
     float charge;
-    Animator animator;
+    public Animator animator;
     float playerSpeed;
     float playerSpeed2;
     float tempSpeed;
@@ -93,7 +93,7 @@ public class HandAnim : MonoBehaviour
     {
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
         speedController = sphere.GetComponent<MovementSpeedController>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         movement = sphere.GetComponent<Movement>();
         grab = GetComponent<Grab>();
     }

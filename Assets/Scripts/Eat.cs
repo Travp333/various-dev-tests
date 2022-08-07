@@ -8,8 +8,8 @@ using UnityEngine;
 public class Eat : MonoBehaviour
 {
 
-    [SerializeField]
-    float food = default;
+    //[SerializeField]
+    //float food = default;
     [SerializeField]
     bool respawn = true;
     [SerializeField]

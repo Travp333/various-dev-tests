@@ -58,7 +58,6 @@ public class Interact : MonoBehaviour
 
             if(prop.gameObject.tag == "ragdoll"){
                 ragdollParent = prop.parent;
-                this.transform.root.gameObject.GetComponent<WorldShift>().setShiftBlockedTrue();
                 foreach (GameObject G in GameObject.FindGameObjectsWithTag("ragdoll")){
                         G.layer = 16;
                         foreach (Rigidbody R in G.GetComponentsInChildren<Rigidbody>()){
@@ -95,7 +94,6 @@ public class Interact : MonoBehaviour
         hand.setisHolding(false);
         if(prop.gameObject.tag == "ragdoll"){
             dummy.GetChild(5).SetParent(ragdollParent);
-            this.transform.root.gameObject.GetComponent<WorldShift>().setShiftBlockedFalse();
         }
         else{
             dummy.GetChild(5).SetParent(null);

@@ -8,7 +8,7 @@ public class playerHunger : MonoBehaviour
 {
     [SerializeField] private AudioSource[] eatingAudioSource;
     PlayerStats stats;
-    float maxHunger = 100f;
+    //float maxHunger = 100f;
     [SerializeField]
     float hungerRate;
 

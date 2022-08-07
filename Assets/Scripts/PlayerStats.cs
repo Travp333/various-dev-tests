@@ -10,17 +10,14 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     AudioSource[] painSounds;
     public float hp = 100;
-
     public HealthBar healthBar;
     [HideInInspector]
     public bool portalWarp;
     public PlayerDeath playerDeath;
-    bool whichOne;
 
     public void SavePlayer()
     {
         SaveSystem.SavePlayer(this);
-        whichOne = transform.root.gameObject.GetComponent<WorldShift>().whichOne;
     }
     public void LoadPlayer()
     {
@@ -34,14 +31,6 @@ public class PlayerStats : MonoBehaviour
         position.y = data.position[1];
         position.z = data.position[2];
         transform.position = position;
-        GetComponent<WorldShift>().hollOrReal = data.hollOrReal;
-
-        if(whichOne){
-            transform.root.gameObject.GetComponent<WorldShift>().swap(true);
-        }
-        else{
-            transform.root.gameObject.GetComponent<WorldShift>().swap(false);
-        }
 
     }
 
@@ -57,7 +46,6 @@ public class PlayerStats : MonoBehaviour
     public void takeDamage(float damage){
         if (hp - damage < 0){
             //Debug.Log("Went from "+hp+" to 0");
-
             hp = 0;
             playerDeath.Death();
 

@@ -17,6 +17,7 @@ public class objectSize : MonoBehaviour
     [SerializeField]
     [Tooltip ("amount of time before the trash resets its targeted status")]
     public float timeRemaining = 10f;
+    public bool portalWarp;
     
 
     void Update()

@@ -65,6 +65,7 @@ public class Explode : MonoBehaviour
         	{
                 if(hit.gameObject.tag == "NPC" && hit.gameObject.transform.parent.gameObject.GetComponent<ragdollSpawn>() != null && isBomb){
                     hit.gameObject.transform.parent.gameObject.GetComponent<ragdollSpawn>().spawn();
+                    hit.gameObject.transform.parent.gameObject.GetComponent<ragdollSpawn>().isProtected = true;
                     ragdollBlast();
                 }
             	Rigidbody rb = hit.GetComponent<Rigidbody>();

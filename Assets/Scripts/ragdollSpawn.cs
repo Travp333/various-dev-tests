@@ -6,7 +6,7 @@ using UnityEngine;
 public class ragdollSpawn : MonoBehaviour
 {
     [SerializeField]
-    bool isProtected;
+    public bool isProtected;
     [SerializeField]
     GameObject ragdoll;
     [SerializeField]

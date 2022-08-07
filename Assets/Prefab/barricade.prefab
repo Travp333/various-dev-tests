@@ -129,8 +129,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Barricade
-  sizes: 2
+  sizes: 3
   isTrash: 0
   trashType: 0
   isTargeted: 0
   timeRemaining: 10
+  portalWarp: 0
