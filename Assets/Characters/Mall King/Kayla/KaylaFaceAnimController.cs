@@ -15,6 +15,8 @@ public class KaylaFaceAnimController : MonoBehaviour
     int scaredID = 21, scaredBlink1ID = 22, scaredBlink2ID = 23, scaredLeftID = 26, scaredLeftBlinkID = 27, scaredRightID = 24, scaredRightBlinkID = 25;
     int happyID = 32;
     bool isLookingLeft, isLookingRight;
+    [SerializeField]
+    bool forceLeft, forceRight, forceStraight;
     //Start is called before the first frame update
     void Start(){
         Base();
@@ -365,23 +367,35 @@ public class KaylaFaceAnimController : MonoBehaviour
     }
 
     void chooseViewDirection(){
-        int random = Random.Range(0, 6);
-        Debug.Log("deciding which way to look using the number " + random);
-        if(random == 4){
-            Debug.Log("Looking Left");
+        if(forceLeft){
             isLookingLeft = true;
+            isLookingRight = false;
         }
-        else if (random == 5){
-            Debug.Log("Looking Right");
+        else if(forceRight){
             isLookingRight = true;
+            isLookingLeft = false;
         }
-        else{
-            Debug.Log("Looking Straight");
+        else if(forceStraight){
             isLookingRight = false;
             isLookingLeft = false;
         }
-        
-        
+        else{
+            int random = Random.Range(0, 6);
+            Debug.Log("deciding which way to look using the number " + random);
+            if(random == 4){
+                Debug.Log("Looking Left");
+                isLookingLeft = true;
+            }
+            else if (random == 5){
+                Debug.Log("Looking Right");
+                isLookingRight = true;
+            }
+            else{
+                Debug.Log("Looking Straight");
+                isLookingRight = false;
+                isLookingLeft = false;
+            }
+        }
     }
 
 

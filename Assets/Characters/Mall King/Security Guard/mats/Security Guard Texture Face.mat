@@ -8,18 +8,17 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Security Guard Texture Face
-  m_Shader: {fileID: 4800000, guid: 92d4f77f2c670a947a74506772d55249, type: 3}
+  m_Shader: {fileID: 4800000, guid: 6c5234998bb4d214c90be28c6f731584, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - VIGNETTE_MASKED
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-  - _SPECGLOSSMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: Security Guard Texture Face-1ea411ed
+    OptimizedShaderFolder: Security Guard Texture Face-aebb0344
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
@@ -195,7 +194,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c3100ce7d55ceb24dbf6547ea7bad52f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 22449202e5b2208458844e2dd2298e52, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Matcap:
@@ -335,7 +334,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularMap:
-        m_Texture: {fileID: 2800000, guid: 75320a8a3f58e904aaec2dc4657e53eb, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularMap1:
@@ -772,7 +771,7 @@ Material:
     - _EnableSSS: 0
     - _EnableSSSAnimated: 0
     - _EnableScifiSpawnInAnimated: 0
-    - _EnableSpecular: 1
+    - _EnableSpecular: 0
     - _EnableSpecular1: 0
     - _EnableSpecular1Animated: 0
     - _EnableSpecularAnimated: 0
@@ -982,7 +981,7 @@ Material:
     - _LightingMinLightBrightnessAnimated: 0
     - _LightingMinShadowBrightnessRatio: 0
     - _LightingMinShadowBrightnessRatioAnimated: 0
-    - _LightingMode: 1
+    - _LightingMode: 0
     - _LightingModeAnimated: 0
     - _LightingMonochromatic: 0
     - _LightingMonochromaticAnimated: 0
@@ -1664,7 +1663,7 @@ Material:
     - m_start_CenterOutEmission1: 0
     - m_start_DecalSection: 0
     - m_start_DetailOptions: 0
-    - m_start_Lighting: 0
+    - m_start_Lighting: 1
     - m_start_MainHueShift: 0
     - m_start_MainVertexColors: 0
     - m_start_Matcap2: 0
@@ -1716,7 +1715,7 @@ Material:
     - m_start_scrollingEmissionOptions: 0
     - m_start_scrollingEmissionOptions1: 0
     - m_start_shadowTexture: 0
-    - m_start_specular: 1
+    - m_start_specular: 0
     - m_start_specular1: 0
     - m_start_subsurface: 0
     - m_start_vertexManipulation: 0
