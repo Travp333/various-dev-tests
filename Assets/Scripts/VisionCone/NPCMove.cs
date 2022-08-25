@@ -9,7 +9,6 @@ public class NPCMove : MonoBehaviour
     GameObject carrot;
     [SerializeField]
     LayerMask mask;
-    jerryAnimScript anim;
     [SerializeField]
     [Tooltip("Speeds of default roaming, boosted scared speed, and a currently unused slow speed(injured?)")]
     public float runSpeed, defaultSpeed, slowSpeed;
@@ -27,8 +26,6 @@ public class NPCMove : MonoBehaviour
     [SerializeField]
     [Tooltip("the rate at which the npc turns")]
     private float turnRate;
-
-    MaterialSelector select;
     GameObject Min;
     [SerializeField]
     [Tooltip("Radius where npcs get scared by infected")]
@@ -88,6 +85,8 @@ public class NPCMove : MonoBehaviour
     float infectedSearchCap = 1f;
     float infectedSearchCount;
     float roamTimer;
+    [SerializeField]
+    FaceTexController tex;
 
 
     void Start()
@@ -104,11 +103,9 @@ public class NPCMove : MonoBehaviour
             }
         }
         //plugging references
-        anim = GetComponent<jerryAnimScript>();
         //meshy = RandomNavmeshLocation(Random.Range(50f, 300f));
         path = new NavMeshPath();
         list = uninfectedList.GetComponent<uninfectedList>();
-        select = GetComponent<MaterialSelector>();
         agent = GetComponent<NavMeshAgent>();
         Roam();
 
@@ -116,7 +113,7 @@ public class NPCMove : MonoBehaviour
 
     void uninfectedUpdate(){
         if(!uninfectedBlock){
-            select.Select(0);
+            tex.setBase();
             list.removeFromInfected(this.gameObject);
             list.updateUninfectedList(this.gameObject);
             uninfectedBlock = true;
@@ -125,7 +122,8 @@ public class NPCMove : MonoBehaviour
     }
     void infectedUpdate(){
         if(!infectedBlock){
-            select.Select(1);
+            Debug.Log("HOW OFTEN DOES THIS RUN ");
+            tex.setAngry();
             list.updateInfectedList(this.gameObject);
             list.removeFromUninfected(this.gameObject);
             infectedBlock = true;
@@ -367,15 +365,18 @@ public class NPCMove : MonoBehaviour
     public void setScared(){
         agent.speed = runSpeed;
         scared = true;
+        tex.setScared();
     }
     public void resetScared(){
         agent.speed = defaultSpeed;
         scared = false;
+        tex.setBase();
     }
     public void Infect(Collider other)
     {
         list.removeFromUninfected(other.gameObject);
         other.gameObject.GetComponent<NPCMove>().infected = true;
+        other.gameObject.GetComponent<NPCMove>().tex.setAngry();
         flipGate();
         list.updateInfectedList(other.gameObject);
     }

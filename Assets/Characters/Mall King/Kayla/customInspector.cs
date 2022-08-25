@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(KaylaFaceAnimController))]
+[CustomEditor(typeof(FaceTexController))]
 public class customInspector : Editor
 {
 
@@ -9,24 +9,24 @@ public class customInspector : Editor
     {
         DrawDefaultInspector();
 
-        KaylaFaceAnimController kayla = (KaylaFaceAnimController)target;
+        FaceTexController face = (FaceTexController)target;
         if(GUILayout.Button("Set Happy")){
-            kayla.setHappy();
+            face.setHappy();
         }
         if(GUILayout.Button("Set Sad")){
-            kayla.setSad();
+            face.setSad();
         }
         if(GUILayout.Button("Set Base")){
-            kayla.setBase();
+            face.setBase();
         }
         if(GUILayout.Button("Set Scared")){
-            kayla.setScared();
+            face.setScared();
         }
         if(GUILayout.Button("Set Angry")){
-            kayla.setAngry();
+            face.setAngry();
         }
         if(GUILayout.Button("Set Trance")){
-            kayla.setTrance();
+            face.setTrance();
         }
     }
 }
