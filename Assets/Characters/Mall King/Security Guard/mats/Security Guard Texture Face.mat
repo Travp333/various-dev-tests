@@ -8,17 +8,18 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Security Guard Texture Face
-  m_Shader: {fileID: 4800000, guid: 6c5234998bb4d214c90be28c6f731584, type: 3}
+  m_Shader: {fileID: 4800000, guid: ab63679a33ff1c44289d1243ad442894, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - VIGNETTE_MASKED
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  - _SPECGLOSSMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: Security Guard Texture Face-aebb0344
+    OptimizedShaderFolder: Security Guard Texture Face-a7d73b16
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
@@ -771,7 +772,7 @@ Material:
     - _EnableSSS: 0
     - _EnableSSSAnimated: 0
     - _EnableScifiSpawnInAnimated: 0
-    - _EnableSpecular: 0
+    - _EnableSpecular: 1
     - _EnableSpecular1: 0
     - _EnableSpecular1Animated: 0
     - _EnableSpecularAnimated: 0
@@ -1430,7 +1431,7 @@ Material:
     - _SpecularNormal1: 1
     - _SpecularNormal1Animated: 0
     - _SpecularNormalAnimated: 0
-    - _SpecularSmoothness: 0.924
+    - _SpecularSmoothness: 1
     - _SpecularSmoothness1: 0.75
     - _SpecularSmoothness1Animated: 0
     - _SpecularSmoothnessAnimated: 0
@@ -1715,7 +1716,7 @@ Material:
     - m_start_scrollingEmissionOptions: 0
     - m_start_scrollingEmissionOptions1: 0
     - m_start_shadowTexture: 0
-    - m_start_specular: 0
+    - m_start_specular: 1
     - m_start_specular1: 0
     - m_start_subsurface: 0
     - m_start_vertexManipulation: 0

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Security Guard Texture
-  m_Shader: {fileID: 4800000, guid: 8f91658feaa21bf4aa560193cccaa6f2, type: 3}
+  m_Shader: {fileID: 4800000, guid: 797c29e39de6b8d4fae21423767a94d0, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - VIGNETTE_MASKED
@@ -19,7 +19,7 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: Security Guard Texture-e95e376c
+    OptimizedShaderFolder: Security Guard Texture-613e7034
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
