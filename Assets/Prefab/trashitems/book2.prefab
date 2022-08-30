@@ -124,8 +124,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6242620382666765344}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 63.71, y: 15.77, z: 30.99}
-  m_LocalScale: {x: 0.2989341, y: 0.42630994, z: 0.2989341}
+  m_LocalPosition: {x: 63.71, y: 15.77, z: 30.991}
+  m_LocalScale: {x: 0.17739049, y: 0.2529766, z: 0.17739049}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6168201648004554690}
@@ -150,6 +150,7 @@ MonoBehaviour:
   trashType: 3
   isTargeted: 0
   timeRemaining: 10
+  portalWarp: 0
 --- !u!54 &2435460284502915693
 Rigidbody:
   m_ObjectHideFlags: 0

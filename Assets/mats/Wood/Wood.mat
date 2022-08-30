@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Wood
-  m_Shader: {fileID: 4800000, guid: 22e239dcc42cba340b2568802127c7b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: d64c94b67de47234dab90e870adcf06f, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - MOCHIE_PBR
@@ -16,8 +16,7 @@ Material:
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
   - VIGNETTE_MASKED
-  - _LIGHTINGMODE_TEXTURERAMP
-  - _RIMSTYLE_POIYOMI
+  - _LIGHTINGMODE_REALISTIC
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   - _SPECGLOSSMAP
   m_LightmapFlags: 4
@@ -26,7 +25,7 @@ Material:
   m_CustomRenderQueue: 2000
   stringTagMap:
     OptimizedShaderFolder: Wood-e6a11bb9
-    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi Toon
+    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
     RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
@@ -1698,7 +1697,7 @@ Material:
     - _LightingMinLightBrightnessAnimated: 0
     - _LightingMinShadowBrightnessRatio: 0
     - _LightingMinShadowBrightnessRatioAnimated: 0
-    - _LightingMode: 0
+    - _LightingMode: 6
     - _LightingModeAnimated: 0
     - _LightingMonochromatic: 0
     - _LightingMonochromaticAnimated: 0
@@ -1939,7 +1938,7 @@ Material:
     - _MochieMetallicMasksUV: 0
     - _MochieMetallicMultiplier: 0
     - _MochieReflectionMaskInvert: 0
-    - _MochieReflectionStrength: 0.18
+    - _MochieReflectionStrength: 0
     - _MochieReflectionTintThemeIndex: 0
     - _MochieRoughnessMapInvert: 0
     - _MochieRoughnessMultiplier: 0.767
@@ -2783,7 +2782,7 @@ Material:
     - m_start_OutlineStencil: 0
     - m_start_PathAudioLink: 0
     - m_start_PoiLightData: 0
-    - m_start_PoiShading: 0
+    - m_start_PoiShading: 1
     - m_start_RGBMask: 0
     - m_start_RimAudioLink: 0
     - m_start_ShadowMix: 0

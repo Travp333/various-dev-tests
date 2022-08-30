@@ -122,7 +122,6 @@ public class NPCMove : MonoBehaviour
     }
     void infectedUpdate(){
         if(!infectedBlock){
-            Debug.Log("HOW OFTEN DOES THIS RUN ");
             tex.setAngry();
             list.updateInfectedList(this.gameObject);
             list.removeFromUninfected(this.gameObject);

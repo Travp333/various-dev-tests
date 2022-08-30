@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: StoneWall
-  m_Shader: {fileID: 4800000, guid: d41acadf7b7540b428e917db417eab7d, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2b413603650307047bcc9a778bfa4618, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - MOCHIE_PBR
@@ -16,7 +16,7 @@ Material:
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
   - VIGNETTE_MASKED
-  - _LIGHTINGMODE_MULTILAYER_MATH
+  - _LIGHTINGMODE_REALISTIC
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   - _SPECGLOSSMAP
   m_LightmapFlags: 2
@@ -25,7 +25,7 @@ Material:
   m_CustomRenderQueue: 2000
   stringTagMap:
     OptimizedShaderFolder: StoneWall-9f2bcd54
-    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi Toon
+    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
     RenderType: Opaque
     _MochieMetallicMaps_texPack_a_channel: 4
     _MochieMetallicMaps_texPack_a_fallback: 1
@@ -421,7 +421,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MochieMetallicMaps:
-        m_Texture: {fileID: 2800000, guid: b0b67045e5b3b884bbbae6ed2bb3d44b, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MochieReflCube:
@@ -874,7 +874,7 @@ Material:
     - _BumpMapPanAnimated: 0
     - _BumpMapUV: 0
     - _BumpMapUVAnimated: 0
-    - _BumpScale: 0
+    - _BumpScale: 0.005
     - _BumpScaleAnimated: 0
     - _CCIgnoreCastedShadows: 0
     - _CameraAngleMax: 90
@@ -1739,7 +1739,7 @@ Material:
     - _LightingMinLightBrightnessAnimated: 0
     - _LightingMinShadowBrightnessRatio: 0
     - _LightingMinShadowBrightnessRatioAnimated: 0
-    - _LightingMode: 1
+    - _LightingMode: 6
     - _LightingModeAnimated: 0
     - _LightingMonochromatic: 0
     - _LightingMonochromaticAnimated: 0
@@ -1986,7 +1986,7 @@ Material:
     - _MochieRoughnessMultiplier: 0.384
     - _MochieRoughnessMultiplier2: 1
     - _MochieSpecularMaskInvert: 0
-    - _MochieSpecularStrength: 0.648
+    - _MochieSpecularStrength: 0.511
     - _MochieSpecularStrength2: 1
     - _MochieSpecularTintThemeIndex: 0
     - _Mode: 0
@@ -2828,7 +2828,7 @@ Material:
     - m_start_OutlineStencil: 0
     - m_start_PathAudioLink: 0
     - m_start_PoiLightData: 0
-    - m_start_PoiShading: 0
+    - m_start_PoiShading: 1
     - m_start_RGBMask: 0
     - m_start_RimAudioLink: 0
     - m_start_ShadowMix: 0

@@ -2513,7 +2513,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/3fe14509c02772d4fbe111dc
 				reflectionMask *= PRBMaps.b;
 				specularMask *= PRBMaps.a;
 				#endif
-				reflectionMask *= float(0.217);
+				reflectionMask *= float(0);
 				specularMask *= float(0.652);
 				if (float(0))
 				{
@@ -5237,7 +5237,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/3fe14509c02772d4fbe111dc
 				reflectionMask *= PRBMaps.b;
 				specularMask *= PRBMaps.a;
 				#endif
-				reflectionMask *= float(0.217);
+				reflectionMask *= float(0);
 				specularMask *= float(0.652);
 				if (float(0))
 				{

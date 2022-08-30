@@ -347,7 +347,6 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/e2976707ec9b73b45b70a767
  #define POI_VERTEXLIGHT_ON 
  #define VIGNETTE_MASKED 
  #define _LIGHTINGMODE_MULTILAYER_MATH 
- #define PROP_MOCHIEMETALLICMAPS 
 			#pragma target 5.0
 			#pragma skip_variants LIGHTMAP_ON DYNAMICLIGHTMAP_ON LIGHTMAP_SHADOW_MIXING SHADOWS_SHADOWMASK DIRLIGHTMAP_COMBINED _MIXED_LIGHTING_SUBTRACTIVE
 			//ifex float(1)==0
@@ -2469,7 +2468,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/e2976707ec9b73b45b70a767
 				specularMask *= PRBMaps.a;
 				#endif
 				reflectionMask *= float(0);
-				specularMask *= float(0.648);
+				specularMask *= float(0.511);
 				if (float(0))
 				{
 					specularMask = 1 - specularMask;
@@ -2633,7 +2632,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/e2976707ec9b73b45b70a767
 					mainUV = sharpSample(float4(0.0009765625,0.0009765625,1024,1024), mainUV);
 				}
 				float4 mainTexture = UNITY_SAMPLE_TEX2D(_MainTex, poiUV(mainUV, float4(1,1,0,0)) + _Time.x * float4(0,0,0,0));
-				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0));
+				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.005));
 				poiMesh.tangentSpaceNormal = mainNormal;
 				poiMesh.normals[1] = normalize(
 				poiMesh.tangentSpaceNormal.x * poiMesh.tangent.xyz +
@@ -3021,7 +3020,6 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/e2976707ec9b73b45b70a767
  #define POI_VERTEXLIGHT_ON 
  #define VIGNETTE_MASKED 
  #define _LIGHTINGMODE_MULTILAYER_MATH 
- #define PROP_MOCHIEMETALLICMAPS 
 			#pragma target 5.0
 			#pragma skip_variants LIGHTMAP_ON DYNAMICLIGHTMAP_ON LIGHTMAP_SHADOW_MIXING SHADOWS_SHADOWMASK DIRLIGHTMAP_COMBINED _MIXED_LIGHTING_SUBTRACTIVE
 			//ifex float(1)==0
@@ -5138,7 +5136,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/e2976707ec9b73b45b70a767
 				specularMask *= PRBMaps.a;
 				#endif
 				reflectionMask *= float(0);
-				specularMask *= float(0.648);
+				specularMask *= float(0.511);
 				if (float(0))
 				{
 					specularMask = 1 - specularMask;
@@ -5302,7 +5300,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/e2976707ec9b73b45b70a767
 					mainUV = sharpSample(float4(0.0009765625,0.0009765625,1024,1024), mainUV);
 				}
 				float4 mainTexture = UNITY_SAMPLE_TEX2D(_MainTex, poiUV(mainUV, float4(1,1,0,0)) + _Time.x * float4(0,0,0,0));
-				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0));
+				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.005));
 				poiMesh.tangentSpaceNormal = mainNormal;
 				poiMesh.normals[1] = normalize(
 				poiMesh.tangentSpaceNormal.x * poiMesh.tangent.xyz +
@@ -5693,7 +5691,6 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/e2976707ec9b73b45b70a767
  #define POI_VERTEXLIGHT_ON 
  #define VIGNETTE_MASKED 
  #define _LIGHTINGMODE_MULTILAYER_MATH 
- #define PROP_MOCHIEMETALLICMAPS 
 			#pragma target 5.0
 			#pragma skip_variants LIGHTMAP_ON DYNAMICLIGHTMAP_ON LIGHTMAP_SHADOW_MIXING SHADOWS_SHADOWMASK DIRLIGHTMAP_COMBINED _MIXED_LIGHTING_SUBTRACTIVE
 			//ifex float(1)==0
@@ -6928,7 +6925,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/e2976707ec9b73b45b70a767
 					mainUV = sharpSample(float4(0.0009765625,0.0009765625,1024,1024), mainUV);
 				}
 				float4 mainTexture = UNITY_SAMPLE_TEX2D(_MainTex, poiUV(mainUV, float4(1,1,0,0)) + _Time.x * float4(0,0,0,0));
-				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0));
+				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.005));
 				poiMesh.tangentSpaceNormal = mainNormal;
 				poiMesh.normals[1] = normalize(
 				poiMesh.tangentSpaceNormal.x * poiMesh.tangent.xyz +

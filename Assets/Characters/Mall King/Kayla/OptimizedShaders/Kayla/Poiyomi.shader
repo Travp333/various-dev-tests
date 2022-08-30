@@ -2457,7 +2457,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/187265ff5349b834da69a724
 			#ifdef MOCHIE_PBR
 			void MochieBRDF(inout PoiFragData poiFragData, in PoiCam poiCam, inout PoiLight poiLight, in PoiMesh poiMesh, in PoiMods poiMods)
 			{
-				float smoothness = float(0.493);
+				float smoothness = float(0.516);
 				float smoothness2 = float(1);
 				float metallic = float(0);
 				float specularMask = 1;
@@ -2475,7 +2475,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/187265ff5349b834da69a724
 				reflectionMask *= PRBMaps.b;
 				specularMask *= PRBMaps.a;
 				#endif
-				reflectionMask *= float(0.163);
+				reflectionMask *= float(0);
 				specularMask *= float(0.604);
 				if (float(0))
 				{
@@ -5133,7 +5133,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/187265ff5349b834da69a724
 			#ifdef MOCHIE_PBR
 			void MochieBRDF(inout PoiFragData poiFragData, in PoiCam poiCam, inout PoiLight poiLight, in PoiMesh poiMesh, in PoiMods poiMods)
 			{
-				float smoothness = float(0.493);
+				float smoothness = float(0.516);
 				float smoothness2 = float(1);
 				float metallic = float(0);
 				float specularMask = 1;
@@ -5151,7 +5151,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/187265ff5349b834da69a724
 				reflectionMask *= PRBMaps.b;
 				specularMask *= PRBMaps.a;
 				#endif
-				reflectionMask *= float(0.163);
+				reflectionMask *= float(0);
 				specularMask *= float(0.604);
 				if (float(0))
 				{

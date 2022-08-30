@@ -8,16 +8,17 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Teal Tile
-  m_Shader: {fileID: 4800000, guid: 231d95ff7213dd74f82af136b256fb32, type: 3}
-  m_ValidKeywords:
+  m_Shader: {fileID: 4800000, guid: 6d5ee165247ea1d478cef63b1cdc22c8, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - COLOR_GRADING_HDR
   - MOCHIE_PBR
   - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
+  - POSTPROCESS
   - VIGNETTE_MASKED
-  - _LIGHTINGMODE_TEXTURERAMP
-  - _RIMSTYLE_POIYOMI
-  m_InvalidKeywords:
+  - _LIGHTINGMODE_REALISTIC
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   - _SPECGLOSSMAP
   m_LightmapFlags: 4
@@ -26,7 +27,8 @@ Material:
   m_CustomRenderQueue: 2000
   stringTagMap:
     OptimizedShaderFolder: Teal Tile-35af8338
-    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi Toon
+    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
+    RenderType: Opaque
     _MochieMetallicMaps_texPack_a_channel: 4
     _MochieMetallicMaps_texPack_a_fallback: 1
     _MochieMetallicMaps_texPack_a_guid: 70aa5a967507b23489aa89f3af00c5b6
@@ -852,7 +854,7 @@ Material:
     - _BumpMapPanAnimated: 0
     - _BumpMapUV: 0
     - _BumpMapUVAnimated: 0
-    - _BumpScale: 10
+    - _BumpScale: 0.79
     - _BumpScaleAnimated: 0
     - _CCIgnoreCastedShadows: 0
     - _CameraAngleMax: 90
@@ -931,7 +933,7 @@ Material:
     - _CurvFix: 1
     - _CurvatureU: 0
     - _CurvatureV: 0
-    - _Cutoff: 0.5
+    - _Cutoff: 0
     - _CutoffAnimated: 0
     - _DebugCameraData: 0
     - _DebugCameraDataAnimated: 0
@@ -1669,7 +1671,7 @@ Material:
     - _LightingAdditiveMonochromatic: 0
     - _LightingAdditivePassthrough: 0.5
     - _LightingAdditivePassthroughAnimated: 0
-    - _LightingAdditiveType: 1
+    - _LightingAdditiveType: 0
     - _LightingAdditiveTypeAnimated: 0
     - _LightingCap: 1
     - _LightingCapEnabled: 1
@@ -1714,7 +1716,7 @@ Material:
     - _LightingMinLightBrightnessAnimated: 0
     - _LightingMinShadowBrightnessRatio: 0
     - _LightingMinShadowBrightnessRatioAnimated: 0
-    - _LightingMode: 0
+    - _LightingMode: 6
     - _LightingModeAnimated: 0
     - _LightingMonochromatic: 0
     - _LightingMonochromaticAnimated: 0
@@ -1762,7 +1764,7 @@ Material:
     - _MainAlphaToCoverageAnimated: 0
     - _MainBrightness: 0
     - _MainColorAdjustTextureUV: 0
-    - _MainColorAdjustToggle: 0
+    - _MainColorAdjustToggle: 1
     - _MainDistanceFadeAnimated: 0
     - _MainEmissionStrength: 0
     - _MainEmissionStrengthAnimated: 0
@@ -1955,7 +1957,7 @@ Material:
     - _MochieMetallicMasksUV: 0
     - _MochieMetallicMultiplier: 0
     - _MochieReflectionMaskInvert: 0
-    - _MochieReflectionStrength: 1
+    - _MochieReflectionStrength: 0
     - _MochieReflectionTintThemeIndex: 0
     - _MochieRoughnessMapInvert: 0
     - _MochieRoughnessMultiplier: 0.724
@@ -2032,7 +2034,7 @@ Material:
     - _PPMaskUV: 0
     - _PPPosterization: 0
     - _PPPosterizationAmount: 4
-    - _PPSaturation: 1
+    - _PPSaturation: 0.25
     - _PanoBlend: 0
     - _PanoBlendAnimated: 0
     - _PanoCubeMapAnimated: 0
@@ -2147,7 +2149,7 @@ Material:
     - _PolarRadialScale: 1
     - _PolarSpiralPower: 0
     - _PolarUV: 0
-    - _PostProcess: 0
+    - _PostProcess: 1
     - _RGBBlendMultiplicative: 0
     - _RGBBlendMultiplicativeAnimated: 0
     - _RGBBluePanningAnimated: 0
@@ -2267,7 +2269,7 @@ Material:
     - _SSSThicknessModAnimated: 0
     - _SampleWorld: 0
     - _SampleWorldAnimated: 0
-    - _Saturation: 0
+    - _Saturation: -1
     - _SaturationAnimated: 0
     - _ScrollingEmission: 0
     - _ScrollingEmission1: 0
@@ -2277,7 +2279,7 @@ Material:
     - _ScrollingEmissionAnimated: 0
     - _Set_HighColorMaskUV: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShadingEnabled: 1
     - _ShadingShadeMapBlendType: 0
     - _Shadow2ndBlur: 0.3
@@ -2762,10 +2764,10 @@ Material:
     - m_mainOptions: 1
     - m_modifierCategory: 0
     - m_outlineOptions: 0
-    - m_postprocessing: 0
+    - m_postprocessing: 1
     - m_renderingCategory: 0
     - m_renderingOptions: 0
-    - m_specialFXCategory: 0
+    - m_specialFXCategory: 1
     - m_start_ALDecalSpectrum: 0
     - m_start_Alpha: 0
     - m_start_Aniso: 0
@@ -2790,7 +2792,7 @@ Material:
     - m_start_Iridescence: 0
     - m_start_IridescenceAudioLink: 0
     - m_start_Lighting: 0
-    - m_start_MainHueShift: 0
+    - m_start_MainHueShift: 1
     - m_start_MainVertexColors: 0
     - m_start_Matcap2: 0
     - m_start_Matcap3: 0
@@ -2799,7 +2801,7 @@ Material:
     - m_start_OutlineStencil: 0
     - m_start_PathAudioLink: 0
     - m_start_PoiLightData: 0
-    - m_start_PoiShading: 0
+    - m_start_PoiShading: 1
     - m_start_RGBMask: 0
     - m_start_RimAudioLink: 0
     - m_start_ShadowMix: 0
@@ -2857,7 +2859,7 @@ Material:
     - m_start_parallaxInternal: 0
     - m_start_pathing: 0
     - m_start_pointToPoint: 0
-    - m_start_postprocess: 0
+    - m_start_postprocess: 1
     - m_start_reflectionRim: 0
     - m_start_rimLightOptions: 0
     - m_start_rimWidthNoise: 0
