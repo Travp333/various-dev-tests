@@ -2324,7 +2324,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/42bacec902b34bc45bb23a52
 				float2 mainUV = poiMesh.uv[float(0)].xy;
 				if (float(0))
 				{
-					mainUV = sharpSample(float4(0.001953125,0.001953125,512,512), mainUV);
+					mainUV = sharpSample(float4(0.0002441406,0.0002441406,4096,4096), mainUV);
 				}
 				float4 mainTexture = UNITY_SAMPLE_TEX2D(_MainTex, poiUV(mainUV, float4(1,1,0,0)) + _Time.x * float4(0,0,0,0));
 				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.199));
@@ -4722,7 +4722,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/42bacec902b34bc45bb23a52
 				float2 mainUV = poiMesh.uv[float(0)].xy;
 				if (float(0))
 				{
-					mainUV = sharpSample(float4(0.001953125,0.001953125,512,512), mainUV);
+					mainUV = sharpSample(float4(0.0002441406,0.0002441406,4096,4096), mainUV);
 				}
 				float4 mainTexture = UNITY_SAMPLE_TEX2D(_MainTex, poiUV(mainUV, float4(1,1,0,0)) + _Time.x * float4(0,0,0,0));
 				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.199));
@@ -6341,7 +6341,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Toon/42bacec902b34bc45bb23a52
 				float2 mainUV = poiMesh.uv[float(0)].xy;
 				if (float(0))
 				{
-					mainUV = sharpSample(float4(0.001953125,0.001953125,512,512), mainUV);
+					mainUV = sharpSample(float4(0.0002441406,0.0002441406,4096,4096), mainUV);
 				}
 				float4 mainTexture = UNITY_SAMPLE_TEX2D(_MainTex, poiUV(mainUV, float4(1,1,0,0)) + _Time.x * float4(0,0,0,0));
 				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.199));

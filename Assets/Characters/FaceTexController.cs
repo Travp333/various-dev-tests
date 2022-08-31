@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class FaceTexController : MonoBehaviour
 {
-    [SerializeField]
-    public TextureHolder texHol;
     bool isAngry, isScared, isSad, isHappy, isTrance;
     bool flipFlop;
     bool isBlinking;
-    int angryID = 7, angryBlink1ID = 8, angryBlink2ID = 9, angryLeftID = 10, angryLeftBlinkID = 11, angryRightID = 12, angryRightBlinkID = 13;
-    int sadID = 14, sadBlink1ID = 15, sadBlink2ID = 16, sadLeftID = 17, sadLeftBlinkID = 18, sadRightID = 19, sadRightBlinkID = 20;
-    int baseID = 0, baseBlink1ID = 1, baseBlink2ID = 2, baseLeftID = 3, baseLeftBlinkID = 4, baseRightID = 5, baseRightBlinkID = 6;
-    int TranceID = 28, TranceFlipID = 29, TranceBlink1ID = 30,  TranceFlipBlink1ID = 31;
-    int scaredID = 21, scaredBlink1ID = 22, scaredBlink2ID = 23, scaredRightID = 24, scaredRightBlinkID = 25, scaredLeftID = 26, scaredLeftBlinkID = 27;
-    int happyID = 32, happyBlink1ID = 33, happyBlink2ID = 34, happyLeftID = 35, happyLeftBlinkID = 36, happyRightID = 37, happyRightBlinkID = 38;
+    Vector2 angryID = new Vector2(-0.625f, 0.125f), angryBlink1ID = new Vector2(-.125f*4f, 0.125f), angryBlink2ID = new Vector2(-.125f*3f, 0.125f), angryLeftID = new Vector2(-.125f, .125f), angryLeftBlinkID = new Vector2(-.125f -.125f, .125f), angryRightID = new Vector2(.125f, .125f), angryRightBlinkID = new Vector2(0f, .125f);
+    Vector2 sadID = new Vector2(0.25f, -0.25f), sadBlink1ID = new Vector2(-.125f * 4f, -.125f -.125f), sadBlink2ID = new Vector2(-.125f - .125f * 2f, -.125f -.125f), sadLeftID = new Vector2(-.125f, -.125f - .125f), sadLeftBlinkID = new Vector2(-.125f -.125f, -.125f - .125f), sadRightID = new Vector2(.125f, -.125f - .125f), sadRightBlinkID = new Vector2(0f, -.125f -125f -.125f);
+    Vector2 baseID = new Vector2(0f, 0f), baseBlink1ID = new Vector2(0f +.125f*2f, 0f + .125f), baseBlink2ID = new Vector2(-.125f * 5f, 0f), baseLeftID = new Vector2(-.125f * 3f, 0f), baseLeftBlinkID = new Vector2(-.125f * 4f, 0f), baseRightID = new Vector2(-.125f * 1f, 0f), baseRightBlinkID = new Vector2(-.125f * 2f, 0f);
+    Vector2 TranceID = new Vector2(-0.375f, -0.5f), TranceFlipID = new Vector2(-0.375f - .125f, -0.5f), TranceBlink1ID = new Vector2(-0.375f - .125f*2f, -0.5f),  TranceFlipBlink1ID = new Vector2(-0.375f + .125f*5f, -0.5f + .125f);
+    Vector2 scaredID = new Vector2(0.125f, -0.375f), scaredBlink1ID = new Vector2(-.125f*5f, -.125f * 3f), scaredBlink2ID = new Vector2(-.125f*4f, -.125f * 3f), scaredRightID = new Vector2(0f, -.125f*3f), scaredRightBlinkID = new Vector2(-.125f, -.125f*3f), scaredLeftID = new Vector2(-.125f -.125f, -.125f*3f), scaredLeftBlinkID = new Vector2(- .125f*3f, -.125f*3f);
+    Vector2 happyID = new Vector2(-0.125f, -0.125f), happyBlink1ID = new Vector2(-0.125f + .125f*2f, -0.125f + .125f), happyBlink2ID = new Vector2(.125f + .125f, 0f), happyLeftID = new Vector2(.125f * -4f, -.125f), happyLeftBlinkID = new Vector2(-0.125f + .125f*4f, -0.125f), happyRightID = new Vector2(-.125f -.125f, -.125f), happyRightBlinkID = new Vector2(.125f * -3f, -.125f);
     bool isLookingLeft, isLookingRight;
     [SerializeField]
     bool forceLeft, forceRight, forceStraight;
     [SerializeField]
-    bool hasShapeKeys;
+    float blinkTimerLow = 5f, blinkTimerHigh = 10f;
     //Start is called before the first frame update
     void Start(){
         Base();
@@ -33,13 +31,7 @@ public class FaceTexController : MonoBehaviour
         isHappy = false;
         isTrance = false;
         //Debug.Log("angry");
-        this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(angryID));
-        if(hasShapeKeys){
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(1, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(2, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(3, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 100f);
-        }
+        this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", angryID);
         Base();
 
     }
@@ -51,13 +43,8 @@ public class FaceTexController : MonoBehaviour
         isHappy = false;
         isTrance = false;
         //Debug.Log("base");
-        this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(baseID));
-        if(hasShapeKeys){
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(1, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(2, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(3, 0f);
-        }
+        this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", baseID);
+
         Base();
     }
     public void setScared(){
@@ -68,13 +55,7 @@ public class FaceTexController : MonoBehaviour
         isHappy = false;
         isTrance = false;
         //Debug.Log("scared");
-        this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(scaredID));
-        if(hasShapeKeys){
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(2, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(3, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(1, 100f);
-        }
+        this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", scaredID);
         Base();
     }
     public void setTrance(){
@@ -85,13 +66,7 @@ public class FaceTexController : MonoBehaviour
         isHappy = false;
         isTrance = true;
         //Debug.Log("trance");
-        this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(TranceID));
-        if(hasShapeKeys){
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(2, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(3, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(1, 100f);
-        }
+        this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", TranceID);
         Base();
     }
     public void setHappy(){
@@ -102,13 +77,7 @@ public class FaceTexController : MonoBehaviour
         isHappy = true;
         isTrance = false;
         //Debug.Log("happy");
-        this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(happyID));
-        if(hasShapeKeys){
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(1, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(2, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(3, 100f);
-        }
+        this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", happyID);
         Base();
     }
     public void setSad(){
@@ -119,24 +88,18 @@ public class FaceTexController : MonoBehaviour
         isHappy = false;
         isTrance = false;
         //Debug.Log("sad");
-        this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(sadID));
-        if(hasShapeKeys){
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(1, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(3, 0f);
-            this.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(2, 100f);
-        }
+        this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", sadID);
         Base();
     }
 
     void tranceFlip(){
         if(isTrance && !isBlinking){
             if(flipFlop){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(TranceID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", TranceID);
                 flipFlop = !flipFlop;
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(TranceFlipID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", TranceFlipID);
                 flipFlop = !flipFlop;
             }
             Invoke("tranceFlip", .1f);
@@ -146,47 +109,46 @@ public class FaceTexController : MonoBehaviour
     void Base(){
         if(isAngry){
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(angryLeftID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", angryLeftID);
             }
             else if (isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(angryRightID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", angryRightID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(angryID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", angryID);
             }
         }
         else if(isScared){
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(scaredLeftID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", scaredLeftID);
             }
             else if (isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(scaredRightID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", scaredRightID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(scaredID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", scaredID);
             }
         }
         else if(isSad){
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(sadLeftID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", sadLeftID);
             }
             else if (isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(sadRightID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", sadRightID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(sadID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", sadID);
             }
         }
         else if(isHappy){
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(happyLeftID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", happyLeftID);
             }
             else if (isLookingRight){
-
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(happyRightID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", happyRightID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(happyID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", happyID);
             }
         }
         else if(isTrance){
@@ -194,13 +156,13 @@ public class FaceTexController : MonoBehaviour
         }
         else{
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(baseLeftID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", baseLeftID);
             }
             else if (isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(baseRightID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", baseRightID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(baseID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", baseID);
             }
         }
         StartCoroutine(callBlinkDown());
@@ -210,150 +172,147 @@ public class FaceTexController : MonoBehaviour
     void BlinkDown(){
         if(isAngry){
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(angryLeftBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", angryLeftBlinkID);
             }
             else if (isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(angryRightBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", angryRightBlinkID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(angryBlink1ID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", angryBlink1ID);
             }
         }
         else if(isScared){
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(scaredLeftBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", scaredLeftBlinkID);
             }
             else if (isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(scaredRightBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", scaredRightBlinkID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(scaredBlink1ID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", scaredBlink1ID);
             }
         }
         else if(isSad){
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(sadLeftBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", sadLeftBlinkID);
             }
             else if (isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(sadRightBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", sadRightBlinkID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(sadBlink1ID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", sadBlink1ID);
             }
         }
         else if(isHappy){
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(happyLeftBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", happyLeftBlinkID);
             }
             else if (isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(happyRightBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", happyRightBlinkID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(happyBlink1ID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", happyBlink1ID);                
             }
         }
         else if(isTrance){
-            this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(TranceBlink1ID));
+            this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", TranceBlink1ID);
             Invoke("flipTrance", .025f);
         }
         else{
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(baseLeftBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", baseLeftBlinkID);
             }
             else if(isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(baseRightBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", baseRightBlinkID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(baseBlink1ID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", baseBlink1ID);
             }
         }
         StartCoroutine(callBlink());
     }
     void Blink(){
         if(isAngry){
-            this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(angryBlink2ID));
+            this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", angryBlink2ID);
         }
-        else if(isScared){
-            this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(scaredBlink2ID));
+        else if(isScared || isTrance){
+            this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", scaredBlink2ID);
         }
         else if(isSad){
-            this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(sadBlink2ID));
+            this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", sadBlink2ID);
         }
         else if(isHappy){
-            this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(happyBlink2ID));
-        }
-        else if(isTrance){
-            this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(scaredBlink2ID));
+            this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", happyBlink2ID);
         }
         else{
-            this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(baseBlink2ID));
+            this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", baseBlink2ID);
         }
         StartCoroutine(callBlinkUp());
     }
     void BlinkUp(){
         if(isAngry){
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(angryLeftBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", angryLeftBlinkID);
             }
             else if (isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(angryRightBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", angryRightBlinkID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(angryBlink1ID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", angryBlink1ID);
             }
         }
         else if(isScared){
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(scaredLeftBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", scaredLeftBlinkID);
             }
             else if (isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(scaredRightBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", scaredRightBlinkID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(scaredBlink1ID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", scaredBlink1ID);
             }
         }
         else if(isSad){
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(sadLeftBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", sadLeftBlinkID);
             }
             else if (isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(sadRightBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", sadRightBlinkID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(sadBlink1ID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", sadBlink1ID);
             }
         }
         else if(isHappy){
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(happyLeftBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", happyLeftBlinkID);
             }
             else if (isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(happyRightBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", happyRightBlinkID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(happyBlink1ID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", happyBlink1ID);
             }
         }
         else if(isTrance){
-            this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(TranceBlink1ID));
+            this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", TranceBlink1ID);
             Invoke("flipTrance", .025f);
         }
         else{
             if(isLookingLeft){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(baseLeftBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", baseLeftBlinkID);
             }
             else if(isLookingRight){
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(baseRightBlinkID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", baseRightBlinkID);
             }
             else{
-                this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(baseBlink1ID));
+                this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", baseBlink1ID);
             }
         }
         StartCoroutine(callBase());
     }
     void flipTrance(){
-        this.GetComponent<SkinnedMeshRenderer>().material.SetTexture("_MainTex", texHol.getTex(TranceFlipBlink1ID));
+        this.GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", TranceFlipBlink1ID);
     }
 
     IEnumerator callBlink(){
@@ -365,7 +324,7 @@ public class FaceTexController : MonoBehaviour
         BlinkUp();
     }
     IEnumerator callBlinkDown(){
-        yield return new WaitForSeconds(Random.Range(5,10));
+        yield return new WaitForSeconds(Random.Range(blinkTimerLow,blinkTimerHigh));
         BlinkDown();
         isBlinking = true;
     }
