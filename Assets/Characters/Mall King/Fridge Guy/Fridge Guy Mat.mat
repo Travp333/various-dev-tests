@@ -13,6 +13,7 @@ Material:
   - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
+  - POSTPROCESS
   - VIGNETTE_MASKED
   - _LIGHTINGMODE_REALISTIC
   - _RIMSTYLE_POIYOMI
@@ -1451,7 +1452,7 @@ Material:
     - _ForceOpaque: 0
     - _ForceOpaqueAnimated: 0
     - _ForgotToLockMaterial: 1
-    - _GIEmissionMultiplier: 1
+    - _GIEmissionMultiplier: 0
     - _GITDEMaxEmissionMultiplier: 0
     - _GITDEMaxEmissionMultiplier1: 0
     - _GITDEMaxEmissionMultiplier1Animated: 0
@@ -1637,9 +1638,9 @@ Material:
     - _LightingAdditiveDetailStrength: 1
     - _LightingAdditiveDetailStrengthAnimated: 0
     - _LightingAdditiveEnable: 1
-    - _LightingAdditiveGradientEnd: 0.5
+    - _LightingAdditiveGradientEnd: 0.415
     - _LightingAdditiveGradientEndAnimated: 0
-    - _LightingAdditiveGradientStart: 0
+    - _LightingAdditiveGradientStart: 0.074
     - _LightingAdditiveGradientStartAnimated: 0
     - _LightingAdditiveLimit: 1
     - _LightingAdditiveLimitIntensity: 0
@@ -1648,9 +1649,9 @@ Material:
     - _LightingAdditiveMaxIntensity: 1
     - _LightingAdditiveMaxIntensityAnimated: 0
     - _LightingAdditiveMonochromatic: 0
-    - _LightingAdditivePassthrough: 0.5
+    - _LightingAdditivePassthrough: 0.525
     - _LightingAdditivePassthroughAnimated: 0
-    - _LightingAdditiveType: 1
+    - _LightingAdditiveType: 0
     - _LightingAdditiveTypeAnimated: 0
     - _LightingCap: 1
     - _LightingCapEnabled: 1
@@ -1678,14 +1679,14 @@ Material:
     - _LightingEnableHSL: 0
     - _LightingEnableHSLAnimated: 0
     - _LightingForceColorEnabled: 0
-    - _LightingForcedColorThemeIndex: 0
+    - _LightingForcedColorThemeIndex: 1
     - _LightingGradientEnd: 0.5
     - _LightingGradientEndAnimated: 0
     - _LightingGradientStart: 0
     - _LightingGradientStartAnimated: 0
     - _LightingHSLIntensity: 1
     - _LightingHSLIntensityAnimated: 0
-    - _LightingIgnoreAmbientColor: 0
+    - _LightingIgnoreAmbientColor: 1
     - _LightingIgnoreAmbientColorAnimated: 0
     - _LightingIndirectColorMode: 0
     - _LightingIndirectColorModeAnimated: 0
@@ -2012,8 +2013,8 @@ Material:
     - _PPMaskInvert: 0
     - _PPMaskUV: 0
     - _PPPosterization: 0
-    - _PPPosterizationAmount: 4
-    - _PPSaturation: 1
+    - _PPPosterizationAmount: 30
+    - _PPSaturation: 1.8
     - _PanoBlend: 0
     - _PanoBlendAnimated: 0
     - _PanoCubeMapAnimated: 0
@@ -2128,7 +2129,7 @@ Material:
     - _PolarRadialScale: 1
     - _PolarSpiralPower: 0
     - _PolarUV: 0
-    - _PostProcess: 0
+    - _PostProcess: 1
     - _RGBBlendMultiplicative: 0
     - _RGBBlendMultiplicativeAnimated: 0
     - _RGBBluePanningAnimated: 0
@@ -2396,7 +2397,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAnimated: 0
     - _SssBumpBlur: 0.7
-    - _SssScale: 1
+    - _SssScale: 0.95
     - _StencilBackCompareFunction: 8
     - _StencilBackFailOp: 0
     - _StencilBackPassOp: 0
@@ -2743,7 +2744,7 @@ Material:
     - m_mainOptions: 1
     - m_modifierCategory: 0
     - m_outlineOptions: 0
-    - m_postprocessing: 0
+    - m_postprocessing: 1
     - m_renderingCategory: 0
     - m_renderingOptions: 0
     - m_specialFXCategory: 0
@@ -2838,7 +2839,7 @@ Material:
     - m_start_parallaxInternal: 0
     - m_start_pathing: 0
     - m_start_pointToPoint: 0
-    - m_start_postprocess: 0
+    - m_start_postprocess: 1
     - m_start_reflectionRim: 0
     - m_start_rimLightOptions: 0
     - m_start_rimWidthNoise: 0
@@ -3053,8 +3054,8 @@ Material:
     - _LightingAOTexPan: {r: 0, g: 0, b: 0, a: 0}
     - _LightingDetailShadowMapsPan: {r: 0, g: 0, b: 0, a: 0}
     - _LightingDetailShadowsPan: {r: 0, g: 0, b: 0, a: 0}
-    - _LightingForcedColor: {r: 1, g: 1, b: 1, a: 1}
-    - _LightingShadowColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LightingForcedColor: {r: 1, g: 0, b: 0, a: 1}
+    - _LightingShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _LightingShadowMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _LightingShadowMasksPan: {r: 0, g: 0, b: 0, a: 0}
     - _LightingShadowTexturePan: {r: 0, g: 0, b: 0, a: 0}

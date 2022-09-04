@@ -8,21 +8,21 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Material.004
-  m_Shader: {fileID: 4800000, guid: 231d95ff7213dd74f82af136b256fb32, type: 3}
-  m_ValidKeywords:
+  m_Shader: {fileID: 4800000, guid: 0f899d723747413458ac991c6dbf5386, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
   - VIGNETTE_MASKED
-  - _LIGHTINGMODE_MULTILAYER_MATH
-  - _RIMSTYLE_POIYOMI
-  m_InvalidKeywords: []
+  - _LIGHTINGMODE_REALISTIC
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
     OptimizedShaderFolder: Material.004-c0a1b728
-    OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
+    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -831,7 +831,7 @@ Material:
     - _BumpMapPanAnimated: 0
     - _BumpMapUV: 0
     - _BumpMapUVAnimated: 0
-    - _BumpScale: 2.2
+    - _BumpScale: 4.5
     - _BumpScaleAnimated: 0
     - _CCIgnoreCastedShadows: 0
     - _CameraAngleMax: 90
@@ -1693,7 +1693,7 @@ Material:
     - _LightingMinLightBrightnessAnimated: 0
     - _LightingMinShadowBrightnessRatio: 0
     - _LightingMinShadowBrightnessRatioAnimated: 0
-    - _LightingMode: 1
+    - _LightingMode: 6
     - _LightingModeAnimated: 0
     - _LightingMonochromatic: 0
     - _LightingMonochromaticAnimated: 0
@@ -2256,7 +2256,7 @@ Material:
     - _ScrollingEmissionAnimated: 0
     - _Set_HighColorMaskUV: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShadingEnabled: 1
     - _ShadingShadeMapBlendType: 0
     - _Shadow2ndBlur: 0.3
@@ -2735,7 +2735,7 @@ Material:
     - m_end_uvPanosphere: 0
     - m_end_uvPolar: 0
     - m_end_vertexManipulation: 0
-    - m_lightingCategory: 0
+    - m_lightingCategory: 1
     - m_lightingOptions: 1
     - m_mainCategory: 1
     - m_mainOptions: 1
@@ -2778,7 +2778,7 @@ Material:
     - m_start_OutlineStencil: 0
     - m_start_PathAudioLink: 0
     - m_start_PoiLightData: 0
-    - m_start_PoiShading: 0
+    - m_start_PoiShading: 1
     - m_start_RGBMask: 0
     - m_start_RimAudioLink: 0
     - m_start_ShadowMix: 0

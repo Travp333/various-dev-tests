@@ -155,7 +155,7 @@ public class NPCMove : MonoBehaviour
                     }
                 }
                 else if(dist < fearRadius && path.status == NavMeshPathStatus.PathComplete){ 
-                    Debug.Log("VALID ROUTE");
+                    //Debug.Log("VALID ROUTE");
                     //There are infected in the level, and one is near you
                     setScared();
                 }
