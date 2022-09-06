@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class JerryEyeAnimController : MonoBehaviour
 {
-    NPCMove move;
+    ZombieMove move;
     Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        move = this.transform.parent.GetComponent<NPCMove>();
+        move = this.transform.parent.GetComponent<ZombieMove>();
     }
 
     // Update is called once per frame

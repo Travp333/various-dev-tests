@@ -8,16 +8,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Barrel
-  m_Shader: {fileID: 4800000, guid: c933bce24d9d90747a5def016febd042, type: 3}
-  m_ValidKeywords:
+  m_Shader: {fileID: 4800000, guid: cdfde410a13f1264ebfb7e575395a61b, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - MOCHIE_PBR
   - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
   - VIGNETTE_MASKED
   - _LIGHTINGMODE_REALISTIC
-  - _RIMSTYLE_POIYOMI
-  m_InvalidKeywords:
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   - _SPECGLOSSMAP
   m_LightmapFlags: 2
@@ -26,7 +25,8 @@ Material:
   m_CustomRenderQueue: 2000
   stringTagMap:
     OptimizedShaderFolder: Barrel-fa6868bf
-    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi Toon
+    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
+    RenderType: Opaque
     _MochieMetallicMaps_texPack_a_channel: 4
     _MochieMetallicMaps_texPack_a_fallback: 1
     _MochieMetallicMaps_texPack_a_guid: 5c96d5148ff9ea24cbe6d0afdec6cf98
@@ -2304,7 +2304,7 @@ Material:
     - _ScrollingEmissionAnimated: 0
     - _Set_HighColorMaskUV: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShadingEnabled: 1
     - _ShadingShadeMapBlendType: 0
     - _Shadow2ndBlur: 0.3
