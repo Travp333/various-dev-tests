@@ -2480,7 +2480,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/96da8b6f3bab95546ad5ce0
 				specularMask *= PRBMaps.a;
 				#endif
 				reflectionMask *= float(0);
-				specularMask *= float(0.882);
+				specularMask *= float(0.602);
 				if (float(0))
 				{
 					specularMask = 1 - specularMask;
@@ -2644,7 +2644,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/96da8b6f3bab95546ad5ce0
 					mainUV = sharpSample(float4(0.0009765625,0.0009765625,1024,1024), mainUV);
 				}
 				float4 mainTexture = UNITY_SAMPLE_TEX2D(_MainTex, poiUV(mainUV, float4(1,1,0,0)) + _Time.x * float4(0,0,0,0));
-				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.1));
+				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.24));
 				poiMesh.tangentSpaceNormal = mainNormal;
 				poiMesh.normals[1] = normalize(
 				poiMesh.tangentSpaceNormal.x * poiMesh.tangent.xyz +
@@ -5155,7 +5155,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/96da8b6f3bab95546ad5ce0
 				specularMask *= PRBMaps.a;
 				#endif
 				reflectionMask *= float(0);
-				specularMask *= float(0.882);
+				specularMask *= float(0.602);
 				if (float(0))
 				{
 					specularMask = 1 - specularMask;
@@ -5319,7 +5319,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/96da8b6f3bab95546ad5ce0
 					mainUV = sharpSample(float4(0.0009765625,0.0009765625,1024,1024), mainUV);
 				}
 				float4 mainTexture = UNITY_SAMPLE_TEX2D(_MainTex, poiUV(mainUV, float4(1,1,0,0)) + _Time.x * float4(0,0,0,0));
-				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.1));
+				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.24));
 				poiMesh.tangentSpaceNormal = mainNormal;
 				poiMesh.normals[1] = normalize(
 				poiMesh.tangentSpaceNormal.x * poiMesh.tangent.xyz +
@@ -6944,7 +6944,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/96da8b6f3bab95546ad5ce0
 					mainUV = sharpSample(float4(0.0009765625,0.0009765625,1024,1024), mainUV);
 				}
 				float4 mainTexture = UNITY_SAMPLE_TEX2D(_MainTex, poiUV(mainUV, float4(1,1,0,0)) + _Time.x * float4(0,0,0,0));
-				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.1));
+				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.24));
 				poiMesh.tangentSpaceNormal = mainNormal;
 				poiMesh.normals[1] = normalize(
 				poiMesh.tangentSpaceNormal.x * poiMesh.tangent.xyz +
@@ -8323,7 +8323,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/96da8b6f3bab95546ad5ce0
 					mainUV = sharpSample(float4(0.0009765625,0.0009765625,1024,1024), mainUV);
 				}
 				float4 mainTexture = UNITY_SAMPLE_TEX2D(_MainTex, poiUV(mainUV, float4(1,1,0,0)) + _Time.x * float4(0,0,0,0));
-				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.1));
+				float3 mainNormal = UnpackScaleNormal(POI2D_SAMPLER_PAN(_BumpMap, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)), float(0.24));
 				poiMesh.tangentSpaceNormal = mainNormal;
 				poiMesh.normals[1] = normalize(
 				poiMesh.tangentSpaceNormal.x * poiMesh.tangent.xyz +

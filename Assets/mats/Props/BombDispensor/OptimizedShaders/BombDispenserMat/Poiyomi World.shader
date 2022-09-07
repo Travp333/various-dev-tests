@@ -311,7 +311,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/46fc455547497f24dbf8d41
  #define POI_LIGHT_DATA_ADDITIVE_ENABLE 
  #define POI_VERTEXLIGHT_ON 
  #define VIGNETTE_MASKED 
- #define _LIGHTINGMODE_MULTILAYER_MATH 
+ #define _LIGHTINGMODE_REALISTIC 
 			#pragma target 5.0
 			//ifex float(1)==0
 			#pragma multi_compile_fwdbase
@@ -2216,12 +2216,12 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/46fc455547497f24dbf8d41
 				#endif
 				#endif
 				#ifdef POI_PASS_ADD
-				if (float(1) == 0)
+				if (float(0) == 0)
 				{
 					poiLight.rampedLightMap = max(0, poiLight.nDotL);
 					poiLight.finalLighting = poiLight.directColor * poiLight.attenuation * max(0, poiLight.nDotL) * poiLight.detailShadow * poiLight.additiveShadow;
 				}
-				if (float(1) == 1)
+				if (float(0) == 1)
 				{
 					#if defined(POINT_COOKIE) || defined(DIRECTIONAL_COOKIE)
 					float passthrough = 0;
@@ -2236,7 +2236,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/46fc455547497f24dbf8d41
 					poiLight.finalLighting = lerp(poiLight.directColor * max(min(poiLight.attenuation, poiLight.detailShadow), passthrough), poiLight.indirectColor, smoothstep(float(0), float(0.5), 1 - (.5 * poiLight.nDotL + .5)));
 					#endif
 				}
-				if (float(1) == 2)
+				if (float(0) == 2)
 				{
 				}
 				#endif
@@ -2244,11 +2244,11 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/46fc455547497f24dbf8d41
 				float3 vertexLighting = float3(0, 0, 0);
 				for (int index = 0; index < 4; index++)
 				{
-					if (float(1) == 0)
+					if (float(0) == 0)
 					{
 						vertexLighting += poiLight.vColor[index] * poiLight.vAttenuationDotNL[index] * poiLight.detailShadow; // Realistic
 					}
-					if (float(1) == 1) // Toon
+					if (float(0) == 1) // Toon
 					{
 						vertexLighting += lerp(poiLight.vColor[index] * poiLight.vAttenuation[index], poiLight.vColor[index] * float(0.5) * poiLight.vAttenuation[index], smoothstep(float(0), float(0.5), .5 * poiLight.vDotNL[index] + .5)) * poiLight.detailShadow;
 					}
@@ -2706,7 +2706,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/46fc455547497f24dbf8d41
  #define POI_LIGHT_DATA_ADDITIVE_ENABLE 
  #define POI_VERTEXLIGHT_ON 
  #define VIGNETTE_MASKED 
- #define _LIGHTINGMODE_MULTILAYER_MATH 
+ #define _LIGHTINGMODE_REALISTIC 
 			#pragma target 5.0
 			//ifex float(1)==0
 			#pragma multi_compile_fwdadd_fullshadows
@@ -4606,12 +4606,12 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/46fc455547497f24dbf8d41
 				#endif
 				#endif
 				#ifdef POI_PASS_ADD
-				if (float(1) == 0)
+				if (float(0) == 0)
 				{
 					poiLight.rampedLightMap = max(0, poiLight.nDotL);
 					poiLight.finalLighting = poiLight.directColor * poiLight.attenuation * max(0, poiLight.nDotL) * poiLight.detailShadow * poiLight.additiveShadow;
 				}
-				if (float(1) == 1)
+				if (float(0) == 1)
 				{
 					#if defined(POINT_COOKIE) || defined(DIRECTIONAL_COOKIE)
 					float passthrough = 0;
@@ -4626,7 +4626,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/46fc455547497f24dbf8d41
 					poiLight.finalLighting = lerp(poiLight.directColor * max(min(poiLight.attenuation, poiLight.detailShadow), passthrough), poiLight.indirectColor, smoothstep(float(0), float(0.5), 1 - (.5 * poiLight.nDotL + .5)));
 					#endif
 				}
-				if (float(1) == 2)
+				if (float(0) == 2)
 				{
 				}
 				#endif
@@ -4634,11 +4634,11 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/46fc455547497f24dbf8d41
 				float3 vertexLighting = float3(0, 0, 0);
 				for (int index = 0; index < 4; index++)
 				{
-					if (float(1) == 0)
+					if (float(0) == 0)
 					{
 						vertexLighting += poiLight.vColor[index] * poiLight.vAttenuationDotNL[index] * poiLight.detailShadow; // Realistic
 					}
-					if (float(1) == 1) // Toon
+					if (float(0) == 1) // Toon
 					{
 						vertexLighting += lerp(poiLight.vColor[index] * poiLight.vAttenuation[index], poiLight.vColor[index] * float(0.5) * poiLight.vAttenuation[index], smoothstep(float(0), float(0.5), .5 * poiLight.vDotNL[index] + .5)) * poiLight.detailShadow;
 					}
@@ -5099,7 +5099,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/46fc455547497f24dbf8d41
  #define POI_LIGHT_DATA_ADDITIVE_ENABLE 
  #define POI_VERTEXLIGHT_ON 
  #define VIGNETTE_MASKED 
- #define _LIGHTINGMODE_MULTILAYER_MATH 
+ #define _LIGHTINGMODE_REALISTIC 
 			#pragma target 5.0
 			//ifex float(1)==0
 			#pragma skip_variants FOG_LINEAR FOG_EXP FOG_EXP2
@@ -6400,7 +6400,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/46fc455547497f24dbf8d41
  #define POI_LIGHT_DATA_ADDITIVE_ENABLE 
  #define POI_VERTEXLIGHT_ON 
  #define VIGNETTE_MASKED 
- #define _LIGHTINGMODE_MULTILAYER_MATH 
+ #define _LIGHTINGMODE_REALISTIC 
 			#pragma target 5.0
 			//ifex float(1)==0
 			#pragma multi_compile_instancing

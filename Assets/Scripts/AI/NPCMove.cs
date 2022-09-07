@@ -169,22 +169,24 @@ public class NPCMove : MonoBehaviour
                     //calculate a path away from that scary NPC
                     
                 }
-                NavMesh.CalculatePath(Min.transform.position, this.transform.position , NavMesh.AllAreas, path);
-                float dist = Vector3.Distance(this.transform.position, Min.transform.position);
-                if(dist > fearRadius && scared){
-                    updateCount = updateCount + Time.deltaTime;
-                    if(updateCount >= updateCap){
-                        //Debug.Log("Reset Scared!");
-                        resetScared();
-                        updateCount = updateCount - updateCap;
-                        Roam();
+                if(Min != null){
+                    NavMesh.CalculatePath(Min.transform.position, this.transform.position , NavMesh.AllAreas, path);
+                    float dist = Vector3.Distance(this.transform.position, Min.transform.position);
+                    if(dist > fearRadius && scared){
+                        updateCount = updateCount + Time.deltaTime;
+                        if(updateCount >= updateCap){
+                            //Debug.Log("Reset Scared!");
+                            resetScared();
+                            updateCount = updateCount - updateCap;
+                            Roam();
+                        }
                     }
-                }
-                else if(dist < fearRadius && path.status == NavMeshPathStatus.PathComplete){ 
-                    //Debug.Log("VALID ROUTE");
-                    //There are Scary NPCS in the level, and one is near you
-                    //Debug.Log(this.gameObject.name + "is near a scary NPC");
-                    setScared();
+                    else if(dist < fearRadius && path.status == NavMeshPathStatus.PathComplete){ 
+                        //Debug.Log("VALID ROUTE");
+                        //There are Scary NPCS in the level, and one is near you
+                        //Debug.Log(this.gameObject.name + "is near a scary NPC");
+                        setScared();
+                    }
                 }
             }
             if(scared){

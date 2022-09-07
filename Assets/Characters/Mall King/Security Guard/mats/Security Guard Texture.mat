@@ -852,7 +852,7 @@ Material:
     - _BumpMapPanAnimated: 0
     - _BumpMapUV: 0
     - _BumpMapUVAnimated: 0
-    - _BumpScale: 0.1
+    - _BumpScale: 0.24
     - _BumpScaleAnimated: 0
     - _CCIgnoreCastedShadows: 0
     - _CameraAngleMax: 90
@@ -1961,7 +1961,7 @@ Material:
     - _MochieRoughnessMultiplier: 0.38
     - _MochieRoughnessMultiplier2: 1
     - _MochieSpecularMaskInvert: 0
-    - _MochieSpecularStrength: 0.882
+    - _MochieSpecularStrength: 0.602
     - _MochieSpecularStrength2: 1
     - _MochieSpecularTintThemeIndex: 0
     - _Mode: 0
@@ -2799,7 +2799,7 @@ Material:
     - m_start_OutlineStencil: 0
     - m_start_PathAudioLink: 0
     - m_start_PoiLightData: 0
-    - m_start_PoiShading: 1
+    - m_start_PoiShading: 0
     - m_start_RGBMask: 0
     - m_start_RimAudioLink: 0
     - m_start_ShadowMix: 0
