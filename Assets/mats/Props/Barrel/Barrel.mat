@@ -27,6 +27,7 @@ Material:
     OptimizedShaderFolder: Barrel-fa6868bf
     OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
     RenderType: Opaque
+    _ColorAnimated: 1
     _MochieMetallicMaps_texPack_a_channel: 4
     _MochieMetallicMaps_texPack_a_fallback: 1
     _MochieMetallicMaps_texPack_a_guid: 5c96d5148ff9ea24cbe6d0afdec6cf98

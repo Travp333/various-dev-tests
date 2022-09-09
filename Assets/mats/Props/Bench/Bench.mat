@@ -27,6 +27,7 @@ Material:
     OptimizedShaderFolder: Bench-46f0e1ca
     OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
     RenderType: Opaque
+    _MainTexAnimated: 1
     _MochieMetallicMaps_texPack_a_channel: 4
     _MochieMetallicMaps_texPack_a_fallback: 1
     _MochieMetallicMaps_texPack_a_guid: 18d16c2caf6401d458db559ae4322f54

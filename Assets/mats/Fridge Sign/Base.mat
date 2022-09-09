@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Material.001 30
-  m_Shader: {fileID: 4800000, guid: 1a69134c7b2c80a4fabb81e1866681b6, type: 3}
+  m_Name: Base
+  m_Shader: {fileID: 4800000, guid: 6f6c16e5aa0eb824dbfd6cf9a7579122, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - MOCHIE_PBR
@@ -22,7 +22,7 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
+    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi Toon
     RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:

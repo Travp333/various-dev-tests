@@ -8,25 +8,24 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Celing
-  m_Shader: {fileID: 4800000, guid: b23a00e68ea3cb845aab7a49c063281d, type: 3}
-  m_ValidKeywords: []
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ValidKeywords:
+  - _EMISSION
+  - _NORMALMAP
   m_InvalidKeywords:
   - MOCHIE_PBR
   - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
   - VIGNETTE_MASKED
-  - _EMISSION
   - _LIGHTINGMODE_REALISTIC
-  - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   - _SPECGLOSSMAP
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap:
     OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
-    RenderType: Opaque
     _MochieMetallicMaps_texPack_a_channel: 4
     _MochieMetallicMaps_texPack_a_fallback: 1
     _MochieMetallicMaps_texPack_a_guid: bd2f809e8d921214297909eb4e657194
@@ -1562,7 +1561,7 @@ Material:
     - _GlitterUseSurfaceColor: 0
     - _GlitterUseSurfaceColorAnimated: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0
     - _GlossyReflections: 1
     - _GrabBlurDirectionsAnimated: 0
     - _GrabBlurDistanceAnimated: 0

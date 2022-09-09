@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Material.001
-  m_Shader: {fileID: 4800000, guid: 10f8dda4ea798274ab54d343aa1df79e, type: 3}
+  m_Shader: {fileID: 4800000, guid: fecce0c3dd66728439cd59e3b3cc80fd, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - MOCHIE_PBR
@@ -22,7 +22,7 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
   stringTagMap:
-    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
+    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi Toon
     RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
@@ -1815,7 +1815,7 @@ Material:
     - _ClearCoatSpecularTint: {r: 1, g: 1, b: 1, a: 1}
     - _ClippingMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClothMetallicSmoothnessMapPan: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 0.8352941}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.79607844}
     - _CubeMapColor: {r: 1, g: 1, b: 1, a: 1}
     - _CubeMapMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _CubeMapRotation: {r: 0, g: 0, b: 0, a: 0}
