@@ -2922,8 +2922,8 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/57609c65dc4f22b4ea4e190
 				poiLight.vertexNDotH = max(0.00001, dot(poiMesh.normals[0], poiLight.halfDir));
 				poiLight.lightMap = 1;
 				#endif
-				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, float4(1,1,1,1).rgb, float(0));
-				poiFragData.alpha = mainTexture.a * float4(1,1,1,1).a;
+				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, _Color.rgb, float(0));
+				poiFragData.alpha = mainTexture.a * _Color.a;
 				#if defined(PROP_CLIPPINGMASK) || !defined(OPTIMIZER_ENABLED)
 				float alphaMask = POI2D_SAMPLER_PAN(_ClippingMask, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)).r;
 				if (float(0))
@@ -5590,8 +5590,8 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/57609c65dc4f22b4ea4e190
 				poiLight.vertexNDotH = max(0.00001, dot(poiMesh.normals[0], poiLight.halfDir));
 				poiLight.lightMap = 1;
 				#endif
-				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, float4(1,1,1,1).rgb, float(0));
-				poiFragData.alpha = mainTexture.a * float4(1,1,1,1).a;
+				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, _Color.rgb, float(0));
+				poiFragData.alpha = mainTexture.a * _Color.a;
 				#if defined(PROP_CLIPPINGMASK) || !defined(OPTIMIZER_ENABLED)
 				float alphaMask = POI2D_SAMPLER_PAN(_ClippingMask, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)).r;
 				if (float(0))
@@ -6953,8 +6953,8 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/57609c65dc4f22b4ea4e190
 				poiCam.vDotN = abs(dot(poiCam.viewDir, poiMesh.normals[1]));
 				poiCam.clipPos = i.pos;
 				poiCam.worldDirection = i.worldDirection;
-				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, float4(1,1,1,1).rgb, float(0));
-				poiFragData.alpha = mainTexture.a * float4(1,1,1,1).a;
+				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, _Color.rgb, float(0));
+				poiFragData.alpha = mainTexture.a * _Color.a;
 				#if defined(PROP_CLIPPINGMASK) || !defined(OPTIMIZER_ENABLED)
 				float alphaMask = POI2D_SAMPLER_PAN(_ClippingMask, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)).r;
 				if (float(0))
@@ -8333,8 +8333,8 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi World/57609c65dc4f22b4ea4e190
 				poiCam.clipPos = i.pos;
 				poiCam.worldDirection = i.worldDirection;
 				calculateGlobalThemes(poiMods);
-				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, float4(1,1,1,1).rgb, float(0));
-				poiFragData.alpha = mainTexture.a * float4(1,1,1,1).a;
+				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, _Color.rgb, float(0));
+				poiFragData.alpha = mainTexture.a * _Color.a;
 				#if defined(PROP_CLIPPINGMASK) || !defined(OPTIMIZER_ENABLED)
 				float alphaMask = POI2D_SAMPLER_PAN(_ClippingMask, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)).r;
 				if (float(0))
