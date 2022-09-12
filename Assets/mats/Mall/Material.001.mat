@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Material.001
-  m_Shader: {fileID: 4800000, guid: fecce0c3dd66728439cd59e3b3cc80fd, type: 3}
+  m_Shader: {fileID: 4800000, guid: b1cd2c08cf67ab14b899bf52dfcb9059, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - MOCHIE_PBR
@@ -22,8 +22,25 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
   stringTagMap:
-    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi Toon
+    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
     RenderType: Opaque
+    _MochieMetallicMaps_texPack_a_channel: 4
+    _MochieMetallicMaps_texPack_a_fallback: 1
+    _MochieMetallicMaps_texPack_a_guid: ddcd45ae8b3c11449a42f649767aa74b
+    _MochieMetallicMaps_texPack_a_inverted: False
+    _MochieMetallicMaps_texPack_b_channel: 4
+    _MochieMetallicMaps_texPack_b_fallback: 1
+    _MochieMetallicMaps_texPack_b_guid: ddcd45ae8b3c11449a42f649767aa74b
+    _MochieMetallicMaps_texPack_b_inverted: False
+    _MochieMetallicMaps_texPack_g_channel: 4
+    _MochieMetallicMaps_texPack_g_fallback: 1
+    _MochieMetallicMaps_texPack_g_guid: ddcd45ae8b3c11449a42f649767aa74b
+    _MochieMetallicMaps_texPack_g_inverted: False
+    _MochieMetallicMaps_texPack_lastConfirmTime: 1662927401
+    _MochieMetallicMaps_texPack_r_channel: 4
+    _MochieMetallicMaps_texPack_r_fallback: 1
+    _MochieMetallicMaps_texPack_r_guid: ddcd45ae8b3c11449a42f649767aa74b
+    _MochieMetallicMaps_texPack_r_inverted: False
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -285,7 +302,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e2a253b05546e224cab74679d770e4ba, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9d11f9509f02f234493519c022317ca6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Matcap:
@@ -345,7 +362,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MochieMetallicMaps:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 73b0b13a0362d0540b3edffd99f4aea7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MochieReflCube:
@@ -1119,7 +1136,7 @@ Material:
     - _LightingAdditiveLimited: 0
     - _LightingAdditiveMonochromatic: 0
     - _LightingAdditivePassthrough: 0.5
-    - _LightingAdditiveType: 1
+    - _LightingAdditiveType: 0
     - _LightingCap: 1
     - _LightingCapEnabled: 1
     - _LightingCastedShadows: 0
@@ -1279,7 +1296,7 @@ Material:
     - _MochieReflectionStrength: 0
     - _MochieReflectionTintThemeIndex: 0
     - _MochieRoughnessMapInvert: 0
-    - _MochieRoughnessMultiplier: 1
+    - _MochieRoughnessMultiplier: 0.722
     - _MochieRoughnessMultiplier2: 1
     - _MochieSpecularMaskInvert: 0
     - _MochieSpecularStrength: 1
@@ -1815,7 +1832,7 @@ Material:
     - _ClearCoatSpecularTint: {r: 1, g: 1, b: 1, a: 1}
     - _ClippingMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClothMetallicSmoothnessMapPan: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 0.79607844}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.45490196}
     - _CubeMapColor: {r: 1, g: 1, b: 1, a: 1}
     - _CubeMapMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _CubeMapRotation: {r: 0, g: 0, b: 0, a: 0}
