@@ -1,17 +1,56 @@
 fileFormatVersion: 2
-guid: 86d04ef7c1ef5ed4abeb84ded4eaa743
+guid: bfec55fafb2006c46b581b2d66c77bba
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
-      74: 9114332383783914255
-    second: Cube.002|CameraAction
+      74: 7486660424707096365
+    second: Cube.002|Cube.001|Cube.001|CameraAction
   - first:
-      74: 7600187681039703104
-    second: Cube.002|CubeAction.002
+      74: -4752077888642968184
+    second: Cube.002|Cube.001|Cube.001|CubeAction.001
   - first:
-      74: -4489270817662608749
-    second: Cube.002|PointAction
+      74: 3128969365088724297
+    second: Cube.002|Cube.001|Cube.001|CubeAction.002
+  - first:
+      74: 2613834507365839377
+    second: Cube.002|Cube.001|Cube.001|PointAction
+  - first:
+      74: -2087588688558595596
+    second: Cube.002|Cube.002|Cube.002|CameraAction
+  - first:
+      74: -2033593904460853295
+    second: Cube.002|Cube.002|Cube.002|CubeAction.001
+  - first:
+      74: 839589863594352146
+    second: Cube.002|Cube.002|Cube.002|CubeAction.002
+  - first:
+      74: -481675467113301744
+    second: Cube.002|Cube.002|Cube.002|PointAction
+  - first:
+      74: -3203457948164528939
+    second: Cube.001|Cube.001|Cube.001|CameraAction
+  - first:
+      74: 2697289308965543984
+    second: Cube.001|Cube.001|Cube.001|CubeAction.001
+  - first:
+      74: 2038087090335612116
+    second: Cube.001|Cube.001|Cube.001|CubeAction.002
+  - first:
+      74: 3671085022338153462
+    second: Cube.001|Cube.001|Cube.001|PointAction
+  - first:
+      74: 333142611370077908
+    second: Cube.001|Cube.002|Cube.002|CameraAction
+  - first:
+      74: -959636393991743733
+    second: Cube.001|Cube.002|Cube.002|CubeAction.001
+  - first:
+      74: 7547942818297925422
+    second: Cube.001|Cube.002|Cube.002|CubeAction.002
+  - first:
+      74: 4076798839545168420
+    second: Cube.001|Cube.002|Cube.002|PointAction
   externalObjects: {}
   materials:
     materialImportMode: 2

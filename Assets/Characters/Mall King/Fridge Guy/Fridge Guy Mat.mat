@@ -8,16 +8,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Fridge Guy Mat
-  m_Shader: {fileID: 4800000, guid: c933bce24d9d90747a5def016febd042, type: 3}
-  m_ValidKeywords:
+  m_Shader: {fileID: 4800000, guid: 938e58586dedcdb4782be6bb8f884f25, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
   - POSTPROCESS
   - VIGNETTE_MASKED
   - _LIGHTINGMODE_REALISTIC
-  - _RIMSTYLE_POIYOMI
-  m_InvalidKeywords:
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -25,7 +24,8 @@ Material:
   m_CustomRenderQueue: 2000
   stringTagMap:
     OptimizedShaderFolder: Fridge Guy Mat-eba5b98d
-    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi Toon
+    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -503,7 +503,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RimTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 689a97b4b90b8b94baea6243cdc7a0d6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RimWidthNoiseTexture:
@@ -867,7 +867,7 @@ Material:
     - _ClearCoatReflectionTintThemeIndex: 0
     - _ClearCoatSampleWorld: 0
     - _ClearCoatSampleWorldAnimated: 0
-    - _ClearCoatSmoothness: 0
+    - _ClearCoatSmoothness: 1
     - _ClearCoatSmoothnessAnimated: 0
     - _ClearCoatSmoothnessMapAnimated: 0
     - _ClearCoatSmoothnessMapInvert: 0
@@ -1485,11 +1485,11 @@ Material:
     - _GITDEWorldOrMeshAnimated: 0
     - _GlitterAngleRange: 90
     - _GlitterAngleRangeAnimated: 0
-    - _GlitterBias: 0.8
+    - _GlitterBias: 0.699
     - _GlitterBiasAnimated: 0
     - _GlitterBlendType: 0
     - _GlitterBlendTypeAnimated: 0
-    - _GlitterBrightness: 3
+    - _GlitterBrightness: 40
     - _GlitterBrightnessAnimated: 0
     - _GlitterCenterSize: 0.08
     - _GlitterCenterSizeAnimated: 0
@@ -1503,7 +1503,7 @@ Material:
     - _GlitterContrastAnimated: 0
     - _GlitterEnable: 0
     - _GlitterEnableAnimated: 0
-    - _GlitterFrequency: 300
+    - _GlitterFrequency: 1483.76
     - _GlitterFrequencyAnimated: 0
     - _GlitterHideInShadow: 0
     - _GlitterHueShift: 0
@@ -1533,7 +1533,7 @@ Material:
     - _GlitterRandomSizeAnimated: 0
     - _GlitterShape: 0
     - _GlitterShapeAnimated: 0
-    - _GlitterSize: 0.3
+    - _GlitterSize: 0.89
     - _GlitterSizeAnimated: 0
     - _GlitterSpeed: 10
     - _GlitterSpeedAnimated: 0
@@ -1568,7 +1568,7 @@ Material:
     - _HelpBoxHideLocking: 0
     - _HelpBoxLocking: 0
     - _HighColorThemeIndex: 0
-    - _HighColor_Power: 0.2
+    - _HighColor_Power: 0.548
     - _HighColor_TexUV: 0
     - _HoloAlphaMapAnimated: 0
     - _HoloCoordinateSpaceAnimated: 0
@@ -1615,7 +1615,7 @@ Material:
     - _Is_BlendAddToHiColor: 0
     - _Is_LightColor_Ap_RimLight: 1
     - _Is_LightColor_RimLight: 1
-    - _Is_NormalMapToRimLight: 1
+    - _Is_NormalMapToRimLight: 0
     - _Is_SpecularToHighColor: 0
     - _Layer1Strength: 1
     - _Layer2Size: 0
@@ -1657,7 +1657,7 @@ Material:
     - _LightingCapEnabled: 1
     - _LightingCastedShadows: 0
     - _LightingColorMode: 0
-    - _LightingDebugVisualize: 0
+    - _LightingDebugVisualize: 5
     - _LightingDetailShadowMapsUV: 0
     - _LightingDetailShadowStrengthA: 0
     - _LightingDetailShadowStrengthB: 0
@@ -2013,7 +2013,7 @@ Material:
     - _PPMaskInvert: 0
     - _PPMaskUV: 0
     - _PPPosterization: 0
-    - _PPPosterizationAmount: 30
+    - _PPPosterizationAmount: 18.54
     - _PPSaturation: 1.8
     - _PanoBlend: 0
     - _PanoBlendAnimated: 0
@@ -2176,7 +2176,7 @@ Material:
     - _RimBlendStrength: 1
     - _RimBrighten: 0
     - _RimBrightenAnimated: 0
-    - _RimBrightness: 1
+    - _RimBrightness: 0.55
     - _RimEnviroBlur: 0.7
     - _RimEnviroBlurAnimated: 0
     - _RimEnviroIntensity: 1
@@ -2209,21 +2209,21 @@ Material:
     - _RimMaskPanAnimated: 0
     - _RimMaskUV: 0
     - _RimMaskUVAnimated: 0
-    - _RimPower: 1
+    - _RimPower: 0.78
     - _RimShadowMaskRampType: 0
     - _RimShadowMaskStrength: 1
     - _RimShadowToggle: 0
     - _RimShadowWidth: 0
-    - _RimSharpness: 0.25
+    - _RimSharpness: 0.503
     - _RimSharpnessAnimated: 0
-    - _RimStrength: 0
+    - _RimStrength: 1.54
     - _RimStrengthAnimated: 0
     - _RimStyle: 0
     - _RimTexAnimated: 0
     - _RimTexPanAnimated: 0
     - _RimTexUV: 0
     - _RimTexUVAnimated: 0
-    - _RimWidth: 0.8
+    - _RimWidth: 0.939
     - _RimWidthAnimated: 0
     - _RimWidthNoiseStrength: 0.1
     - _RimWidthNoiseStrengthAnimated: 0
@@ -2259,7 +2259,7 @@ Material:
     - _ScrollingEmissionAnimated: 0
     - _Set_HighColorMaskUV: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShadingEnabled: 1
     - _ShadingShadeMapBlendType: 0
     - _Shadow2ndBlur: 0.3
@@ -2425,7 +2425,7 @@ Material:
     - _StylizedSpecular: 0
     - _StylizedSpecular2Feather: 0
     - _StylizedSpecularFeather: 0
-    - _StylizedSpecularStrength: 1
+    - _StylizedSpecularStrength: 16.94
     - _TextEnabled: 0
     - _TextEnabledAnimated: 0
     - _TextFPSColorAnimated: 0
@@ -2523,7 +2523,7 @@ Material:
     - _UVTileDissolveEnabled: 0
     - _UVTileDissolveUV: 0
     - _Unlit_Intensity: 1
-    - _UseLightColor: 1
+    - _UseLightColor: 0
     - _UseShadowTexture: 0
     - _UseShadowTextureAnimated: 0
     - _Use_1stAs2nd: 0
@@ -2740,14 +2740,14 @@ Material:
     - m_end_vertexManipulation: 0
     - m_lightingCategory: 1
     - m_lightingOptions: 0
-    - m_mainCategory: 0
+    - m_mainCategory: 1
     - m_mainOptions: 1
     - m_modifierCategory: 0
     - m_outlineOptions: 0
-    - m_postprocessing: 1
+    - m_postprocessing: 0
     - m_renderingCategory: 0
     - m_renderingOptions: 0
-    - m_specialFXCategory: 0
+    - m_specialFXCategory: 1
     - m_start_ALDecalSpectrum: 0
     - m_start_Alpha: 0
     - m_start_Aniso: 0
@@ -2839,7 +2839,7 @@ Material:
     - m_start_parallaxInternal: 0
     - m_start_pathing: 0
     - m_start_pointToPoint: 0
-    - m_start_postprocess: 1
+    - m_start_postprocess: 0
     - m_start_reflectionRim: 0
     - m_start_rimLightOptions: 0
     - m_start_rimWidthNoise: 0
@@ -3132,10 +3132,10 @@ Material:
     - _RgbNormalGPan: {r: 0, g: 0, b: 0, a: 0}
     - _RgbNormalRPan: {r: 0, g: 0, b: 0, a: 0}
     - _RimEnviroMaskPan: {r: 0, g: 0, b: 0, a: 0}
-    - _RimLightColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimLightColor: {r: 0, g: 1, b: 0.89565754, a: 1}
     - _RimMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _RimShadowAlpha: {r: 0, g: 0, b: 0, a: 1}
-    - _RimTexPan: {r: 0, g: 0, b: 0, a: 0}
+    - _RimTexPan: {r: 6.07, g: 0, b: 0, a: 0}
     - _RimWidthNoiseTexturePan: {r: 0, g: 0, b: 0, a: 0}
     - _SDFForward: {r: 0, g: 0, b: 1, a: 0}
     - _SDFLeft: {r: -1, g: 0, b: 0, a: 0}
