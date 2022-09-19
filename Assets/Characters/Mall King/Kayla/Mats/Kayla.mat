@@ -8,17 +8,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Kayla
-  m_Shader: {fileID: 4800000, guid: 231d95ff7213dd74f82af136b256fb32, type: 3}
-  m_ValidKeywords:
-  - GEOM_TYPE_MESH
+  m_Shader: {fileID: 4800000, guid: a78830e6444d32f41803ef9f9ff9146c, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - MOCHIE_PBR
   - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
   - VIGNETTE_MASKED
   - _LIGHTINGMODE_TEXTURERAMP
-  - _RIMSTYLE_POIYOMI
-  m_InvalidKeywords:
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   - _SPECGLOSSMAP
   m_LightmapFlags: 4
@@ -2418,7 +2416,7 @@ Material:
     - _ShadeColor_Step: 0
     - _ShadeGradient: 0.799
     - _ShadeWidth: 0.782
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShadingEnabled: 1
     - _ShadingFO: 1
     - _ShadingShadeMapBlendType: 0
@@ -2925,7 +2923,7 @@ Material:
     - m_end_vertexManipulation: 0
     - m_lightingCategory: 1
     - m_lightingOptions: 1
-    - m_mainCategory: 0
+    - m_mainCategory: 1
     - m_mainOptions: 1
     - m_modifierCategory: 0
     - m_outlineOptions: 0

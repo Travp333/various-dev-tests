@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: jerry
-  m_Shader: {fileID: 4800000, guid: 50c9cab643a035a43b847af2bcd388ac, type: 3}
+  m_Shader: {fileID: 4800000, guid: b60bf994ea1917e419bd0f95a342403d, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - MOCHIE_PBR

@@ -9,9 +9,12 @@ public class NPCMove : MonoBehaviour
     GameObject carrot;
     [SerializeField]
     LayerMask mask;
+    [HideInInspector]
+    public float runSpeed, defaultSpeed, slowSpeed;
+
     [SerializeField]
     [Tooltip("Speeds of default roaming, boosted scared speed, and a currently unused slow speed(injured?)")]
-    public float runSpeed, defaultSpeed, slowSpeed;
+    public float runSpeedUpper, runSpeedLower, defaultSpeedUpper, defaultSpeedLower, slowSpeedUpper, slowSpeedLower;
     float updateCount = 0;
     [SerializeField]
     [Tooltip("How long an NPC stays scared")]
@@ -76,6 +79,9 @@ public class NPCMove : MonoBehaviour
 
     void Start()
     {
+        runSpeed = Random.Range(runSpeedLower, runSpeedUpper);
+        defaultSpeed = Random.Range(defaultSpeedLower, defaultSpeedUpper);
+        slowSpeed = Random.Range(slowSpeedLower, slowSpeedUpper);
         foreach(GameObject g in GameObject.FindObjectsOfType<GameObject>()){
             if(g.GetComponent<NPCBehaviorChangersList>()!=null){
                 list = g.GetComponent<NPCBehaviorChangersList>();
@@ -172,29 +178,49 @@ public class NPCMove : MonoBehaviour
         //}
         if(!chaser && !scary){
             //Debug.Log(this.gameObject.name + "is not a chaser and is not scary");
-            if(list.scary.Count > 0){
+            if(list.scary.Count > 0 && !runner){
                 //Debug.Log(this.gameObject.name + "knows there is a scary agent somewhere");
                 //there are scary npcs on the level somewhere, find the closest one
-                if(!runner){
-                    scarySearchCount += Time.deltaTime;
-                    if(scarySearchCount >= searchCap){
-                        //find the closest one, once per second
-                        GetClosestScary();
-                        //Debug.Log(this.gameObject.name + "is calculating a path away from " + Min.gameObject.name);
-                        scarySearchCount = scarySearchCount - searchCap;
-                        //calculate a path away from that scary NPC
-                    }
+                scarySearchCount += Time.deltaTime;
+                if(scarySearchCount >= searchCap){
+                    //find the closest one, once per second
+                    GetClosestScary();
+                    //Debug.Log(this.gameObject.name + "is calculating a path away from " + Min.gameObject.name);
+                    scarySearchCount = scarySearchCount - searchCap;
+                    //calculate a path away from that scary NPC
                 }
                 // if you are a runner, just find the nearest NPC and run away from them
-                else if (runner){
-                    NPCSearchCount += Time.deltaTime;
-                    if(NPCSearchCount >= searchCap){
-                        //find the closest one, once per second
-                        GetClosestNPC();
-                        //Debug.Log(this.gameObject.name + "is calculating a path away from " + Min.gameObject.name);
-                        NPCSearchCount = NPCSearchCount - searchCap;
-                        //calculate a path away from that scary NPC
+                
+                if(Min != null){
+                    NavMesh.CalculatePath(Min.transform.position, this.transform.position , NavMesh.AllAreas, path);
+                    float dist = Vector3.Distance(this.transform.position, Min.transform.position);
+                    if(dist > fearRadius && scared){
+                        updateCount = updateCount + Time.deltaTime;
+                        if(updateCount >= updateCap){
+                            //Debug.Log("Reset Scared!");
+                            resetScared();
+                            updateCount = updateCount - updateCap;
+                            Roam();
+                        }
                     }
+                    else if(dist < fearRadius && path.status == NavMeshPathStatus.PathComplete){ 
+                        //Debug.Log("VALID ROUTE");
+                        //There are Scary NPCS in the level, and one is near you
+                        //Debug.Log(this.gameObject.name + "is near a scary NPC");
+                        setScared();
+                    }
+                }
+            }
+
+            if(runner){
+                Debug.Log("I AM RUNNER", this.gameObject);
+                NPCSearchCount += Time.deltaTime;
+                if(NPCSearchCount >= searchCap){
+                    //find the closest one, once per second
+                    GetClosestNPC();
+                    //Debug.Log(this.gameObject.name + "is calculating a path away from " + Min.gameObject.name);
+                    NPCSearchCount = NPCSearchCount - searchCap;
+                    //calculate a path away from that scary NPC
                 }
                 if(Min != null){
                     NavMesh.CalculatePath(Min.transform.position, this.transform.position , NavMesh.AllAreas, path);
@@ -215,6 +241,7 @@ public class NPCMove : MonoBehaviour
                         setScared();
                     }
                 }
+
             }
             if(scared){
                 findEscape();

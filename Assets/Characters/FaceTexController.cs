@@ -350,7 +350,7 @@ public class FaceTexController : MonoBehaviour
             isLookingLeft = false;
         }
         else{
-            int random = Random.Range(0, 6);
+            int random = Random.Range(0, 10);
             if(random == 4){
                 isLookingLeft = true;
             }
