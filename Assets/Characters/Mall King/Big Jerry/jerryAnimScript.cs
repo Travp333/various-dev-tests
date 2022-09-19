@@ -9,6 +9,10 @@ public class jerryAnimScript : MonoBehaviour
     [SerializeField]
     [Tooltip("How fast this npc is currently moving, dont edit")]
     float speedometer;
+    [SerializeField]
+    float sprintCutoff = 9f;
+    [SerializeField]
+    float idleCutoff = .01f;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,13 +29,13 @@ public class jerryAnimScript : MonoBehaviour
             anim.SetBool("isWalking", false);
             anim.SetBool("isRunning", false);
         }
-        else if(!move.scared && !move.chasing){
+        else if(speedometer < sprintCutoff && speedometer > idleCutoff){
             //Walking Speed
             anim.SetBool("isWalking", true);
             anim.SetBool("isRunning", false);
 
         }
-        else if(move.scared || move.chasing){
+        else if(speedometer > sprintCutoff){
             //Running Speed
             anim.SetBool("isWalking", false);
             anim.SetBool("isRunning", true);

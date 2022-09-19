@@ -70,7 +70,7 @@ public class NPCMove : MonoBehaviour
     FaceTexController tex;
     NPCBehaviorChangersList list;
     [SerializeField]
-    public bool chaser, runner, scary, attractive, chasing, scared, gate;
+    public bool chaser, runner, scary, attractive, chasing, brave, scared, gate;
 
 
 
@@ -133,6 +133,21 @@ public class NPCMove : MonoBehaviour
             }
         }
     }
+    void GetClosestNONSCARYNPC(){
+        //Debug.Log(this.gameObject.name + "is finding the nearest non scary npc");
+        Min = null;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = transform.position;
+        if(list.nonScaryNPCs.Count > 0){
+            foreach (GameObject g in list.nonScaryNPCs){
+                float dist = Vector3.Distance(g.gameObject.transform.position, currentPos);
+                if (dist < minDist && g != this.gameObject){
+                    Min = g;
+                    minDist = dist;
+                }
+            }
+        }
+    }
     void GetClosestAttractive(){
         //Debug.Log(this.gameObject.name + "is finding the nearest attractive npc");
         Min = null;
@@ -159,15 +174,27 @@ public class NPCMove : MonoBehaviour
             //Debug.Log(this.gameObject.name + "is not a chaser and is not scary");
             if(list.scary.Count > 0){
                 //Debug.Log(this.gameObject.name + "knows there is a scary agent somewhere");
-                //there are scary npcs on the level somewhere
-                scarySearchCount += Time.deltaTime;
-                if(scarySearchCount >= searchCap){
-                    //find the closest one, once per second
-                    GetClosestScary();
-                    //Debug.Log(this.gameObject.name + "is calculating a path away from " + Min.gameObject.name);
-                    scarySearchCount = scarySearchCount - searchCap;
-                    //calculate a path away from that scary NPC
-                    
+                //there are scary npcs on the level somewhere, find the closest one
+                if(!runner){
+                    scarySearchCount += Time.deltaTime;
+                    if(scarySearchCount >= searchCap){
+                        //find the closest one, once per second
+                        GetClosestScary();
+                        //Debug.Log(this.gameObject.name + "is calculating a path away from " + Min.gameObject.name);
+                        scarySearchCount = scarySearchCount - searchCap;
+                        //calculate a path away from that scary NPC
+                    }
+                }
+                // if you are a runner, just find the nearest NPC and run away from them
+                else if (runner){
+                    NPCSearchCount += Time.deltaTime;
+                    if(NPCSearchCount >= searchCap){
+                        //find the closest one, once per second
+                        GetClosestNPC();
+                        //Debug.Log(this.gameObject.name + "is calculating a path away from " + Min.gameObject.name);
+                        NPCSearchCount = NPCSearchCount - searchCap;
+                        //calculate a path away from that scary NPC
+                    }
                 }
                 if(Min != null){
                     NavMesh.CalculatePath(Min.transform.position, this.transform.position , NavMesh.AllAreas, path);
@@ -192,7 +219,7 @@ public class NPCMove : MonoBehaviour
             if(scared){
                 findEscape();
             }
-            else if(!scared && !chaser){
+            else if(!scared && !chaser && !attractive){
                 //Debug.Log(this.gameObject.name + "is not scared or a chaser");
                 //check for attractive NPCS
                 AttractiveSearchCount += Time.deltaTime;
@@ -204,7 +231,7 @@ public class NPCMove : MonoBehaviour
                     //Debug.Log(this.gameObject.name + "found a nearby attractive npc, " + Min.gameObject.name);
                     NavMesh.CalculatePath(this.transform.position, Min.transform.position, NavMesh.AllAreas, path);
                 }
-                if(Min != null && path.status == NavMeshPathStatus.PathComplete && Vector3.Distance(this.transform.position, Min.transform.position) <= detectRadius){
+                if(Min != null && path.status == NavMeshPathStatus.PathComplete && Vector3.Distance(this.transform.position, Min.transform.position) <= detectRadius && !runner){
                     //there are attractive NPCS in the level, finding path to closest one
                     agent.ResetPath();
                     agent.SetPath(path);
@@ -224,7 +251,7 @@ public class NPCMove : MonoBehaviour
             //need to create logic for when a chaser reaches its target
             NPCSearchCount += Time.deltaTime;
             if(NPCSearchCount >= searchCap){
-                GetClosestNPC();
+                GetClosestNONSCARYNPC();
                 NPCSearchCount = NPCSearchCount - searchCap;
             }
             if(Min != null){
@@ -234,10 +261,10 @@ public class NPCMove : MonoBehaviour
 
             if(Min != null && path.status == NavMeshPathStatus.PathComplete && Vector3.Distance(this.transform.position, Min.transform.position) <= detectRadius){
                 //there are NPCS in the level, finding path to closest one
-                Debug.Log(this.gameObject.name + "is now headed toward nearest npc, " + Min.transform.gameObject.name);
+                //Debug.Log(this.gameObject.name + "is now headed toward nearest npc, " + Min.transform.gameObject.name);
                 agent.ResetPath();
                 agent.SetPath(path);
-                agent.speed = runSpeed;
+                agent.speed = (Min.gameObject.GetComponent<NPCMove>().agent.speed *.9f);
                 chasing = true;
             }
             else{
@@ -245,6 +272,11 @@ public class NPCMove : MonoBehaviour
                 //there are no NPC's near you
                 Roam();
                 chasing = false;
+            }
+            if(Vector3.Distance(this.transform.position, Min.transform.position) < criticalDist){
+                Debug.Log("Caught up to chasee", this.gameObject);
+                Debug.Log("Caught up to chasee", Min.gameObject);
+                agent.speed = (Min.gameObject.GetComponent<NPCMove>().agent.speed * .5f);
             }
         }
 
@@ -254,9 +286,14 @@ public class NPCMove : MonoBehaviour
         
     }
     void findEscape(){
-        //running away behavior is awful right now, not really sure why but its significantly worse than when i was using it in the zombie chasing script even though theyre practically identical
         //Debug.Log(this.gameObject.name + "is finding escape");
-        GetClosestScary();
+        if(!runner){
+            GetClosestScary();
+        }
+        else if (runner){
+            GetClosestNPC();
+        }
+        
         float dist = Vector3.Distance(this.transform.position, Min.transform.position);
         Vector3 dirToThreat = this.transform.position - Min.transform.position;
         dirToThreat.Normalize();
@@ -264,7 +301,7 @@ public class NPCMove : MonoBehaviour
         raycastCount = raycastCount + Time.deltaTime;
         if(dist < criticalDist){
             //Debug.Log(this.gameObject.name + " is in Critical Distance");
-            if(NavMesh.CalculatePath(transform.position, carrot.transform.forward, NavMesh.AllAreas, path)){
+            if(NavMesh.CalculatePath(transform.position, carrot.transform.position, NavMesh.AllAreas, path)){
                 agent.ResetPath();
                 agent.SetPath(path);
                 Quaternion toRotation = Quaternion.LookRotation(dirToThreat, Vector3.up);
@@ -277,18 +314,20 @@ public class NPCMove : MonoBehaviour
             agent.ResetPath();
             moveBlocked = true; 
             //Debug.Log("Hit wall");
-            Debug.DrawRay(transform.position, hit.point - transform.position, Color.red, 1f);
+            //Debug.DrawRay(transform.position, hit.point - transform.position, Color.red, 1f);
             //reflect off of that wall to find alternate escape route
             reflect = (Vector3.Reflect(hit.point - transform.position, hit.normal));
             spreadAngle = Quaternion.AngleAxis(Random.Range(-runningAngle, runningAngle), new Vector3(0, 1, 0));
             reflect = spreadAngle * reflect;
+            reflect = ProjectDirectionOnPlane(reflect, this.transform.up);
             //check if wall is in front of reflected ray
             if(Physics.Raycast(hit.point, reflect, out hit2, reflectRange, mask)){
                 //yes something is in the way of the reflected ray, reflect again!
                 reflect2 = (Vector3.Reflect(((hit2.point - hit.point).normalized * (hit.point - transform.position).magnitude), hit2.normal));
                 spreadAngle = Quaternion.AngleAxis(Random.Range(-runningAngle, runningAngle), new Vector3(0, 1, 0));
                 reflect2 = spreadAngle * reflect2;
-                Debug.DrawRay(hit.point, reflect, Color.magenta, 1f);
+                reflect2 = ProjectDirectionOnPlane(reflect2, this.transform.up);
+                //Debug.DrawRay(hit.point, reflect, Color.magenta, 1f);
                 //is something in the way of that reflection?
                 if(Physics.Raycast(hit2.point, reflect2, out hit3, reflectRange, mask)){
                     //yes, then just run somewhere random??
@@ -302,7 +341,7 @@ public class NPCMove : MonoBehaviour
                         raycastBlock = true;
                         Invoke("resetRaycastBlock", raycastCap);
                         // yes, navigate there
-                        Debug.DrawRay(hit2.point, reflect2 * 5, Color.green,1f);
+                        //Debug.DrawRay(hit2.point, reflect2 * 5, Color.green,1f);
                         agent.ResetPath();
                         agent.SetPath(path);
                         
@@ -323,7 +362,7 @@ public class NPCMove : MonoBehaviour
                     raycastBlock = true;
                     Invoke("resetRaycastBlock", raycastCap);
                     // yes, navigate there
-                    Debug.DrawRay(hit.point, reflect, Color.magenta,1f);
+                    //Debug.DrawRay(hit.point, reflect, Color.magenta,1f);
                     agent.ResetPath();
                     agent.SetPath(path);
                     //agent.SetDestination(reflect);
@@ -340,7 +379,7 @@ public class NPCMove : MonoBehaviour
                 moveBlocked = false;
             }
         }
-        if(NavMesh.CalculatePath(transform.position, carrot.transform.forward, NavMesh.AllAreas, path) && !moveBlocked){
+        if(NavMesh.CalculatePath(transform.position, carrot.transform.position, NavMesh.AllAreas, path) && !moveBlocked){
             //Debug.Log(this.gameObject.name + "is Running Straight Away");
             agent.ResetPath();
             agent.SetPath(path);
@@ -381,9 +420,11 @@ public class NPCMove : MonoBehaviour
         agent.SetPath(path);
     }
     public void setScared(){
-        agent.speed = runSpeed;
-        scared = true;
-        tex.setScared();
+        if(!brave){
+            agent.speed = runSpeed;
+            scared = true;
+            tex.setScared();
+        }
     }
     public void resetScared(){
         agent.speed = defaultSpeed;
@@ -401,5 +442,8 @@ public class NPCMove : MonoBehaviour
          }
          return finalPosition;
      }
+    Vector3 ProjectDirectionOnPlane (Vector3 direction, Vector3 normal) {
+		return (direction - normal * Vector3.Dot(direction, normal)).normalized;
+	}
 
 }
