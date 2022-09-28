@@ -18,5 +18,15 @@ public class spikeDeath : MonoBehaviour
              other.gameObject.GetComponent<Shatter>().oneShot(0);
          }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player"){
+             //health -= damageSpikes;
+            other.transform.root.GetComponent<PlayerStats>().takeDamage(damageSpikes);
+         }
+         if(other.gameObject.GetComponent<Shatter>() != null ){
+             other.gameObject.GetComponent<Shatter>().oneShot(0);
+         }
+    }
 }
 

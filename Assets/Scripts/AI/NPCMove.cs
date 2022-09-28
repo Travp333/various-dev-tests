@@ -213,7 +213,7 @@ public class NPCMove : MonoBehaviour
             }
 
             if(runner){
-                Debug.Log("I AM RUNNER", this.gameObject);
+                //Debug.Log("I AM RUNNER", this.gameObject);
                 NPCSearchCount += Time.deltaTime;
                 if(NPCSearchCount >= searchCap){
                     //find the closest one, once per second
@@ -301,8 +301,8 @@ public class NPCMove : MonoBehaviour
                 chasing = false;
             }
             if(Vector3.Distance(this.transform.position, Min.transform.position) < criticalDist){
-                Debug.Log("Caught up to chasee", this.gameObject);
-                Debug.Log("Caught up to chasee", Min.gameObject);
+                //Debug.Log("Caught up to chasee", this.gameObject);
+                //Debug.Log("Caught up to chasee", Min.gameObject);
                 agent.speed = (Min.gameObject.GetComponent<NPCMove>().agent.speed * .5f);
             }
         }

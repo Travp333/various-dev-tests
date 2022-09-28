@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WaterMat
-  m_Shader: {fileID: 4800000, guid: 38e44d0a4a0bcc343b6fcb9231ef283a, type: 3}
+  m_Shader: {fileID: 4800000, guid: d01daed8a6fe8a14da0690deb5ffc0b7, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - MOCHIE_PBR
@@ -35,10 +35,10 @@ Material:
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2450
   stringTagMap:
-    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi Toon
-    RenderType: Opaque
+    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
+    RenderType: TransparentCutout
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -485,7 +485,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - DSGI: 0
     - Instancing: 0
+    - LightmapFlags: 0
     - _1st2nd_Shades_Feather: 0.0001
     - _1stShadeMapMask_Inverse: 0
     - _1st_ShadeMapUV: 0
@@ -708,7 +710,7 @@ Material:
     - _CurvFix: 1
     - _CurvatureU: 0
     - _CurvatureV: 0
-    - _Cutoff: 0.5
+    - _Cutoff: 0
     - _Decal0Depth: 0
     - _Decal0HueAngleStrength: 0
     - _Decal0MaskChannel: 0
@@ -1025,6 +1027,7 @@ Material:
     - _FlipbookTexArrayUV: 0
     - _FlipbookTiled: 0
     - _ForgotToLockMaterial: 1
+    - _GIEmissionMultiplier: 1
     - _GITDEMaxEmissionMultiplier: 0
     - _GITDEMaxEmissionMultiplier1: 0
     - _GITDEMaxEmissionMultiplier2: 0
@@ -1297,7 +1300,7 @@ Material:
     - _MochieSpecularStrength: 1
     - _MochieSpecularStrength2: 1
     - _MochieSpecularTintThemeIndex: 0
-    - _Mode: 3
+    - _Mode: 9
     - _ModelAngleMax: 90
     - _ModelAngleMin: 45
     - _MultilayerMathBlurMapUV: 0
@@ -1457,7 +1460,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _Specular2ndLayer: 0
     - _SpecularHighlights: 0
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _SssBumpBlur: 0.7
     - _SssScale: 1
     - _StencilBackCompareFunction: 8
@@ -1583,7 +1586,7 @@ Material:
     - _VertexWorldTranslationALBand: 0
     - _WorkflowMode: 1
     - _ZTest: 4
-    - _ZWrite: 0
+    - _ZWrite: 1
     - _glitterFrequencyLinearEmissive: 20
     - footer_discord: 0
     - footer_github: 0
@@ -1637,6 +1640,7 @@ Material:
     - m_end_UVTileDissolveRow3: 0
     - m_end_audioLink: 0
     - m_end_backFace: 0
+    - m_end_bakedLighting: 0
     - m_end_blending: 0
     - m_end_brdf: 0
     - m_end_clearCoat: 0
@@ -1715,8 +1719,9 @@ Material:
     - m_start_UVTileDissolveRow3: 0
     - m_start_audioLink: 0
     - m_start_backFace: 0
+    - m_start_bakedLighting: 0
     - m_start_blending: 0
-    - m_start_brdf: 1
+    - m_start_brdf: 0
     - m_start_clearCoat: 0
     - m_start_depthFX: 0
     - m_start_dissolve: 0
@@ -1825,7 +1830,7 @@ Material:
     - _ClearCoatSpecularTint: {r: 1, g: 1, b: 1, a: 1}
     - _ClippingMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClothMetallicSmoothnessMapPan: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0, g: 0.75245667, b: 1, a: 0.6156863}
+    - _Color: {r: 0, g: 0.75245667, b: 1, a: 0.09411765}
     - _CubeMapColor: {r: 1, g: 1, b: 1, a: 1}
     - _CubeMapMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _CubeMapRotation: {r: 0, g: 0, b: 0, a: 0}
