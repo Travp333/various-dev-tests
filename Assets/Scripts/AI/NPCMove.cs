@@ -401,6 +401,10 @@ public class NPCMove : MonoBehaviour
             }
 
         }
+        else{
+            //Raycast hit nothing! 
+            PanicRoam();
+        }
         if(moveBlocked){
             if(Vector3.Distance(transform.position, agent.pathEndPosition) < 3){
                 moveBlocked = false;
