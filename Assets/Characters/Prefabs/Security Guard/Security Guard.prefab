@@ -2904,6 +2904,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a3ef4d47402e0449ed76a1a4da8c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destThreshold: 5
+  lifespan: 0
+  isLeaving: 0
   carrot: {fileID: 5346569889264762149}
   mask:
     serializedVersion: 2

@@ -5,6 +5,11 @@ using UnityEngine.AI;
 
 public class NPCMove : MonoBehaviour
 {
+    public float destThreshold = 5f;
+    bool destGate;
+    public float lifespan;
+    public bool isLeaving = false;
+    Vector3 dest;
     [SerializeField]
     GameObject carrot;
     [SerializeField]
@@ -22,7 +27,7 @@ public class NPCMove : MonoBehaviour
     [SerializeField]
     [Tooltip("How often this agent searches for other agents in level")]
     float searchCap = 1f;
-    float scarySearchCount, AttractiveSearchCount, scaredSearchCount, NPCSearchCount;
+    float scarySearchCount, AttractiveSearchCount, scaredSearchCount, NPCSearchCount, destSearchCount;
     [HideInInspector]
     public NavMeshAgent agent;
     [SerializeField]
@@ -75,10 +80,16 @@ public class NPCMove : MonoBehaviour
     [SerializeField]
     public bool chaser, runner, scary, attractive, chasing, brave, scared, gate;
 
-
+    bool lifespanGate;
+    NPCFactory fact;
 
     void Start()
     {
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("EmptyScriptHolders") ){
+            if(g.GetComponent<NPCFactory>()!=null){
+                fact = g.GetComponent<NPCFactory>();
+            }
+        }
         runSpeed = Random.Range(runSpeedLower, runSpeedUpper);
         defaultSpeed = Random.Range(defaultSpeedLower, defaultSpeedUpper);
         slowSpeed = Random.Range(slowSpeedLower, slowSpeedUpper);
@@ -170,13 +181,55 @@ public class NPCMove : MonoBehaviour
         }
     }
 
+    public void setIsLeaving(Vector3 dest2){
+        
+        isLeaving = true;
+        dest = dest2;
+    }
+
 
     void Update()
     {
+        if(lifespan > 0f){  
+            lifespan -= Time.deltaTime;
+            isLeaving = false;
+            lifespanGate = false;
+        }
+        else if (lifespan <= 0f){
+
+            if(!lifespanGate){
+                setIsLeaving(fact.GetRandomPoint());
+                lifespanGate = true;
+            }
+            
+        }
         //if(Min != null){
         //    Debug.Log(this.gameObject.name + " " + Min.gameObject.name);
         //}
-        if(!chaser && !scary){
+        if(isLeaving){
+            //Debug.Log(this.gameObject.name + " is leaving");
+            if(!destGate){
+                NavMesh.CalculatePath(this.transform.position, dest, NavMesh.AllAreas, path);
+                agent.ResetPath();
+                agent.SetPath(path);
+                destGate = true;
+                agent.speed = defaultSpeed;
+            }
+            if(destGate){
+                destSearchCount += Time.deltaTime;
+                if(destSearchCount >= searchCap){
+                    //Debug.Log(this.gameObject.name + " is checking distance" + Vector3.Distance(this.gameObject.transform.position, dest));
+                    if(Vector3.Distance(this.gameObject.transform.position, dest) < destThreshold){
+                        //Debug.Log(this.gameObject.name + " is leaving");
+                        fact.DespawnNPC(this.gameObject);
+                        
+                    }
+                    destSearchCount = destSearchCount - searchCap;
+                }
+            }
+
+        }
+        else if(!chaser && !scary){
             //Debug.Log(this.gameObject.name + "is not a chaser and is not scary");
             if(list.scary.Count > 0 && !runner){
                 //Debug.Log(this.gameObject.name + "knows there is a scary agent somewhere");

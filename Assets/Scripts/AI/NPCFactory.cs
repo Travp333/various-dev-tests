@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class NPCFactory : MonoBehaviour
 {
+    [SerializeField]
+    int LifespanUpper, LifespanLower;
     NavMeshPath path;
     [SerializeField]
     Transform homeBeacon;
@@ -21,6 +23,7 @@ public class NPCFactory : MonoBehaviour
     [SerializeField]
     int NPCStartingAmountUpper, NPCStartingAmountLower;
     int NPCStartingAmount;
+    float spawnTimerCount, searchCap = 1;
 
     void AssignRandomNpcTraits(GameObject g2){
         int rand2 = Random.Range(0,150);
@@ -55,35 +58,58 @@ public class NPCFactory : MonoBehaviour
             g2.GetComponent<NPCMove>().brave = true;
             g2.GetComponent<NPCMove>().attractive = true;
         }
+        g2.GetComponent<NPCMove>().lifespan = Random.Range(LifespanLower, LifespanUpper);
     }
 
-
-    void DespawnNPC(){
-
+    public void DespawnNPC(GameObject g){
+        
+        if(activeNPCList.Contains(g)){
+            Debug.Log(g.gameObject.name + " is in the list");
+            int lastIndex = activeNPCList.Count - 1;
+            activeNPCList[activeNPCList.IndexOf(g)] = activeNPCList[lastIndex];  
+            activeNPCList.RemoveAt(lastIndex);
+            //activeNPCList.Remove(g);
+            disabledNPCList.Add(g);
+            g.SetActive(false);
+        }
     }
     void SpawnNPC(GameObject g){
         if(disabledNPCList.Contains(g)){
-            //Debug.Log("Spawning existing NPC "+ g.name + "  on random spawnpoint");
-            int rand = Random.Range(0, NPCSpawners.Count - 1);
-            Vector3 randPos = GetRandomPoint(NPCSpawners[rand]);
             AssignRandomNpcTraits(g);
+            Vector3 randPos = GetRandomPoint();
             g.transform.position = randPos;
             g.SetActive(true);
-            disabledNPCList.Remove(g);
+            //fancy list removal from Catlike, may be implemented wrong
+            int lastIndex = disabledNPCList.Count - 1;
+            disabledNPCList[disabledNPCList.IndexOf(g)] = disabledNPCList[lastIndex];  
+            disabledNPCList.RemoveAt(lastIndex);
             activeNPCList.Add(g);
         }
         else{
-            int rand = Random.Range(0, NPCSpawners.Count - 1);
-            //Debug.Log(NPCSpawners[rand].name + " being spawned on", NPCSpawners[rand]);
-            Vector3 randPos = GetRandomPoint(NPCSpawners[rand]);
-            //Debug.Log(randPos + " is the position within " + NPCSpawners[rand].name, NPCSpawners[rand]);
-            //Debug.DrawLine(this.transform.position, randPos, Color.red, 5f);
-            GameObject g2 = Instantiate(g, randPos, Quaternion.identity);
-            AssignRandomNpcTraits(g2);
+            AssignRandomNpcTraits(g);
             activeNPCList.Add(g);
         }
     }
-    Vector3 GetValidSpawnPoint(){
+    void SpawnRandomLocationNpc(GameObject g){
+        if(disabledNPCList.Contains(g)){
+            Vector3 randPos = GetValidSpawnPoint();
+            g.transform.position = randPos;
+            AssignRandomNpcTraits(g);
+            g.SetActive(true);
+            //fancy list removal from Catlike, may be implemented wrong
+            int lastIndex = disabledNPCList.Count - 1;
+            disabledNPCList[disabledNPCList.IndexOf(g)] = disabledNPCList[lastIndex];  
+            disabledNPCList.RemoveAt(lastIndex);
+            activeNPCList.Add(g);
+        }
+        else{
+            Debug.Log("FUCKLER");
+            AssignRandomNpcTraits(g);
+            activeNPCList.Add(g);
+        }
+    }
+
+    public Vector3 GetValidSpawnPoint(){
         Vector3 randPos = RandomNavmeshLocation(Random.Range(10f, 500f));
         NavMesh.CalculatePath(homeBeacon.position, randPos, NavMesh.AllAreas, path);
         if(path.status == NavMeshPathStatus.PathComplete){
@@ -93,37 +119,37 @@ public class NPCFactory : MonoBehaviour
             return GetValidSpawnPoint();
         }
     }
-    void SpawnRandomLocationNpc(GameObject g){
-        if(disabledNPCList.Contains(g)){
-            //Debug.Log("Spawning existing NPC " + g.name + " on random point on navmesh");
-            Vector3 randPos = GetValidSpawnPoint();
-            //Debug.Log(randPos);
-            AssignRandomNpcTraits(g);
-            g.SetActive(true);
-            disabledNPCList.Remove(g);
-            activeNPCList.Add(g);
-        }
-        else{
-            //Debug.Log("Spawning new NPC "+ g.name + " on a random point on the navmesh");
-            Vector3 randPos = GetValidSpawnPoint();
-            //Debug.Log(randPos);
-            GameObject g2 = Instantiate(g, randPos, Quaternion.identity);
-            AssignRandomNpcTraits(g2);
-            activeNPCList.Add(g);
+
+    void Update()
+    {
+        if(activeNPCList.Count < maxNPC){
+            spawnTimerCount += Time.deltaTime;
+            if(spawnTimerCount >= searchCap){
+                Vector3 randPos = GetRandomPoint();
+                GameObject g2 = Instantiate(NPCList[Random.Range(0, NPCList.Count)], randPos, Quaternion.identity);
+                SpawnNPC(g2);
+                spawnTimerCount = spawnTimerCount - searchCap;
+                searchCap = Random.Range(5f, 10f);
+            }
         }
     }
-    // Start is called before the first frame update
     void Start()
     {
+        searchCap = Random.Range(5f, 10f);
         path = new NavMeshPath();
         NPCStartingAmount = Random.Range(NPCStartingAmountUpper, NPCStartingAmountLower);
         for (int i = 0; i < NPCStartingAmount; i++)
         {
-            SpawnRandomLocationNpc(NPCList[Random.Range(0, NPCList.Count)]);
+            Vector3 randPos = GetValidSpawnPoint();
+            GameObject g2 = Instantiate(NPCList[Random.Range(0, NPCList.Count)], randPos, Quaternion.identity);
+            SpawnRandomLocationNpc(g2);
         }
     }
 
-    public Vector3 GetRandomPoint(Transform center){
+    public Vector3 GetRandomPoint(){
+        int rand = Random.Range(0, NPCSpawners.Count - 1);
+        Transform center = NPCSpawners[rand].transform;
+
         Vector3 finalPos;
         Vector3 randomDirection = GetRandomDirectionVector3();
         RaycastHit hit;
@@ -133,12 +159,20 @@ public class NPCFactory : MonoBehaviour
             Vector3 difference = hit.point - center.position;
             Vector3 newDifference = difference * Random.Range(0f, 1f);
             finalPos = center.position + newDifference;
-            return finalPos;
+            NavMesh.CalculatePath(homeBeacon.position, finalPos, NavMesh.AllAreas, path);
+            if(path.status == NavMeshPathStatus.PathComplete){
+                return finalPos;
+            }
+            else{
+                return GetRandomPoint();
+            }
+
         }
         else{
             //Debug.Log("using center");
             return center.position;
         }
+
     }
 
     private Vector3 GetRandomDirectionVector3() {
@@ -147,18 +181,6 @@ public class NPCFactory : MonoBehaviour
     Vector3 ProjectDirectionOnPlane (Vector3 direction, Vector3 normal) {
 		return (direction - normal * Vector3.Dot(direction, normal)).normalized;
 	}
-
-    public Vector3 GetRandomPointInBounds(Bounds bounds, GameObject g) {
-        float minX = bounds.size.x * -0.5f;
-        float minY = bounds.size.y * -0.5f;
-        float minZ = bounds.size.z * -0.5f;
-
-        return (Vector3)g.gameObject.transform.TransformPoint(
-            new Vector3(Random.Range (minX, -minX),
-                Random.Range (minY, -minY),
-                Random.Range (minZ, -minZ))
-        );
-    }
     public Vector3 RandomNavmeshLocation(float radius) {
          Vector3 randomDirection = Random.insideUnitSphere * radius;
          randomDirection += transform.position;
