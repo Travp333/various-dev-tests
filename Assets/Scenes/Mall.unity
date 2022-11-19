@@ -2315,7 +2315,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29034
+  m_Name: pb_Mesh29036
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17541,7 +17541,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28592
+  m_Name: pb_Mesh28594
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -71594,8 +71594,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d378364e7cd74e040bc50560d79a5878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifespanUpper: 5
-  LifespanLower: 10
+  LifespanUpper: 248
+  LifespanLower: 60
   homeBeacon: {fileID: 1987101830}
   NPCSpawners:
   - {fileID: 220082074}
@@ -71646,14 +71646,12 @@ MonoBehaviour:
   - {fileID: 4911426970953126377, guid: 43302951140406848bcdb5c234335aa7, type: 3}
   - {fileID: 2469974227522003279, guid: d583cc16474d5644a8a98aed88fd23b9, type: 3}
   - {fileID: 8024352628757079335, guid: 9a0b878441ecb8542b444b07c193392c, type: 3}
-  activeNPCList: []
-  disabledNPCList: []
-  maxNPC: 5
+  maxNPC: 40
   mask:
     serializedVersion: 2
     m_Bits: 2147483647
-  NPCStartingAmountUpper: 1
-  NPCStartingAmountLower: 1
+  NPCStartingAmountUpper: 30
+  NPCStartingAmountLower: 20
 --- !u!114 &1426332049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76442,15 +76440,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7197834583306505052, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 133.82
+      value: 240.61
       objectReference: {fileID: 0}
     - target: {fileID: 7197834583306505052, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.08
+      value: 7.96
       objectReference: {fileID: 0}
     - target: {fileID: 7197834583306505052, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 165.57
+      value: 203.25
       objectReference: {fileID: 0}
     - target: {fileID: 7197834583306505052, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
       propertyPath: m_LocalRotation.w

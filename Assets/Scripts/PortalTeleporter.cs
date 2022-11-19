@@ -132,15 +132,19 @@ public class PortalTeleporter : MonoBehaviour
         }
 
       }
-      else if (other.gameObject.transform.parent.gameObject.GetComponent<objectSize>() != null){
-        if(other.gameObject.transform.parent.gameObject.layer == 13 && !other.gameObject.transform.parent.gameObject.GetComponent<objectSize>().portalWarp){
-            Debug.Log("Detected object with a collider and a rigidbody in parent");
-            shiftNoise.Play();
-            Object = other.gameObject.transform.parent.transform;
-            objectIsOverlapping = true;
-        }
+      else if (other.gameObject.transform.parent != null){
+        if (other.gameObject.transform.parent.gameObject.GetComponent<objectSize>() != null){
+          if(other.gameObject.transform.parent.gameObject.layer == 13 && !other.gameObject.transform.parent.gameObject.GetComponent<objectSize>().portalWarp){
+              Debug.Log("Detected object with a collider and a rigidbody in parent");
+              shiftNoise.Play();
+              Object = other.gameObject.transform.parent.transform;
+              objectIsOverlapping = true;
+          }
 
+        }
       }
+      //add an NPC check here too so npcs can get tp'd as well
+      
     }
 
     //This method checks when the player is not colliding with the portal

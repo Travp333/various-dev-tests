@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class NPCFactory : MonoBehaviour
 {
+    NPCBehaviorChangersList list;
     [SerializeField]
     int LifespanUpper, LifespanLower;
     NavMeshPath path;
@@ -14,8 +15,6 @@ public class NPCFactory : MonoBehaviour
     public List<Transform> NPCSpawners = new List<Transform>();
     [SerializeField]
     public List<GameObject> NPCList = new List<GameObject>();
-    public List<GameObject> activeNPCList = new List<GameObject>();
-    public List<GameObject> disabledNPCList = new List<GameObject>();
     [SerializeField]
     int maxNPC;
     [SerializeField]
@@ -27,6 +26,7 @@ public class NPCFactory : MonoBehaviour
 
     void AssignRandomNpcTraits(GameObject g2){
         int rand2 = Random.Range(0,150);
+        //probably a bit of a dumb way to do rng but i can change this later easy
         if(rand2 == 5){
             g2.GetComponent<NPCMove>().runner = true;
         }
@@ -37,7 +37,7 @@ public class NPCFactory : MonoBehaviour
             g2.GetComponent<NPCMove>().runner = true;
             g2.GetComponent<NPCMove>().attractive = true;
         }
-        else if (rand2 == 12){
+        else if (rand2 == 12 || rand2 == 15 || rand2 == 100 || rand2 == 120 || rand2 == 122){
             g2.GetComponent<NPCMove>().scary = true;
         }
         else if (rand2 == 22){
@@ -62,51 +62,47 @@ public class NPCFactory : MonoBehaviour
     }
 
     public void DespawnNPC(GameObject g){
-        
-        if(activeNPCList.Contains(g)){
-            Debug.Log(g.gameObject.name + " is in the list");
-            int lastIndex = activeNPCList.Count - 1;
-            activeNPCList[activeNPCList.IndexOf(g)] = activeNPCList[lastIndex];  
-            activeNPCList.RemoveAt(lastIndex);
-            //activeNPCList.Remove(g);
-            disabledNPCList.Add(g);
-            g.SetActive(false);
+        //more optimized catlike method of removing from a list
+
+        int lastIndex = list.npcs.Count - 1;
+        list.npcs[list.npcs.IndexOf(g)] = list.npcs[lastIndex];  
+        list.npcs.RemoveAt(lastIndex);
+        list.npcs.Remove(g);
+
+        if(g.GetComponent<NPCMove>()!= null){
+            if(!g.GetComponent<NPCMove>().scary){
+                lastIndex = list.nonScaryNPCs.Count - 1;
+                list.nonScaryNPCs[list.nonScaryNPCs.IndexOf(g)] = list.nonScaryNPCs[lastIndex];  
+                list.nonScaryNPCs.RemoveAt(lastIndex);
+                list.nonScaryNPCs.Remove(g);
+            }
+            if(g.GetComponent<NPCMove>().scary){
+                lastIndex = list.scary.Count - 1;
+                list.scary[list.scary.IndexOf(g)] = list.scary[lastIndex];  
+                list.scary.RemoveAt(lastIndex);
+                list.scary.Remove(g);
+            }
+            if(g.GetComponent<NPCMove>().attractive){
+                lastIndex = list.attractive.Count - 1;
+                list.attractive[list.attractive.IndexOf(g)] = list.attractive[lastIndex];  
+                list.attractive.RemoveAt(lastIndex);
+                list.attractive.Remove(g);
+            }
         }
+        Destroy(g);
+
+
     }
-    void SpawnNPC(GameObject g){
-        if(disabledNPCList.Contains(g)){
-            AssignRandomNpcTraits(g);
-            Vector3 randPos = GetRandomPoint();
-            g.transform.position = randPos;
-            g.SetActive(true);
-            //fancy list removal from Catlike, may be implemented wrong
-            int lastIndex = disabledNPCList.Count - 1;
-            disabledNPCList[disabledNPCList.IndexOf(g)] = disabledNPCList[lastIndex];  
-            disabledNPCList.RemoveAt(lastIndex);
-            activeNPCList.Add(g);
-        }
-        else{
-            AssignRandomNpcTraits(g);
-            activeNPCList.Add(g);
-        }
+    void SpawnNPC(){
+        Vector3 randPos = GetRandomPoint();
+        GameObject g2 = Instantiate(NPCList[Random.Range(0, NPCList.Count)], randPos, Quaternion.identity);
+        AssignRandomNpcTraits(g2);
     }
-    void SpawnRandomLocationNpc(GameObject g){
-        if(disabledNPCList.Contains(g)){
-            Vector3 randPos = GetValidSpawnPoint();
-            g.transform.position = randPos;
-            AssignRandomNpcTraits(g);
-            g.SetActive(true);
-            //fancy list removal from Catlike, may be implemented wrong
-            int lastIndex = disabledNPCList.Count - 1;
-            disabledNPCList[disabledNPCList.IndexOf(g)] = disabledNPCList[lastIndex];  
-            disabledNPCList.RemoveAt(lastIndex);
-            activeNPCList.Add(g);
-        }
-        else{
-            Debug.Log("FUCKLER");
-            AssignRandomNpcTraits(g);
-            activeNPCList.Add(g);
-        }
+    void SpawnRandomLocationNpc(){
+        Vector3 randPos = GetValidSpawnPoint();
+        GameObject g2 = Instantiate(NPCList[Random.Range(0, NPCList.Count)], randPos, Quaternion.identity);
+        AssignRandomNpcTraits(g2);
+
     }
 
     public Vector3 GetValidSpawnPoint(){
@@ -122,12 +118,10 @@ public class NPCFactory : MonoBehaviour
 
     void Update()
     {
-        if(activeNPCList.Count < maxNPC){
+        if(list.npcs.Count < maxNPC){
             spawnTimerCount += Time.deltaTime;
             if(spawnTimerCount >= searchCap){
-                Vector3 randPos = GetRandomPoint();
-                GameObject g2 = Instantiate(NPCList[Random.Range(0, NPCList.Count)], randPos, Quaternion.identity);
-                SpawnNPC(g2);
+                SpawnNPC();
                 spawnTimerCount = spawnTimerCount - searchCap;
                 searchCap = Random.Range(5f, 10f);
             }
@@ -135,14 +129,13 @@ public class NPCFactory : MonoBehaviour
     }
     void Start()
     {
+        list = this.gameObject.GetComponent<NPCBehaviorChangersList>();
         searchCap = Random.Range(5f, 10f);
         path = new NavMeshPath();
         NPCStartingAmount = Random.Range(NPCStartingAmountUpper, NPCStartingAmountLower);
         for (int i = 0; i < NPCStartingAmount; i++)
         {
-            Vector3 randPos = GetValidSpawnPoint();
-            GameObject g2 = Instantiate(NPCList[Random.Range(0, NPCList.Count)], randPos, Quaternion.identity);
-            SpawnRandomLocationNpc(g2);
+            SpawnRandomLocationNpc();
         }
     }
 

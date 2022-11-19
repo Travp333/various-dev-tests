@@ -1,12 +1,12 @@
 /*
 
-
+swallowed Holl Teleporters neeed some work, NPCs cant tp through them and sometimes the player will clip through the wall behind them when using it repeatedly
 
 stuff I think needs work, or needs to be implemented, or whatever. just a to do list basically. THis list will likely just keep getting bigger and bigger
 
-NPC animation controller needs work, when theyre right between running and walking speed its this skward thing where they start and stop over and over, make it blend between the two instead
+NPC animation controller needs work, when theyre right between running and walking speed its this akward thing where they start and stop over and over, make it blend between the two instead
 
-something is causing the face anim controller to fail, find it
+something is causing the face anim controller to fail, find it ( it seems like it was only blonde kaylas having this issue, i may have fixed it but hold off for now )
 
 the NPCs get confused around balconies and edges of high places
 

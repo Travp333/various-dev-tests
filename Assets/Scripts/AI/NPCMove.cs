@@ -353,10 +353,12 @@ public class NPCMove : MonoBehaviour
                 Roam();
                 chasing = false;
             }
-            if(Vector3.Distance(this.transform.position, Min.transform.position) < criticalDist){
-                //Debug.Log("Caught up to chasee", this.gameObject);
-                //Debug.Log("Caught up to chasee", Min.gameObject);
-                agent.speed = (Min.gameObject.GetComponent<NPCMove>().agent.speed * .5f);
+            if(Min != null){
+                if(Vector3.Distance(this.transform.position, Min.transform.position) < criticalDist){
+                    //Debug.Log("Caught up to chasee", this.gameObject);
+                    //Debug.Log("Caught up to chasee", Min.gameObject);
+                    agent.speed = (Min.gameObject.GetComponent<NPCMove>().agent.speed * .5f);
+                }
             }
         }
 
