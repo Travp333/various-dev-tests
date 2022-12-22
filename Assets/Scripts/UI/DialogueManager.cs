@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue) //creates our queue of sentences, locks the player, enables the cursor, and activates dialogue UI
     {
-        Debug.Log("Starting conversation with "+dialogue.name);
+        //Debug.Log("Starting conversation with "+dialogue.name);
         movement.blockMovement();
         hand.forceIdle();
         grab.enabled = false;

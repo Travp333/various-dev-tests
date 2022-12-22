@@ -28,7 +28,7 @@ TagManager:
   - Detailed
   - Stairs
   - CameraIgnore
-  - Unclimbable
+  - Climbable
   - RigidBodies
   - heldItemCollider
   - Fists

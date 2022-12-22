@@ -179,6 +179,7 @@ public class Movement : MonoBehaviour {
 	}
 	//runs every frame
 	void Update () {
+		Debug.Log(climbContactCount);
 		//resets the diving status if you touch the ground, climb, or swim
 		if(OnGround || ClimbingADJ ||Swimming){
 			if (!diveGate){
@@ -298,7 +299,7 @@ public class Movement : MonoBehaviour {
 	}
 // Climbing
 	bool CheckClimbing () {
-		//the player wants to can is able to climb
+		//the player wants to and is able to climb
 		if (ClimbingADJ) {
 			//the player is colliding with at least one object that is considered a climb contact
 			if (climbContactCount > 1) {

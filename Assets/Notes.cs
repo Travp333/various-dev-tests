@@ -1,18 +1,16 @@
 /*
 
-swallowed Holl Teleporters neeed some work, NPCs cant tp through them and sometimes the player will clip through the wall behind them when using it repeatedly
+
 
 stuff I think needs work, or needs to be implemented, or whatever. just a to do list basically. THis list will likely just keep getting bigger and bigger
+
+swallowed Holl Teleporters neeed some work, NPCs cant tp through them and sometimes the player will clip through the wall behind them when using it repeatedly
 
 NPC animation controller needs work, when theyre right between running and walking speed its this akward thing where they start and stop over and over, make it blend between the two instead
 
 something is causing the face anim controller to fail, find it ( it seems like it was only blonde kaylas having this issue, i may have fixed it but hold off for now )
 
 the NPCs get confused around balconies and edges of high places
-
-small issue with physics objects being in a container scene, when i pick up and drop an objects it gets placed back in the default scene, should be an easy fix
-
-the way that BBallHoop, BBallHoop2, and grab all independently build a list of all tha balls in a level is redundant. should probably just do it once on the player then have everything else reference that. 
 
 the gibs system for breaking props can be optimized a bit too to handle mass breaking better. maybe check to see how many gibs there currently are spawned already then set a cap to how many can be rendered at once. then the shatter script can vary how many gibs it spawns depending on that
 

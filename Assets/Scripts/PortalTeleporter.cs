@@ -63,7 +63,7 @@ public class PortalTeleporter : MonoBehaviour
 
           if(Object.GetComponent<objectSize>().sizes == objectSize.objectSizes.large){
 
-            Debug.Log("Large object overlapping, object is " + Object);
+            //Debug.Log("Large object overlapping, object is " + Object);
             //the distance between the player and portal
             Vector3 portalToObject = Object.position - largeSpawn.transform.position;
             float rotationDiff = Quaternion.Angle(largeSpawn.transform.rotation, receiver.rotation);
@@ -77,7 +77,7 @@ public class PortalTeleporter : MonoBehaviour
           }
           else{
 
-            Debug.Log("object overlapping, object is " + Object);
+            //Debug.Log("object overlapping, object is " + Object);
             //the distance between the player and portal
             Vector3 portalToObject = Object.position - transform.position;
             float rotationDiff = Quaternion.Angle(transform.rotation, receiver.rotation);
@@ -100,7 +100,7 @@ public class PortalTeleporter : MonoBehaviour
       player.GetComponent<PlayerStats>().portalWarp = false;
     }
     void resetJustWarpedO(){
-      Debug.Log("reset just warped status");
+      //Debug.Log("reset just warped status");
       if(Object!= null){
         Object.GetComponent<objectSize>().portalWarp = false;
       }
@@ -115,7 +115,7 @@ public class PortalTeleporter : MonoBehaviour
       if(other.tag == "ragdoll" && other.gameObject.layer != 16){
         shiftNoise.Play();
         Object = other.gameObject.transform.root.gameObject.transform;
-        Debug.Log("THIS IS " + Object);
+        //Debug.Log("THIS IS " + Object);
         ragdollOverlapping = true;
       }
       else if (player.GetComponent<PlayerStats>() != null && other.tag == "Player" && !player.GetComponent<PlayerStats>().portalWarp)
@@ -125,7 +125,7 @@ public class PortalTeleporter : MonoBehaviour
       }
       else if (other.gameObject.GetComponent<objectSize>() != null){
         if(other.gameObject.layer == 13 && !other.gameObject.GetComponent<objectSize>().portalWarp){
-          Debug.Log("Detected object with collider and rigidbody");
+          //Debug.Log("Detected object with collider and rigidbody");
           shiftNoise.Play();
           Object = other.gameObject.transform;
           objectIsOverlapping = true;
@@ -135,7 +135,7 @@ public class PortalTeleporter : MonoBehaviour
       else if (other.gameObject.transform.parent != null){
         if (other.gameObject.transform.parent.gameObject.GetComponent<objectSize>() != null){
           if(other.gameObject.transform.parent.gameObject.layer == 13 && !other.gameObject.transform.parent.gameObject.GetComponent<objectSize>().portalWarp){
-              Debug.Log("Detected object with a collider and a rigidbody in parent");
+              //Debug.Log("Detected object with a collider and a rigidbody in parent");
               shiftNoise.Play();
               Object = other.gameObject.transform.parent.transform;
               objectIsOverlapping = true;

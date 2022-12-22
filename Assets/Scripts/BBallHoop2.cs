@@ -6,26 +6,16 @@ using UnityEngine;
 // This script finalizes the basketball going through the hoop
 public class BBallHoop2 : MonoBehaviour
 {
-    GameObject[] balls;
+    public BBallTracker tracker;
     int ballLength;
     Animator anim;
-    void Update() {
-        //checks if the amount of balls in level has changed. if not, do nothing
-        if (GameObject.FindGameObjectsWithTag("bball").Length != ballLength){
-            balls = GameObject.FindGameObjectsWithTag("bball");
-            ballLength = balls.Length;
-        }
-
-    }
-
     void Start() {
-        balls = GameObject.FindGameObjectsWithTag("bball");
         anim = transform.parent.transform.parent.GetComponent<Animator>();
     }
     //when something collides with the second volume on the hoop
     void OnTriggerEnter(Collider other) {
         // go through every current ball and see if that was the collision
-        foreach(GameObject b in balls){
+        foreach(GameObject b in tracker.BBallList){
             if (b.gameObject == other.gameObject){
                 // if it was, check if it has triggered its "getthruhoop" state
                 if(b.gameObject.GetComponent<BBall>().getThruHoop()){
