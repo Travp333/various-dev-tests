@@ -25,6 +25,7 @@ Material:
   stringTagMap:
     OptimizedShaderFolder: Muffin2-afe8b8ba
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
+    RenderType: TransparentCutout
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -330,7 +331,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e51f07785c3f2094dac56bbb5ad9a6c1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 06c02a820d6eb3b468cbe11c046a50d4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Matcap:
@@ -912,7 +913,7 @@ Material:
     - _CurvFix: 1
     - _CurvatureU: 0
     - _CurvatureV: 0
-    - _Cutoff: 0.5
+    - _Cutoff: 0
     - _CutoffAnimated: 0
     - _DebugCameraData: 0
     - _DebugCameraDataAnimated: 0
@@ -1172,7 +1173,7 @@ Material:
     - _DitherGradientAnimated: 0
     - _DitheringEnabled: 0
     - _DitheringEnabledAnimated: 0
-    - _DstBlend: 0
+    - _DstBlend: 10
     - _DstBlendAnimated: 0
     - _EmissionAL0Enabled: 0
     - _EmissionAL0MultipliersBand: 0
@@ -1945,7 +1946,7 @@ Material:
     - _MochieSpecularStrength: 1
     - _MochieSpecularStrength2: 1
     - _MochieSpecularTintThemeIndex: 0
-    - _Mode: 1
+    - _Mode: 9
     - _ModelAngleMax: 90
     - _ModelAngleMaxAnimated: 0
     - _ModelAngleMin: 45
@@ -2258,7 +2259,7 @@ Material:
     - _ScrollingEmissionAnimated: 0
     - _Set_HighColorMaskUV: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 1
+    - _ShaderOptimizerEnabled: 0
     - _ShadingEnabled: 1
     - _ShadingShadeMapBlendType: 0
     - _Shadow2ndBlur: 0.3
@@ -2393,7 +2394,7 @@ Material:
     - _SpecularType1: 1
     - _SpecularType1Animated: 0
     - _SpecularTypeAnimated: 0
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _SrcBlendAnimated: 0
     - _SssBumpBlur: 0.7
     - _SssScale: 1
@@ -2612,7 +2613,7 @@ Material:
     - _VoronoiSpaceAnimated: 0
     - _VoronoiSpeedAnimated: 0
     - _VoronoiTypeAnimated: 0
-    - _ZTest: 3
+    - _ZTest: 4
     - _ZTestAnimated: 0
     - _ZWrite: 1
     - _ZWriteAnimated: 0

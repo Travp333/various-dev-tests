@@ -4,6 +4,8 @@
 
 stuff I think needs work, or needs to be implemented, or whatever. just a to do list basically. THis list will likely just keep getting bigger and bigger
 
+some windows normals are flipped
+
 swallowed Holl Teleporters neeed some work, NPCs cant tp through them and sometimes the player will clip through the wall behind them when using it repeatedly
 
 NPC animation controller needs work, when theyre right between running and walking speed its this akward thing where they start and stop over and over, make it blend between the two instead
