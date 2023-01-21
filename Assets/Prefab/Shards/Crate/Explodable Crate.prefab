@@ -129,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 2301066927167353417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.51255, y: 0.14536, z: -0.2487}
-  m_LocalScale: {x: 142.09604, y: 142.096, z: 142.096}
+  m_LocalScale: {x: 113.209335, y: 113.2093, z: 113.2093}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1382149871380790079}
@@ -267,3 +267,4 @@ MonoBehaviour:
   trashType: 0
   isTargeted: 0
   timeRemaining: 10
+  portalWarp: 0
