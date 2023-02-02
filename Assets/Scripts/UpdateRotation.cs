@@ -11,7 +11,7 @@ public class UpdateRotation : MonoBehaviour
 	float rotationSpeed = 720f;
 	[SerializeField]
     GameObject player = default;
-    MovingSphere sphere; 
+    Movement sphere; 
     Rigidbody body;
     Vector3 DummyGrav;
     bool Gate = true;
@@ -20,7 +20,7 @@ public class UpdateRotation : MonoBehaviour
     void Start()
     {
 		transform.rotation = Quaternion.LookRotation( transform.forward , CustomGravity.GetUpAxis(transform.position));
-        sphere = player.GetComponent<MovingSphere>();
+        sphere = player.GetComponent<Movement>();
         body = player.GetComponent<Rigidbody>();
     }
 

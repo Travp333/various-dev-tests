@@ -21,8 +21,10 @@ public class PlayerStats : MonoBehaviour
     }
     public void LoadPlayer()
     {
-        if(GetComponent<Movement>().grab.isHolding){
-            GetComponent<Movement>().grab.interact.detach();
+        if(GetComponent<Movement>().grab != null){
+            if(GetComponent<Movement>().grab.isHolding){
+                GetComponent<Movement>().grab.interact.detach();
+            }
         }
         PlayerData data = SaveSystem.LoadPlayerStats();
         hp = data.health;

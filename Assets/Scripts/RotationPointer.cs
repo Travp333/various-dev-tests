@@ -8,13 +8,13 @@ public class RotationPointer : MonoBehaviour
     float maxSpeed = 10;
     [SerializeField]
     GameObject player = default;
-    MovingSphere sphere; 
+    Movement sphere; 
     [SerializeField]
     Transform playerinputSpace = default;
     // Start is called before the first frame update
     void Start()
     {
-        sphere = player.GetComponent<MovingSphere>();
+        sphere = player.GetComponent<Movement>();
     }
 
     // Update is called once per frame

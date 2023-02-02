@@ -11192,6 +11192,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grab: {fileID: 7197834581697023859}
+  feet: {fileID: 7197834582207122682}
+  standingBean: {fileID: 3890495772722480241}
+  smolBean: {fileID: 6205407371399663534}
   climbStickyness: 5
   Diving: 0
   isBarraging: 0

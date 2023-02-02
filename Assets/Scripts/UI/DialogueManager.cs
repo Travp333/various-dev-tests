@@ -36,7 +36,9 @@ public class DialogueManager : MonoBehaviour
         //Debug.Log("Starting conversation with "+dialogue.name);
         movement.blockMovement();
         hand.forceIdle();
-        grab.enabled = false;
+        if(grab != null){
+            grab.enabled = false;
+        }
         hand.enabled = false;
         cameraMovement.enabled = false;
         Cursor.visible = true; //makes cursor visible
@@ -88,7 +90,9 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        grab.enabled = true;
+        if(grab != null){
+            grab.enabled = true;
+        }
         movement.unblockMovement();
         hand.enabled = true;
         hand.setisCrouching(false);

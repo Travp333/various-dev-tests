@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class HelpMenu : MonoBehaviour
 {
     //Menu images
+    Image aim;
     Image moveLeft;
     Image moveRight;
     Image moveUp;
@@ -31,6 +32,7 @@ public class HelpMenu : MonoBehaviour
     {
         //Assign components
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
+        aim = GameObject.Find("Aim").GetComponent<Image>();
         moveLeft = GameObject.Find("WalkLeft").GetComponent<Image>();
         moveRight = GameObject.Find("WalkRight").GetComponent<Image>();
         moveUp = GameObject.Find("WalkForward").GetComponent<Image>();
@@ -131,6 +133,7 @@ public class HelpMenu : MonoBehaviour
     private void draw()
     {
         //Get Keys
+        KeyCode aimKey = controls.keys["aim"];
         KeyCode leftKey = controls.keys["walkLeft"];
         KeyCode rightKey = controls.keys["walkRight"];
         KeyCode upKey = controls.keys["walkUp"];
@@ -146,6 +149,7 @@ public class HelpMenu : MonoBehaviour
         rebindTxt.SetActive(true);
 
         //Set images to associated key sprite, or blank if associated sprite doesn't exist
+        aim.sprite = Resources.Load<Sprite>(aimKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(aimKey.ToString()); 
         moveLeft.sprite = Resources.Load<Sprite>(leftKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(leftKey.ToString());
         moveRight.sprite = Resources.Load<Sprite>(rightKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(rightKey.ToString());
         moveUp.sprite = Resources.Load<Sprite>(upKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(upKey.ToString());

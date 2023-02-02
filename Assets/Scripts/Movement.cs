@@ -4,8 +4,15 @@ using UnityEngine;
 public class Movement : MonoBehaviour { 
 	//This script controls the movement of the character. Adapted from https://catlikecoding.com/unity/tutorials/movement/ by Travis Parks
 	//refrence to the grab script
-	bool canClimb;
+	public bool wantDive;
 	public Grab grab;
+	bool canClimb;
+	[SerializeField]
+	GameObject feet;
+	[SerializeField]
+	GameObject standingBean;
+	[SerializeField]	
+	GameObject smolBean;
 
 	[SerializeField]
 	[Tooltip("How strong the force pushing you into the wall is while climbing")]
@@ -157,7 +164,10 @@ public class Movement : MonoBehaviour {
 	void Awake () {
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
 
-        grab = transform.GetChild(0).GetChild(0).GetChild(2).GetComponent<Grab>();
+		if(transform.GetChild(0).GetChild(0).GetChild(2).GetComponent<Grab>() != null){
+			grab = transform.GetChild(0).GetChild(0).GetChild(2).GetComponent<Grab>();
+		}
+        
 		speedController = GetComponent<MovementSpeedController>();
 
 		// this is so i can prevent the player from entering a climbing state while standing on the ground
@@ -179,7 +189,7 @@ public class Movement : MonoBehaviour {
 	}
 	//runs every frame
 	void Update () {
-		Debug.Log(climbContactCount);
+		//Debug.Log(climbContactCount);
 		//resets the diving status if you touch the ground, climb, or swim
 		if(OnGround || ClimbingADJ ||Swimming){
 			if (!diveGate){
@@ -190,14 +200,18 @@ public class Movement : MonoBehaviour {
         if(Input.GetKeyDown(controls.keys["duck"]) && !FindObjectOfType<PauseMenu>().isPaused && !moveBlocked)
         {
 			divingPrep = true;
-			transform.GetChild(1).gameObject.SetActive(false);
-			transform.GetChild(4).gameObject.SetActive(true);
+			if((standingBean != null) && (smolBean != null)){
+				standingBean.SetActive(false);
+				smolBean.SetActive(true);
+			}
         }
         if(Input.GetKeyUp(controls.keys["duck"]) && !FindObjectOfType<PauseMenu>().isPaused && !moveBlocked)
         {
 			divingPrep = false;
-			transform.GetChild(1).gameObject.SetActive(true);
-			transform.GetChild(4).gameObject.SetActive(false);
+			if((standingBean != null) && (smolBean != null)){
+				standingBean.SetActive(true);
+				smolBean.SetActive(false);
+			}
         }
 		// this is so we can prevent the player from entering a climbing state while standing on the ground
 		if(Climbing && !OnGround && canClimb&& !moveBlocked){
@@ -213,9 +227,12 @@ public class Movement : MonoBehaviour {
 		//responds to the jump keybind to allow jumping
 		desiredJump |= Input.GetKeyDown(controls.keys["jump"]) && !FindObjectOfType<PauseMenu>().isPaused && !moveBlocked;
 		//no climbing while holding 
-		if(grab.isHolding){
-			desiresClimbing = false;
+		if(grab != null){
+			if(grab.isHolding){
+				desiresClimbing = false;
+			}
 		}
+
 		else {
 			desiresClimbing = Input.GetKey(controls.keys["duck"]);
 		}
@@ -341,11 +358,21 @@ public class Movement : MonoBehaviour {
 				contactNormal *
 				(Vector3.Dot(gravity, contactNormal) * Time.deltaTime);
 		}
+	
+		else if (desiresClimbing && ClimbingADJ) {
+			if(grab!=null){
+				if(!grab.isHolding){
+					velocity +=
+						(gravity - contactNormal * (maxClimbAcceleration * climbStickyness)) *
+						Time.deltaTime;
+				}
+			}
+			else{
+				velocity +=
+					(gravity - contactNormal * (maxClimbAcceleration * climbStickyness)) *
+					Time.deltaTime;
+			}
 
-		else if (desiresClimbing && ClimbingADJ && !grab.isHolding) {
-			velocity +=
-				(gravity - contactNormal * (maxClimbAcceleration * climbStickyness)) *
-				Time.deltaTime;
 		}
 		else {
 			velocity += gravity * Time.deltaTime;
@@ -382,7 +409,8 @@ public class Movement : MonoBehaviour {
 		}
 		if (!Physics.Raycast(
 			// i changed the first argument to be  the "feet" empty tied to the player character. this may be causing jitters (parent.transform.GetChild(1))
-			parent.transform.GetChild(3).position, -upAxis, out RaycastHit hit,
+			//parent.transform.GetChild(3) on FPS
+			feet.transform.position, -upAxis, out RaycastHit hit,
 			probeDistance, probeMask, QueryTriggerInteraction.Ignore
 			)) {
 			return false;
@@ -485,7 +513,7 @@ public class Movement : MonoBehaviour {
 			if (submergence < 1){
 				jumpDirection = contactNormal;
 			}
-			if(divingPrep && OnGround && !ClimbingADJ){
+			if(wantDive && (divingPrep && OnGround && !ClimbingADJ)){
 				Diving = true;
 				PreventSnapToGround();
 				jumpDirection = contactNormal + transform.forward * 3f;

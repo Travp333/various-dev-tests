@@ -49,7 +49,8 @@ public class Shatter : MonoBehaviour
         foreach(GameObject g in GameObject.FindGameObjectsWithTag("Player")){
             if(g.GetComponent<Movement>()!=null){
                 player = g.transform.GetChild(0).GetChild(0).GetChild(2).gameObject;
-                sounds = g.transform.GetChild(5).gameObject;
+                sounds = g.transform.GetComponentInChildren<SoundCaller>().gameObject;
+                //sounds = g.transform.GetChild(5).gameObject;
             }
         }
         color = GetComponent<Renderer>();

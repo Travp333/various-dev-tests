@@ -44,6 +44,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Light))]
 public class MovingSphere : MonoBehaviour { 
+	Controls controls;
 
 	[SerializeField, Range(0.01f, 1f)]
 	public float swimThreshold = 0.5f;
@@ -161,8 +162,12 @@ public class MovingSphere : MonoBehaviour {
 	// this is so i can prevent the player from entering a climbing state while standing on the ground
 	[HideInInspector]
 	public bool ClimbingADJ;
+	public bool moveBlocked;
+	MovementSpeedController speedController;
 
 	void Awake () {
+		speedController = GetComponent<MovementSpeedController>();
+		controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
 		// this is so i can prevent the player from entering a climbing state while standing on the ground
 		if(Climbing && !OnGround){
 			ClimbingADJ = true;
@@ -181,6 +186,17 @@ public class MovingSphere : MonoBehaviour {
 		//call validate ?
 		OnValidate();
 	}
+	public void blockMovement(){
+		moveBlocked = true;
+		playerInput.x = 0f;
+		playerInput.y = 0f;
+		velocity = Vector3.zero;
+	}
+	public void unblockMovement(){
+		moveBlocked = false;
+		transform.GetChild(1).gameObject.SetActive(true);
+		transform.GetChild(4).gameObject.SetActive(false);
+	}
 	void Update () {
 
 		// this is so i can prevent the player from entering a climbing state while standing on the ground
@@ -195,9 +211,9 @@ public class MovingSphere : MonoBehaviour {
 		}
 		else {
 			//desiredJump |= Input.GetButtonDown("Jump");
-			desiresClimbing = Input.GetButton("Climb");
+			desiresClimbing = Input.GetKeyDown(controls.keys["duck"]);
 		}
-		isAiming = Input.GetKey(KeyCode.Mouse1);
+		isAiming = Input.GetKey(controls.keys["duck"]);
 		//Debug.Log(hp);
 		//Debug.Log(coins);
 		ExplosiveForce();
@@ -218,8 +234,12 @@ public class MovingSphere : MonoBehaviour {
 		else if (!OnSteep && !OnGround && !Swimming){
 			lt.color = Color.green;
 		}
-	    playerInput.x = Input.GetAxis("Horizontal");
-		playerInput.y = Input.GetAxis("Vertical");
+	    //playerInput.x = Input.GetAxis("Horizontal");
+		//playerInput.y = Input.GetAxis("Vertical");
+
+		playerInput.x = (Input.GetKey(controls.keys["walkRight"])? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"])? 1: 0);
+		playerInput.y = (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0);
+
     	playerInput.z = Swimming ? Input.GetAxis("UpDown") : 0f;
 		playerInput = Vector3.ClampMagnitude(playerInput, 1f);
 

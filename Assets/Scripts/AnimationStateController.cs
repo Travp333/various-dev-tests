@@ -8,7 +8,7 @@ using UnityEngine;
 public class AnimationStateController : MonoBehaviour
 {
     public GameObject player = default;
-    MovingSphere sphere = default; 
+    Movement sphere = default; 
     Animator animator;
 	int isWalkingHash;
 	int isRunningHash;
@@ -101,7 +101,7 @@ public class AnimationStateController : MonoBehaviour
         }
     }
     void Start() { 
-        sphere = player.GetComponent<MovingSphere>();
+        sphere = player.GetComponent<Movement>();
         animator = GetComponent<Animator>();
 
         isSmileHash = Animator.StringToHash("isSmiling");
@@ -167,7 +167,7 @@ public class AnimationStateController : MonoBehaviour
         bool Swimming = sphere.Swimming;
         float submergence = sphere.submergence;
 		bool SprintPressed = Input.GetKey("left shift");
-        bool WalkPressed = Input.GetButton("Climb");
+        bool WalkPressed = Input.GetButton("Duck");
         bool swimUpPressed = Input.GetKey("e");
         bool swimDownPressed = Input.GetKey("q");
         bool forwardPressed = Input.GetKey("w");

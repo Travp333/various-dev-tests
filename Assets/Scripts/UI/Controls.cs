@@ -33,6 +33,7 @@ public class Controls : MonoBehaviour
                 {"sprint",KeyCode.LeftShift},
                 {"interact",KeyCode.E},
                 {"throw",KeyCode.Mouse0},
+                {"aim",KeyCode.Mouse1},
             };
 
             //Dictionary for what keys on the keyboard are in use

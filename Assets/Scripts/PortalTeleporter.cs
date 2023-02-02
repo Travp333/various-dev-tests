@@ -14,7 +14,7 @@ public class PortalTeleporter : MonoBehaviour
     [SerializeField]
     AudioSource shiftNoise;
     //reference to player
-    public Transform player;
+    Transform player;
     Transform Object;
     //reference to receiving portal
     public Transform receiver;
@@ -24,6 +24,10 @@ public class PortalTeleporter : MonoBehaviour
     bool justWarped;
     private bool ragdollOverlapping = false;
 
+    void Start(){
+      //wont work with multiple players
+      player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+    }
     void Update()
     {
         //Moves the player's position
@@ -38,7 +42,7 @@ public class PortalTeleporter : MonoBehaviour
           {
             float rotationDiff = Quaternion.Angle(transform.rotation, receiver.rotation);
             rotationDiff += 180;
-            player.Rotate(Vector3.up, rotationDiff);
+            //player.Rotate(Vector3.up, rotationDiff);
 
             Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
             player.position = receiver.position + positionOffset;

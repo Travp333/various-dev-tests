@@ -2,9 +2,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
 public class OrbitCamera : MonoBehaviour {
+	[SerializeField]
+	bool camAutoTurn;
+    bool cursorLock = false;
 
 	public GameObject player = default;
-    MovingSphere sphere = default; 
+    Movement sphere = default; 
 	
 
 	[SerializeField, Min(0f)]
@@ -54,6 +57,7 @@ public class OrbitCamera : MonoBehaviour {
 	[Tooltip("how close your camera stays to the target")]
 	float distance = 5f;
     Vector3 focusPoint, previousFocusPoint;
+	PauseMenu pause;
 
 	Vector3 CameraHalfExtends {
 		get {
@@ -67,6 +71,9 @@ public class OrbitCamera : MonoBehaviour {
 		}
 	}
 	bool AutomaticRotation () {
+		if(camAutoTurn == false){
+			return false;
+		}
 		if (Time.unscaledTime - lastManualRotationTime < alignDelay) {
 			return false;
 		}
@@ -114,8 +121,13 @@ public class OrbitCamera : MonoBehaviour {
 	}
 
     void Awake () {
+		pause = GameObject.Find("PauseMenu").GetComponent<PauseMenu>();
+        if (!cursorLock) {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
 		Prevfocus = focus;
-		sphere = player.GetComponent<MovingSphere>();
+		sphere = player.GetComponent<Movement>();
 		regularCamera = GetComponent<Camera>();
 		focusPoint = focus.position;
 		transform.localRotation = orbitRotation = Quaternion.Euler(orbitAngles);
@@ -123,8 +135,8 @@ public class OrbitCamera : MonoBehaviour {
 
 	bool ManualRotation(){
 		Vector2 input = new Vector2(
-			Input.GetAxis("Vertical Camera"),
-			Input.GetAxis("Horizontal Camera")
+			-Input.GetAxis("Mouse Y"),
+			Input.GetAxis("Mouse X")
 		);
 		const float e = 0.001f;
 		if (input.x < -e || input.x > e || input.y < -e || input.y > e) {
@@ -147,33 +159,34 @@ public class OrbitCamera : MonoBehaviour {
 		//	sphere.parent.transform.GetChild(1).GetChild(10).gameObject.SetActive(false);
 			//Debug.Log("aGGGH");
 		//}
+		if(!pause.isPaused){
+			UpdateGravityAlignment();
+			UpdateFocusPoint();
+			if(ManualRotation() || AutomaticRotation()){
+				ConstrainAngles();
+				orbitRotation = Quaternion.Euler(orbitAngles);
+			}
 
-		UpdateGravityAlignment();
-		UpdateFocusPoint();
-		if(ManualRotation() || AutomaticRotation()){
-			ConstrainAngles();
-			orbitRotation = Quaternion.Euler(orbitAngles);
+			Quaternion lookRotation = gravityAlignment * orbitRotation;
+
+			Vector3 lookDirection = lookRotation * Vector3.forward;
+			Vector3 lookPosition = focusPoint - lookDirection * distance;
+			Vector3 rectOffset = lookDirection * regularCamera.nearClipPlane;
+			Vector3 rectPosition = lookPosition + rectOffset;
+			Vector3 castFrom = focus.position;
+			Vector3 castLine = rectPosition - castFrom;
+			float castDistance = castLine.magnitude;
+			Vector3 castDirection = castLine / castDistance;
+
+			if (Physics.BoxCast(
+				castFrom, CameraHalfExtends, castDirection, out RaycastHit hit, lookRotation, castDistance, obstructionMask,
+				QueryTriggerInteraction.Ignore
+			)) {
+				rectPosition = castFrom + castDirection * hit.distance;
+				lookPosition = rectPosition - rectOffset;
+			}
+			transform.SetPositionAndRotation(lookPosition, lookRotation);
 		}
-
-		Quaternion lookRotation = gravityAlignment * orbitRotation;
-
-		Vector3 lookDirection = lookRotation * Vector3.forward;
-		Vector3 lookPosition = focusPoint - lookDirection * distance;
-		Vector3 rectOffset = lookDirection * regularCamera.nearClipPlane;
-		Vector3 rectPosition = lookPosition + rectOffset;
-		Vector3 castFrom = focus.position;
-		Vector3 castLine = rectPosition - castFrom;
-		float castDistance = castLine.magnitude;
-		Vector3 castDirection = castLine / castDistance;
-
-		if (Physics.BoxCast(
-			castFrom, CameraHalfExtends, castDirection, out RaycastHit hit, lookRotation, castDistance, obstructionMask,
-			QueryTriggerInteraction.Ignore
-		)) {
-			rectPosition = castFrom + castDirection * hit.distance;
-			lookPosition = rectPosition - rectOffset;
-		}
-		transform.SetPositionAndRotation(lookPosition, lookRotation);
 		
 	}
 	void UpdateGravityAlignment(){
