@@ -20,6 +20,8 @@ public class HelpMenu : MonoBehaviour
     Image throwItem;
     Image diveCrouch;
     Image diveJump;
+    Image swimUp;
+    Image swimDown;
     GameObject errTxt;
     GameObject promptTxt;
     GameObject rebindTxt;
@@ -44,6 +46,8 @@ public class HelpMenu : MonoBehaviour
         throwItem = GameObject.Find("Throw").GetComponent<Image>();
         diveCrouch = GameObject.Find("DiveCrouch").GetComponent<Image>();
         diveJump = GameObject.Find("DiveJump").GetComponent<Image>();
+        swimUp = GameObject.Find("SwimUp").GetComponent<Image>();
+        swimDown = GameObject.Find("SwimDown").GetComponent<Image>();
         errTxt = GameObject.Find("ErrorText");
         promptTxt = GameObject.Find("PromptText");
         rebindTxt = GameObject.Find("RebindText");
@@ -143,12 +147,16 @@ public class HelpMenu : MonoBehaviour
         KeyCode runKey = controls.keys["sprint"];
         KeyCode interKey = controls.keys["interact"];
         KeyCode throwKey = controls.keys["throw"];
+        KeyCode swimUpKey = controls.keys["swimup"];
+        KeyCode swimDownKey = controls.keys["swimdown"];
 
         errTxt.SetActive(false);
         promptTxt.SetActive(false);
         rebindTxt.SetActive(true);
 
         //Set images to associated key sprite, or blank if associated sprite doesn't exist
+        swimUp.sprite = Resources.Load<Sprite>(swimUpKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(swimUpKey.ToString()); 
+        swimDown.sprite = Resources.Load<Sprite>(swimDownKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(swimDownKey.ToString()); 
         aim.sprite = Resources.Load<Sprite>(aimKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(aimKey.ToString()); 
         moveLeft.sprite = Resources.Load<Sprite>(leftKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(leftKey.ToString());
         moveRight.sprite = Resources.Load<Sprite>(rightKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(rightKey.ToString());

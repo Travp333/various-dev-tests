@@ -31,9 +31,11 @@ public class Controls : MonoBehaviour
                 {"jump",KeyCode.Space},
                 {"duck",KeyCode.LeftControl},
                 {"sprint",KeyCode.LeftShift},
-                {"interact",KeyCode.E},
+                {"interact",KeyCode.F},
                 {"throw",KeyCode.Mouse0},
                 {"aim",KeyCode.Mouse1},
+                {"swimUp",KeyCode.E},
+                {"swimDown",KeyCode.Q}
             };
 
             //Dictionary for what keys on the keyboard are in use

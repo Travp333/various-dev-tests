@@ -23,12 +23,14 @@ public class charAnimScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {        
         speedometer = move.agent.velocity.magnitude;
+        anim.SetFloat("speed", speedometer);
         if(speedometer < .0001f){
             //Not Moving
             anim.SetBool("isWalking", false);
             anim.SetBool("isRunning", false);
+            anim.SetFloat("speed", 0);
         }
         else if(speedometer < sprintCutoff && speedometer > idleCutoff){
             //Walking Speed

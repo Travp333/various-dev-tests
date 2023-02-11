@@ -166,14 +166,14 @@ public class AnimationStateController : MonoBehaviour
         bool Climbing = sphere.Climbing;
         bool Swimming = sphere.Swimming;
         float submergence = sphere.submergence;
-		bool SprintPressed = Input.GetKey("left shift");
-        bool WalkPressed = Input.GetButton("Duck");
-        bool swimUpPressed = Input.GetKey("e");
-        bool swimDownPressed = Input.GetKey("q");
-        bool forwardPressed = Input.GetKey("w");
-        bool leftPressed = Input.GetKey("a");
-        bool rightPressed = Input.GetKey("d");
-        bool backPressed = Input.GetKey("s");
+		bool SprintPressed = Input.GetKey(sphere.controls.keys["sprint"]);
+        bool WalkPressed = Input.GetKey(sphere.controls.keys["duck"]);
+        bool swimUpPressed = Input.GetKey(sphere.controls.keys["swimUp"]);
+        bool swimDownPressed = Input.GetKey(sphere.controls.keys["swimDown"]);
+        bool forwardPressed = Input.GetKey(sphere.controls.keys["walkUp"]);
+        bool leftPressed = Input.GetKey(sphere.controls.keys["walkLeft"]);
+        bool rightPressed = Input.GetKey(sphere.controls.keys["walkRight"]);
+        bool backPressed = Input.GetKey(sphere.controls.keys["walkDown"]);
         bool movementPressed = forwardPressed || leftPressed || rightPressed || backPressed;
 
         if (Swimming && swimUpPressed){

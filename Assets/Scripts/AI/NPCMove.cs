@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class NPCMove : MonoBehaviour
 {
+    public TMP_Text debugText;
     public float destThreshold = 5f;
     bool destGate;
     public float lifespan;
@@ -82,9 +84,11 @@ public class NPCMove : MonoBehaviour
 
     bool lifespanGate;
     NPCFactory fact;
+    float tempSpeed;
 
     void Start()
     {
+        debugText.text = "";
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("EmptyScriptHolders") ){
             if(g.GetComponent<NPCFactory>()!=null){
                 fact = g.GetComponent<NPCFactory>();
@@ -93,6 +97,7 @@ public class NPCMove : MonoBehaviour
         runSpeed = Random.Range(runSpeedLower, runSpeedUpper);
         defaultSpeed = Random.Range(defaultSpeedLower, defaultSpeedUpper);
         slowSpeed = Random.Range(slowSpeedLower, slowSpeedUpper);
+        
         foreach(GameObject g in GameObject.FindObjectsOfType<GameObject>()){
             if(g.GetComponent<NPCBehaviorChangersList>()!=null){
                 list = g.GetComponent<NPCBehaviorChangersList>();
@@ -109,6 +114,7 @@ public class NPCMove : MonoBehaviour
         //meshy = RandomNavmeshLocation(Random.Range(50f, 300f));
         path = new NavMeshPath(); 
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = defaultSpeed;
         Roam();
         list.updateNPCList(this.gameObject);
         if(scary){
@@ -187,19 +193,27 @@ public class NPCMove : MonoBehaviour
         dest = dest2;
     }
 
-
+    float debugCount = 0f;
+    float debugCap = 0.5f;
     void Update()
     {
+        debugCount += Time.deltaTime;
+        if(debugCount >= debugCap){
+            debugCount = 0.5f;
+            changeDebugText();
+        }
         if(lifespan > 0f){  
             lifespan -= Time.deltaTime;
             isLeaving = false;
             lifespanGate = false;
         }
         else if (lifespan <= 0f){
-
+            lifespan = 0f;
             if(!lifespanGate){
+                resetScared();
                 setIsLeaving(fact.GetRandomPoint());
                 lifespanGate = true;
+
             }
             
         }
@@ -213,7 +227,11 @@ public class NPCMove : MonoBehaviour
                 agent.ResetPath();
                 agent.SetPath(path);
                 destGate = true;
-                agent.speed = defaultSpeed;
+                changeAgentSpeedToGiven(defaultSpeed);
+                //tempSpeed = agent.speed;
+                //StopAllCoroutines();
+                //StartCoroutine(Fade(defaultSpeed));
+                //agent.speed = defaultSpeed;
             }
             if(destGate){
                 destSearchCount += Time.deltaTime;
@@ -245,8 +263,10 @@ public class NPCMove : MonoBehaviour
                 // if you are a runner, just find the nearest NPC and run away from them
                 
                 if(Min != null){
+                    
                     NavMesh.CalculatePath(Min.transform.position, this.transform.position , NavMesh.AllAreas, path);
                     float dist = Vector3.Distance(this.transform.position, Min.transform.position);
+
                     if(dist > fearRadius && scared){
                         updateCount = updateCount + Time.deltaTime;
                         if(updateCount >= updateCap){
@@ -311,11 +331,16 @@ public class NPCMove : MonoBehaviour
                     //Debug.Log(this.gameObject.name + "found a nearby attractive npc, " + Min.gameObject.name);
                     NavMesh.CalculatePath(this.transform.position, Min.transform.position, NavMesh.AllAreas, path);
                 }
-                if(Min != null && path.status == NavMeshPathStatus.PathComplete && Vector3.Distance(this.transform.position, Min.transform.position) <= detectRadius && !runner){
+                if((Min != null && path.status == NavMeshPathStatus.PathComplete && Vector3.Distance(this.transform.position, Min.transform.position) <= detectRadius && !runner) && list.attractive.Count > 0){
+                    //Debug.Log("there are attractive NPCS in the level, finding path to closest one");
                     //there are attractive NPCS in the level, finding path to closest one
                     agent.ResetPath();
                     agent.SetPath(path);
-                    agent.speed = runSpeed;
+                    changeAgentSpeedToGiven(runSpeed);
+                    //tempSpeed = agent.speed;
+                    //StopAllCoroutines();
+                    //StartCoroutine(Fade(runSpeed));
+                    //agent.speed = runSpeed;
                     chasing = true;
                 }
                 else{
@@ -344,7 +369,12 @@ public class NPCMove : MonoBehaviour
                 //Debug.Log(this.gameObject.name + "is now headed toward nearest npc, " + Min.transform.gameObject.name);
                 agent.ResetPath();
                 agent.SetPath(path);
-                agent.speed = (Min.gameObject.GetComponent<NPCMove>().agent.speed *.9f);
+                //agent.speed = (Min.gameObject.GetComponent<NPCMove>().agent.speed *.9f);
+                changeAgentSpeedToGiven(runSpeed);
+                //tempSpeed = agent.speed;
+                //StopAllCoroutines();
+                //StartCoroutine(Fade(runSpeed));
+                //agent.speed = runSpeed;
                 chasing = true;
             }
             else{
@@ -357,7 +387,11 @@ public class NPCMove : MonoBehaviour
                 if(Vector3.Distance(this.transform.position, Min.transform.position) < criticalDist){
                     //Debug.Log("Caught up to chasee", this.gameObject);
                     //Debug.Log("Caught up to chasee", Min.gameObject);
-                    agent.speed = (Min.gameObject.GetComponent<NPCMove>().agent.speed * .5f);
+                    changeAgentSpeedToGiven(Min.gameObject.GetComponent<NPCMove>().agent.speed * .5f);
+                    //tempSpeed = agent.speed;
+                    //StopAllCoroutines();
+                    //StartCoroutine(Fade((Min.gameObject.GetComponent<NPCMove>().agent.speed * .5f)));
+                    //agent.speed = (Min.gameObject.GetComponent<NPCMove>().agent.speed * .5f);
                 }
             }
         }
@@ -477,7 +511,11 @@ public class NPCMove : MonoBehaviour
     }
     void Roam(){
         //Debug.Log(this.gameObject.name + "is roaming");
-        agent.speed = defaultSpeed;
+        changeAgentSpeedToGiven(defaultSpeed);
+        //tempSpeed = agent.speed;
+        //StopAllCoroutines();
+        //StartCoroutine(Fade(defaultSpeed));
+        //agent.speed = defaultSpeed;
         if(counter2 < roamTimer){
             counter2 += Time.deltaTime;
         }
@@ -491,8 +529,12 @@ public class NPCMove : MonoBehaviour
         }
     }
     void PanicRoam(){
+        changeAgentSpeedToGiven(runSpeed);
         //Debug.Log(this.gameObject.name + "is panic roaming");
-        agent.speed = runSpeed;
+        //tempSpeed = agent.speed;
+        //StopAllCoroutines();
+        //StartCoroutine(Fade(runSpeed));
+        //agent.speed = runSpeed;
         if(counter2 < Random.Range(roamTimerLow, roamTimerUp)){
             counter2 += Time.deltaTime;
         }
@@ -507,15 +549,95 @@ public class NPCMove : MonoBehaviour
     }
     public void setScared(){
         if(!brave){
-            agent.speed = runSpeed;
+            changeAgentSpeedToGiven(runSpeed);
+            //tempSpeed = agent.speed;
+            //StopAllCoroutines();
+            //StartCoroutine(Fade(runSpeed));
+            //agent.speed = runSpeed;
             scared = true;
             tex.setScared();
         }
     }
     public void resetScared(){
-        agent.speed = defaultSpeed;
+        changeAgentSpeedToGiven(defaultSpeed);
+        //tempSpeed = agent.speed;
+        //StopAllCoroutines();
+        //StartCoroutine(Fade(defaultSpeed));
+        //agent.speed = defaultSpeed;
         scared = false;
         tex.setBase();
+    }
+
+    void changeAgentSpeedToGiven(float speed){
+        tempSpeed = agent.speed;
+        StopCoroutine("Fade");
+        StartCoroutine(Fade(speed));
+    }
+    IEnumerator Fade(float newSpeed)
+    {
+        float elapsedTime = 0f;
+        float startSpeed = agent.speed;
+        float speedDifference = newSpeed - startSpeed;
+
+        while (elapsedTime < 2f)
+        {
+            elapsedTime += Time.deltaTime;
+            agent.speed = startSpeed + (speedDifference * (elapsedTime / 2f));
+            yield return null;
+        }
+        
+    }
+    void changeDebugText(){
+
+        if( lifespan <= 0){
+            debugText.text = "Despawning";
+        }
+        else if(chaser){
+            if(scary){
+                debugText.text = "Scary Chaser";
+            }
+            else if(chasing){
+                debugText.text = "Chasing Chaser";
+            }
+            else if(brave){
+                debugText.text = "Brave Chaser";
+            }
+            else if(scared){
+                debugText.text = "Scared Chaser";
+            }
+            else{
+                debugText.text = "Chaser";
+            }
+        }
+        else if(runner){
+            if(scary){
+                debugText.text = "Scary Runner";
+            }
+            else if(attractive){
+                debugText.text = "Attractive Runner";
+            }
+            else if (scared){
+                debugText.text = "Scared Runner";
+            }
+            else{
+                debugText.text = "Runner";
+            }
+        }
+        else if(scary){
+            debugText.text = "Scary";
+        }
+        else if (attractive){
+            debugText.text = "Attractive";
+        }
+        else if (scared){
+            debugText.text = "Scared";
+        }
+        else if (brave){
+            debugText.text = "Brave";
+        }
+        else{
+            debugText.text = "";
+        }
     }
 
     public Vector3 RandomNavmeshLocation(float radius) {
@@ -531,5 +653,6 @@ public class NPCMove : MonoBehaviour
     Vector3 ProjectDirectionOnPlane (Vector3 direction, Vector3 normal) {
 		return (direction - normal * Vector3.Dot(direction, normal)).normalized;
 	}
+
 
 }

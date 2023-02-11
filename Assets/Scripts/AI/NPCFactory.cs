@@ -40,14 +40,14 @@ public class NPCFactory : MonoBehaviour
         else if (rand2 == 12 || rand2 == 15 || rand2 == 100 || rand2 == 120 || rand2 == 122){
             g2.GetComponent<NPCMove>().scary = true;
         }
-        else if (rand2 == 22){
+        else if (rand2 == 22 || rand2 ==  23 || rand2 == 24 || rand2 == 25 || rand2 == 26 || rand2 == 27 || rand2 == 28){
             g2.GetComponent<NPCMove>().scary = true;
             g2.GetComponent<NPCMove>().chaser = true;
         }
-        else if (rand2 == 41){
+        else if (rand2 == 41 || rand2 == 42 || rand2 == 43 || rand2 == 44 || rand2 == 45 || rand2 == 46 || rand2 == 47){
             g2.GetComponent<NPCMove>().chaser = true;
         }
-        else if (rand2 == 22){
+        else if (rand2 == 150){
             g2.GetComponent<NPCMove>().brave = true;
         }
         else if (rand2 == 39){

@@ -159,7 +159,7 @@ public class Movement : MonoBehaviour {
 		transform.GetChild(1).gameObject.SetActive(true);
 		transform.GetChild(4).gameObject.SetActive(false);
 	}
-    Controls controls;
+    public Controls controls;
 	//runs when object becomes active
 	void Awake () {
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
@@ -261,7 +261,8 @@ public class Movement : MonoBehaviour {
 			playerInput.y = (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0);
 
 			//allows you to move up or down while swimming
-			playerInput.z = Swimming ? Input.GetAxis("UpDown") : 0f;
+			playerInput.z = Swimming ? (Input.GetKey(controls.keys["swimUp"])? 1 : 0) - (Input.GetKey(controls.keys["swimDown"])? 1: 0) : 0f;
+			//playerInput.z = Swimming ? Input.GetAxis("UpDown") : 0f;
 
 			playerInput = Vector3.ClampMagnitude(playerInput, 1f);
 		}
