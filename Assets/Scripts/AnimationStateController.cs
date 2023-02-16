@@ -147,7 +147,7 @@ public class AnimationStateController : MonoBehaviour
     float jumpCount;
     float jumpCap = .2f;
     void Update() {
-        Debug.Log(sphere.velocity.magnitude);
+        //Debug.Log(sphere.velocity.magnitude);
         BoolAdjuster();
         bool JumpPressed = Input.GetKey("space");
         isOnGround = isOnGroundADJ;

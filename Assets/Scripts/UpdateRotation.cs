@@ -10,6 +10,8 @@ public class UpdateRotation : MonoBehaviour
 	[SerializeField]
 	float rotationSpeed = 720f;
 	[SerializeField]
+	float airRotationSpeed = 240f;
+	[SerializeField]
     GameObject player = default;
     Movement sphere; 
     Rigidbody body;
@@ -72,9 +74,16 @@ public class UpdateRotation : MonoBehaviour
 		//}
 		//SHOULD MAKE IT SO THAT ROTATING IN AIR IS SLOWER
 		else if (sphere.velocity.magnitude > .2f && (sphere.playerInput != Vector3.zero)){
+			if(!sphere.OnGround){
+				Quaternion toRotation = Quaternion.LookRotation(ProjectDirectionOnPlane(player2Pointer, gravity), gravity);
+				transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, airRotationSpeed * Time.deltaTime);
+			}
+			else{
+				Quaternion toRotation = Quaternion.LookRotation(ProjectDirectionOnPlane(player2Pointer, gravity), gravity);
+				transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+			}
 			//Debug.Log("Moving");
-			Quaternion toRotation = Quaternion.LookRotation(ProjectDirectionOnPlane(player2Pointer, gravity), gravity);
-			transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
 		}
 	}
     Vector3 ProjectDirectionOnPlane (Vector3 direction, Vector3 normal) {
