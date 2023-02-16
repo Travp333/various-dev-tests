@@ -82,9 +82,6 @@ public class Grab : MonoBehaviour
     {    
         int index = Random.Range(0, pickUpAudioSource.Length - 1);
         pickUpAudioSource[index].Play();  
-
-
-        //Debug.Log("Holding not food");
         //Get size of held object
         if(propGame.GetComponent<objectSize>().sizes == objectSize.objectSizes.large){
             sizes = objectSizes.large;

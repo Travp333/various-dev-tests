@@ -144,8 +144,10 @@ public class AnimationStateController : MonoBehaviour
             isOnGroundADJ = true;
         }
     }
-    
+    float jumpCount;
+    float jumpCap = .2f;
     void Update() {
+        Debug.Log(sphere.velocity.magnitude);
         BoolAdjuster();
         bool JumpPressed = Input.GetKey("space");
         isOnGround = isOnGroundADJ;
@@ -168,8 +170,8 @@ public class AnimationStateController : MonoBehaviour
         float submergence = sphere.submergence;
 		bool SprintPressed = Input.GetKey(sphere.controls.keys["sprint"]);
         bool WalkPressed = Input.GetKey(sphere.controls.keys["duck"]);
-        bool swimUpPressed = Input.GetKey(sphere.controls.keys["swimUp"]);
-        bool swimDownPressed = Input.GetKey(sphere.controls.keys["swimDown"]);
+        bool swimUpPressed = Input.GetKey(sphere.controls.keys["swimup"]);
+        bool swimDownPressed = Input.GetKey(sphere.controls.keys["swimdown"]);
         bool forwardPressed = Input.GetKey(sphere.controls.keys["walkUp"]);
         bool leftPressed = Input.GetKey(sphere.controls.keys["walkLeft"]);
         bool rightPressed = Input.GetKey(sphere.controls.keys["walkRight"]);
@@ -314,15 +316,23 @@ public class AnimationStateController : MonoBehaviour
             }
         }
         
-        // if you are in the air
+        // if you are in the air, adding timer to give a little time before the falling animation plays
         if (!isOnGroundADJ && !isOnSteep && !Swimming && !Climbing){
-            animator.SetBool("isSwimming", false);
-            animator.SetBool(isFallingHash, true);
-            animator.SetBool(isWalkingHash, false);
-            animator.SetBool(isSprintingHash, false);
-            animator.SetBool(isRunningHash, false);
-            animator.SetBool("isSwimmingUp", false);
-            animator.SetBool("isSwimmingDown", false);
+            jumpCount += Time.deltaTime;
+            if(jumpCount > jumpCap){
+                animator.SetBool("isSwimming", false);
+                animator.SetBool(isFallingHash, true);
+                animator.SetBool(isWalkingHash, false);
+                animator.SetBool(isSprintingHash, false);
+                animator.SetBool(isRunningHash, false);
+                animator.SetBool("isSwimmingUp", false);
+                animator.SetBool("isSwimmingDown", false);
+                jumpCount = 0f;
+            }
+
+        }
+        else if(isOnGroundADJ || isOnSteep || Swimming || Climbing){
+            jumpCount = 0f;
         }
 
         else if (!isOnGroundADJ && isOnSteep && !Swimming){
@@ -363,10 +373,10 @@ public class AnimationStateController : MonoBehaviour
             animator.SetBool(isSprintingHash, false);
         }
 
-        if (!isRunning && movementPressed && !WalkPressed && !SprintPressed ){
+        if (!isRunning && movementPressed && !WalkPressed && !SprintPressed && sphere.velocity.magnitude > 0 ){
             animator.SetBool(isRunningHash, true);
         }
-        if (isRunning && !movementPressed || WalkPressed || SprintPressed ){
+        if ((isRunning && !movementPressed || WalkPressed || SprintPressed ) || sphere.velocity.magnitude <= 0.08f){
             animator.SetBool(isRunningHash, false);
         }
     }

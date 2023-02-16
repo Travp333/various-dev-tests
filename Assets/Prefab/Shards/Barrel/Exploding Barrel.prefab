@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 5113703899614453697}
   - component: {fileID: 5113703899614453702}
   - component: {fileID: -7354694041042589291}
+  - component: {fileID: 682170623998225246}
   m_Layer: 13
   m_Name: Exploding Barrel
   m_TagString: Breakable
@@ -267,3 +268,28 @@ MonoBehaviour:
   trashType: 0
   isTargeted: 0
   timeRemaining: 10
+  portalWarp: 0
+--- !u!114 &682170623998225246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347724716344697586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3428b41dea388448c8e8384c2809d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  safeFloating: 0
+  buoyancyOffsets:
+  - {x: 0, y: 0.00073, z: -0.01595}
+  - {x: 0, y: 0.00011, z: 0.01537}
+  submergenceOffset: 0.5
+  submergenceRange: 1
+  buoyancy: 1.3
+  waterDrag: 1
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16
+  floatToSleep: 1

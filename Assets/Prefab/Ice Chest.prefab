@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1837342010569789655
+--- !u!1 &12451159817622631
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1311775089659365997}
-  - component: {fileID: 2709909045024998856}
-  - component: {fileID: 179986354833568002}
-  - component: {fileID: 1967728889988696209}
-  - component: {fileID: 6005310706296713424}
-  - component: {fileID: -6246347634445244758}
-  - component: {fileID: 1474262259832525638}
-  m_Layer: 13
-  m_Name: Watermelon
+  - component: {fileID: 821885968650391261}
+  - component: {fileID: 4379811636107002232}
+  - component: {fileID: 1958151266418242994}
+  - component: {fileID: 931494784236462746}
+  - component: {fileID: 931494784236462745}
+  - component: {fileID: 931494784236462747}
+  m_Layer: 0
+  m_Name: Ice Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1311775089659365997
+--- !u!4 &821885968650391261
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837342010569789655}
-  m_LocalRotation: {x: -0.7138323, y: 0.027668385, z: -0.03205676, w: 0.6990352}
-  m_LocalPosition: {x: -143.683, y: -169.61, z: 129.274}
-  m_LocalScale: {x: 200, y: 200, z: 200}
+  m_GameObject: {fileID: 12451159817622631}
+  m_LocalRotation: {x: -0.6400332, y: 0.3005954, z: 0.3005954, w: 0.64003307}
+  m_LocalPosition: {x: 89.24, y: 15.257, z: -7.965}
+  m_LocalScale: {x: 46.083, y: 46.083, z: 46.083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2709909045024998856
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 50.315}
+--- !u!33 &4379811636107002232
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837342010569789655}
-  m_Mesh: {fileID: -2228417370725966487, guid: 09d4fd95e3916da429bbc960a3224474, type: 3}
---- !u!23 &179986354833568002
+  m_GameObject: {fileID: 12451159817622631}
+  m_Mesh: {fileID: -5495902117074765545, guid: e7ae2dec11e519d4cad46e333aa9034a, type: 3}
+--- !u!23 &1958151266418242994
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837342010569789655}
+  m_GameObject: {fileID: 12451159817622631}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -65,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ca1ca7fc7b1453140add0329bcee4886, type: 2}
+  - {fileID: 2100000, guid: ccde6d8150343d74cbc90bee0e6468a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,29 +86,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1967728889988696209
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837342010569789655}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2228417370725966487, guid: 09d4fd95e3916da429bbc960a3224474, type: 3}
---- !u!54 &6005310706296713424
+--- !u!54 &931494784236462746
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837342010569789655}
+  m_GameObject: {fileID: 12451159817622631}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -117,32 +102,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-6246347634445244758
-MonoBehaviour:
+--- !u!64 &931494784236462745
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837342010569789655}
+  m_GameObject: {fileID: 12451159817622631}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce63cbfe659afae4e9728ca9c753e595, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Watermelon
-  sizes: 1
-  isTrash: 0
-  trashType: 0
-  isTargeted: 0
-  timeRemaining: 10
-  portalWarp: 0
---- !u!114 &1474262259832525638
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: e7ae2dec11e519d4cad46e333aa9034a, type: 3}
+--- !u!114 &931494784236462747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837342010569789655}
+  m_GameObject: {fileID: 12451159817622631}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
@@ -151,7 +131,7 @@ MonoBehaviour:
   buoyancyOffset: {x: 0, y: 0, z: 0}
   submergenceOffset: 0.5
   submergenceRange: 1
-  buoyancy: 1.3
+  buoyancy: 1.4
   waterDrag: 1
   waterMask:
     serializedVersion: 2

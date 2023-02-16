@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2998659199551847530}
   - component: {fileID: 5303791627108244009}
   - component: {fileID: 7184699155109630161}
+  - component: {fileID: 2077268246518883276}
   m_Layer: 13
   m_Name: base cone
   m_TagString: Untagged
@@ -104,6 +105,7 @@ MonoBehaviour:
   trashType: 0
   isTargeted: 0
   timeRemaining: 10
+  portalWarp: 0
 --- !u!54 &5303791627108244009
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -134,3 +136,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3613567641014311022, guid: e7b7fc3708dcc564197adcb650dc3a60, type: 3}
+--- !u!114 &2077268246518883276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182791266734878607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancyOffset: {x: 0, y: 0, z: 0}
+  submergenceOffset: 0.5
+  submergenceRange: 1
+  buoyancy: 1.2
+  waterDrag: 1
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16
+  floatToSleep: 1

@@ -34,8 +34,8 @@ public class Controls : MonoBehaviour
                 {"interact",KeyCode.F},
                 {"throw",KeyCode.Mouse0},
                 {"aim",KeyCode.Mouse1},
-                {"swimUp",KeyCode.E},
-                {"swimDown",KeyCode.Q}
+                {"swimup",KeyCode.E},
+                {"swimdown",KeyCode.Q}
             };
 
             //Dictionary for what keys on the keyboard are in use

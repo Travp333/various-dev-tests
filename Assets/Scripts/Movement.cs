@@ -261,7 +261,7 @@ public class Movement : MonoBehaviour {
 			playerInput.y = (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0);
 
 			//allows you to move up or down while swimming
-			playerInput.z = Swimming ? (Input.GetKey(controls.keys["swimUp"])? 1 : 0) - (Input.GetKey(controls.keys["swimDown"])? 1: 0) : 0f;
+			playerInput.z = Swimming ? (Input.GetKey(controls.keys["swimup"])? 1 : 0) - (Input.GetKey(controls.keys["swimdown"])? 1: 0) : 0f;
 			//playerInput.z = Swimming ? Input.GetAxis("UpDown") : 0f;
 
 			playerInput = Vector3.ClampMagnitude(playerInput, 1f);
@@ -524,9 +524,13 @@ public class Movement : MonoBehaviour {
 				Invoke("resetDiveGate", .5f);
 			}
 			else if (OnGround) {
+				//added this to fix jumpsnapping
+				PreventSnapToGround();
 				jumpDirection = contactNormal;
 			}
 			else if (OnSteep) {
+				//added this to fix jumpsnapping
+				PreventSnapToGround();
 				desiresClimbing = false;
 				jumpDirection = steepNormal;
 				// this was originally 0 but i changed it so that wall jumping doesnt count as one of your air jumps
