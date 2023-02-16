@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5580782798741498728}
   - component: {fileID: 362164042445131774}
   - component: {fileID: -1149643358417826349}
+  - component: {fileID: 3293410773286315838}
   m_Layer: 13
   m_Name: ShatterableBench
   m_TagString: Breakable
@@ -170,6 +171,28 @@ MonoBehaviour:
   trashType: 0
   isTargeted: 0
   timeRemaining: 10
+  portalWarp: 0
+--- !u!114 &3293410773286315838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4734274636079867787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancyOffset: {x: 0, y: 0, z: 0}
+  submergenceOffset: 0.5
+  submergenceRange: 1
+  buoyancy: 0.5
+  waterDrag: 1
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16
+  floatToSleep: 1
 --- !u!1 &5580782799703230387
 GameObject:
   m_ObjectHideFlags: 0

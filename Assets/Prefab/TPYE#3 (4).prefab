@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1545912634026969203}
   - component: {fileID: 1545912634026969204}
   - component: {fileID: 1545912634026969202}
+  - component: {fileID: 5508023136173321413}
   m_Layer: 13
   m_Name: TPYE#3 (4)
   m_TagString: Untagged
@@ -136,6 +137,27 @@ MonoBehaviour:
   isTargeted: 0
   timeRemaining: 10
   portalWarp: 0
+--- !u!114 &5508023136173321413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852464373347064240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancyOffset: {x: 0, y: 0, z: 0}
+  submergenceOffset: 0.5
+  submergenceRange: 1
+  buoyancy: 0.6
+  waterDrag: 1
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16
+  floatToSleep: 1
 --- !u!1001 &1545912634404607419
 PrefabInstance:
   m_ObjectHideFlags: 0

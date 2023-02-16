@@ -70,9 +70,9 @@ public class UpdateRotation : MonoBehaviour
 		//	Quaternion toRotation = Quaternion.LookRotation(sphere.forwardAxis, gravity);
 		//	transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
 		//}
-		
+		//SHOULD MAKE IT SO THAT ROTATING IN AIR IS SLOWER
 		else if (sphere.velocity.magnitude > .2f && (sphere.playerInput != Vector3.zero)){
-			//Debug.Log("Moving/Jumping");
+			//Debug.Log("Moving");
 			Quaternion toRotation = Quaternion.LookRotation(ProjectDirectionOnPlane(player2Pointer, gravity), gravity);
 			transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
 		}

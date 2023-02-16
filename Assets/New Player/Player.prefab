@@ -11191,6 +11191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aea7bba569602849ae08bb9a27b3a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wantDive: 1
   grab: {fileID: 7197834581697023859}
   feet: {fileID: 7197834582207122682}
   standingBean: {fileID: 3890495772722480241}
@@ -11199,7 +11200,7 @@ MonoBehaviour:
   Diving: 0
   isBarraging: 0
   swimThreshold: 0.5
-  maxClimbAngle: 156
+  maxClimbAngle: 140
   parent: {fileID: 7197834583306505045}
   playerInputSpace: {fileID: 7197834582348623818}
   probeDistance: 1
@@ -11241,6 +11242,7 @@ MonoBehaviour:
   ClimbingADJ: 0
   divingPrep: 0
   moveBlocked: 0
+  controls: {fileID: 0}
 --- !u!54 &7197834583306505050
 Rigidbody:
   m_ObjectHideFlags: 0

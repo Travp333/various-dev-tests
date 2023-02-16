@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3878744648341405686}
   - component: {fileID: 4440762065877034237}
   - component: {fileID: 7678321392090143396}
+  - component: {fileID: 3109385400735069164}
   m_Layer: 13
   m_Name: 'thin cone '
   m_TagString: Untagged
@@ -120,6 +121,7 @@ MonoBehaviour:
   trashType: 0
   isTargeted: 0
   timeRemaining: 10
+  portalWarp: 0
 --- !u!64 &7678321392090143396
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -134,3 +136,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6195245291975648998, guid: c3d48b638be19414aa61489839d47856, type: 3}
+--- !u!114 &3109385400735069164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7135328381203446769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancyOffset: {x: 0, y: 0, z: 0}
+  submergenceOffset: 0.5
+  submergenceRange: 1
+  buoyancy: 1.2
+  waterDrag: 1
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16
+  floatToSleep: 1

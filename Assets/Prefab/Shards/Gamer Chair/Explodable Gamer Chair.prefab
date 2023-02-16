@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6189512262673169270}
   - component: {fileID: 1671889363536368557}
   - component: {fileID: 8315410206088248847}
+  - component: {fileID: 7916197412657644693}
   m_Layer: 13
   m_Name: Explodable Gamer Chair
   m_TagString: Breakable
@@ -170,6 +171,28 @@ MonoBehaviour:
   trashType: 0
   isTargeted: 0
   timeRemaining: 10
+  portalWarp: 0
+--- !u!114 &7916197412657644693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883294572696222891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancyOffset: {x: 0, y: 0, z: 0}
+  submergenceOffset: 0.5
+  submergenceRange: 1
+  buoyancy: 0.7
+  waterDrag: 1
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16
+  floatToSleep: 1
 --- !u!1 &1811861912008067713
 GameObject:
   m_ObjectHideFlags: 0
