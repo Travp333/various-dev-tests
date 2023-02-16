@@ -24,12 +24,13 @@ public class Controls : MonoBehaviour
             //A dictionary containing game actions and associated keys
             keys = new Dictionary<string, KeyCode>()
             {
+                {"flashlight",KeyCode.T},
                 {"walkUp",KeyCode.W},
                 {"walkDown",KeyCode.S},
                 {"walkLeft",KeyCode.A},
                 {"walkRight",KeyCode.D},
                 {"jump",KeyCode.Space},
-                {"duck",KeyCode.LeftControl},
+                {"duck",KeyCode.C},
                 {"sprint",KeyCode.LeftShift},
                 {"interact",KeyCode.F},
                 {"throw",KeyCode.Mouse0},

@@ -6,6 +6,8 @@ stuff I think needs work, or needs to be implemented, or whatever. just a to do 
 
 update julia aniamtion controlelr to match FPS controller, where animations depend on the speed
 
+add swimming animations for fps controller
+
 SWIMMING CAPSULT COLLIDER NO WORK
 
 some windows normals are flipped

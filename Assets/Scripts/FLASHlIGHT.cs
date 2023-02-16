@@ -6,10 +6,15 @@ public class FLASHlIGHT : MonoBehaviour
 {
     [SerializeField]
     GameObject lite;
-    bool flipflop = true;
+    bool flipflop = false;
+    public Controls controls;
+    void Awake()
+    {
+        controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
+    }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F)){
+        if(Input.GetKeyDown(controls.keys["flashlight"])){
             if(flipflop){
                 lite.SetActive(false);
                 flipflop = false;

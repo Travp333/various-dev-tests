@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6383869558425824233}
   - component: {fileID: 6383869558425824234}
   - component: {fileID: 9120787412537796090}
+  - component: {fileID: 2440663161516135240}
   m_Layer: 0
   m_Name: Neck.002
   m_TagString: Untagged
@@ -129,6 +130,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
+--- !u!114 &2440663161516135240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4176458656099108692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancyOffset: {x: 0, y: 0, z: 0}
+  submergenceOffset: 0.5
+  submergenceRange: 1
+  buoyancy: 0.7
+  waterDrag: 1
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16
+  floatToSleep: 1
 --- !u!1 &4592629962570011307
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +165,7 @@ GameObject:
   - component: {fileID: 6383869559204219853}
   - component: {fileID: 6383869559204219854}
   - component: {fileID: 2079682092339272792}
+  - component: {fileID: 4497256421930414709}
   m_Layer: 0
   m_Name: Neck.001
   m_TagString: Untagged
@@ -258,6 +281,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
+--- !u!114 &4497256421930414709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4592629962570011307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancyOffset: {x: 0, y: 0, z: 0}
+  submergenceOffset: 0.5
+  submergenceRange: 1
+  buoyancy: 0.7
+  waterDrag: 1
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16
+  floatToSleep: 1
 --- !u!1 &5708537419506968192
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +316,7 @@ GameObject:
   - component: {fileID: 6383869558447220846}
   - component: {fileID: 6383869558447220847}
   - component: {fileID: 2022671369153010274}
+  - component: {fileID: 2532915339413169439}
   m_Layer: 0
   m_Name: Neck.003
   m_TagString: Untagged
@@ -387,6 +432,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
+--- !u!114 &2532915339413169439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5708537419506968192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancyOffset: {x: 0, y: 0, z: 0}
+  submergenceOffset: 0.5
+  submergenceRange: 1
+  buoyancy: 0.7
+  waterDrag: 1
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16
+  floatToSleep: 1
 --- !u!1 &6078001717102491270
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +538,7 @@ GameObject:
   - component: {fileID: 6383869558545735191}
   - component: {fileID: 6383869558545735192}
   - component: {fileID: 6368150066569352104}
+  - component: {fileID: 8207458186025253276}
   m_Layer: 0
   m_Name: Neck
   m_TagString: Untagged
@@ -587,6 +654,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
+--- !u!114 &8207458186025253276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6996100595123187678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancyOffset: {x: 0, y: 0, z: 0}
+  submergenceOffset: 0.5
+  submergenceRange: 1
+  buoyancy: 0.7
+  waterDrag: 1
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16
+  floatToSleep: 1
 --- !u!1 &7719373621137197605
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +689,7 @@ GameObject:
   - component: {fileID: 6383869557351036095}
   - component: {fileID: 6383869557351035968}
   - component: {fileID: 2672917526394157496}
+  - component: {fileID: 2127239543578701491}
   m_Layer: 0
   m_Name: Neck.004
   m_TagString: Untagged
@@ -716,3 +805,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
+--- !u!114 &2127239543578701491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719373621137197605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancyOffset: {x: 0, y: 0, z: 0}
+  submergenceOffset: 0.5
+  submergenceRange: 1
+  buoyancy: 0.7
+  waterDrag: 1
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16
+  floatToSleep: 1
