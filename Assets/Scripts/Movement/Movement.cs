@@ -2,6 +2,7 @@
 //Debugging: Travis Parks
 using UnityEngine;
 public class Movement : MonoBehaviour { 
+	//CAN I DIFFERENTIATE BETWEEN CERTAIN TYPES OF STEEPS? ie a straight wall vs a sloped ramp? this would be nice!
 	//This script controls the movement of the character. Adapted from https://catlikecoding.com/unity/tutorials/movement/ by Travis Parks
 	//refrence to the grab script
 	public bool wantDive;
@@ -524,13 +525,11 @@ public class Movement : MonoBehaviour {
 				Invoke("resetDiveGate", .5f);
 			}
 			else if (OnGround) {
-				//added this to fix jumpsnapping
-				PreventSnapToGround();
+
 				jumpDirection = contactNormal;
 			}
 			else if (OnSteep) {
-				//added this to fix jumpsnapping
-				PreventSnapToGround();
+
 				desiresClimbing = false;
 				jumpDirection = steepNormal;
 				// this was originally 0 but i changed it so that wall jumping doesnt count as one of your air jumps

@@ -171,9 +171,15 @@ public class HandAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        barragePrep = animator.GetBool("barragePrep");
+        
         //IF not paused
         if (!FindObjectOfType<PauseMenu>().isPaused) {
+            if(isOnSteep){
+                animator.SetBool("OnSteep", true);
+            }
+            else if(!isOnSteep){
+                animator.SetBool("OnSteep", false);
+            }
             if (movement.ClimbingADJ) {
                 animator.SetFloat("ClimbingX", movement.velocity.x);
                 animator.SetFloat("ClimbingY", movement.velocity.y);

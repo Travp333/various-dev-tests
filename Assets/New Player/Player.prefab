@@ -11205,7 +11205,7 @@ MonoBehaviour:
   playerInputSpace: {fileID: 7197834582348623818}
   probeDistance: 1
   maxSnapSpeed: 72.2
-  maxGroundAngle: 62.8
+  maxGroundAngle: 27.6
   maxStairsAngle: 50
   maxAcceleration: 60
   maxAirAcceleration: 10
