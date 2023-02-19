@@ -1,4 +1,4 @@
-//Author: Lizbeth
+//Author: Travis
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
