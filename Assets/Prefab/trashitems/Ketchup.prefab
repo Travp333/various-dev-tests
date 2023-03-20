@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2459820335033795305}
   - component: {fileID: -5178516156296341042}
   - component: {fileID: 8123281152079705274}
-  - component: {fileID: 4850747448793002882}
+  - component: {fileID: 4752094254968900763}
   m_Layer: 13
   m_Name: Ketchup
   m_TagString: Untagged
@@ -117,10 +117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: F.Ketchup
   sizes: 0
-  isTrash: 1
-  trashType: 1
-  isTargeted: 0
-  timeRemaining: 10
   portalWarp: 0
 --- !u!64 &8123281152079705274
 MeshCollider:
@@ -136,7 +132,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 28
   m_Mesh: {fileID: -3329902420748629119, guid: 164819c4854fbb046b598b8a0a5a7d8a, type: 3}
---- !u!114 &4850747448793002882
+--- !u!114 &4752094254968900763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,15 +141,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3198707054581729232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
+  m_Script: {fileID: 11500000, guid: b68ffba5c88d0134bb35ea7a2604b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.4
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
+  isTrash: 1
+  trashType: 1
+  isTargeted: 0
+  timeRemaining: 10

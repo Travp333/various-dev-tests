@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8144120395769347338}
   - component: {fileID: 6863161758063845249}
   - component: {fileID: 2837960991512808870}
-  - component: {fileID: 1392069269868812452}
+  - component: {fileID: -3476327077785376003}
   m_Layer: 13
   m_Name: book1
   m_TagString: Untagged
@@ -50,10 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: M.Push-up Book
   sizes: 0
-  isTrash: 1
-  trashType: 3
-  isTargeted: 0
-  timeRemaining: 10
   portalWarp: 0
 --- !u!54 &6863161758063845249
 Rigidbody:
@@ -84,7 +80,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.42, y: 0.68, z: 3.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1392069269868812452
+--- !u!114 &-3476327077785376003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,23 +89,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 830281525770802134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3428b41dea388448c8e8384c2809d0, type: 3}
+  m_Script: {fileID: 11500000, guid: b68ffba5c88d0134bb35ea7a2604b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  safeFloating: 1
-  buoyancyOffsets:
-  - {x: -2.119, y: 0, z: 1.52}
-  - {x: 2.07, y: 0, z: 1.52}
-  - {x: 2.07, y: 0, z: -1.42}
-  - {x: -2.01, y: 0, z: -1.42}
-  submergenceOffset: 0.37
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
+  isTrash: 1
+  trashType: 2
+  isTargeted: 0
+  timeRemaining: 10
 --- !u!1 &8505060292751797007
 GameObject:
   m_ObjectHideFlags: 0

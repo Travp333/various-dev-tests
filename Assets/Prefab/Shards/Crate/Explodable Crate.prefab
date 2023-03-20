@@ -206,7 +206,6 @@ GameObject:
   - component: {fileID: 1382149871946714590}
   - component: {fileID: 6189203155664035815}
   - component: {fileID: -757199769655447199}
-  - component: {fileID: 4808541334193179998}
   m_Layer: 13
   m_Name: Explodable Crate
   m_TagString: Breakable
@@ -370,36 +369,6 @@ MonoBehaviour:
   isTargeted: 0
   timeRemaining: 10
   portalWarp: 0
---- !u!114 &4808541334193179998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2301066927167353417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3428b41dea388448c8e8384c2809d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  safeFloating: 1
-  buoyancyOffsets:
-  - {x: 0.00925, y: 0.00906, z: -0.00936}
-  - {x: 0.00925, y: 0.00906, z: 0.00975}
-  - {x: -0.00975, y: 0.00906, z: 0.00975}
-  - {x: -0.00975, y: 0.00906, z: -0.00974}
-  - {x: -0.00975, y: -0.0095, z: -0.00974}
-  - {x: 0.00915, y: -0.0095, z: -0.00974}
-  - {x: 0.00915, y: -0.0095, z: 0.00928}
-  - {x: -0.00964, y: -0.0095, z: 0.00928}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &2458677266853640595
 GameObject:
   m_ObjectHideFlags: 0

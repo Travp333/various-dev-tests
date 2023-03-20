@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4802847066535761737}
   - component: {fileID: 4802847066535761736}
   - component: {fileID: 1671819867856967134}
-  - component: {fileID: 6446533692050089260}
   m_Layer: 0
   m_Name: Cylinder.010
   m_TagString: Untagged
@@ -131,27 +130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &6446533692050089260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 751259043234763921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &944267110390704843
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +144,6 @@ GameObject:
   - component: {fileID: 4802847066901832954}
   - component: {fileID: 4802847066901832957}
   - component: {fileID: 1575329544137062406}
-  - component: {fileID: 226939046004431550}
   m_Layer: 0
   m_Name: Cylinder.020
   m_TagString: Untagged
@@ -283,27 +260,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &226939046004431550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944267110390704843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &1525259841293545143
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +274,6 @@ GameObject:
   - component: {fileID: 4802847065036862645}
   - component: {fileID: 4802847065036862644}
   - component: {fileID: 1723176952850916233}
-  - component: {fileID: 3549160259783616434}
   m_Layer: 0
   m_Name: Cylinder.012
   m_TagString: Untagged
@@ -435,27 +390,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &3549160259783616434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525259841293545143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &1612013338050750269
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +404,6 @@ GameObject:
   - component: {fileID: 4802847066320681640}
   - component: {fileID: 4802847066320681643}
   - component: {fileID: 5674931794850556511}
-  - component: {fileID: 8055733162664183436}
   m_Layer: 0
   m_Name: Cylinder.023
   m_TagString: Untagged
@@ -587,27 +520,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &8055733162664183436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612013338050750269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &1785173686805900940
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +534,6 @@ GameObject:
   - component: {fileID: 4802847065329117594}
   - component: {fileID: 4802847065329117597}
   - component: {fileID: 4032884222698183743}
-  - component: {fileID: 8946254554237024639}
   m_Layer: 0
   m_Name: Cylinder.007
   m_TagString: Untagged
@@ -739,27 +650,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &8946254554237024639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785173686805900940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &3071483930430107827
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +664,6 @@ GameObject:
   - component: {fileID: 4802847065278745499}
   - component: {fileID: 4802847065278745498}
   - component: {fileID: 4336361629158334950}
-  - component: {fileID: 1910327650105276934}
   m_Layer: 0
   m_Name: Cylinder.022
   m_TagString: Untagged
@@ -891,27 +780,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &1910327650105276934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3071483930430107827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &3319831084702128105
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +794,6 @@ GameObject:
   - component: {fileID: 4802847065830048289}
   - component: {fileID: 4802847065830048288}
   - component: {fileID: 3039828075104595040}
-  - component: {fileID: 8262375493165980979}
   m_Layer: 0
   m_Name: Cylinder.019
   m_TagString: Untagged
@@ -1043,27 +910,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &8262375493165980979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3319831084702128105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &3783144802050598553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,7 +924,6 @@ GameObject:
   - component: {fileID: 4802847065887438943}
   - component: {fileID: 4802847065887438942}
   - component: {fileID: 7094196480594492797}
-  - component: {fileID: 7009413814916527381}
   m_Layer: 0
   m_Name: Cylinder.001
   m_TagString: Untagged
@@ -1194,27 +1039,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &7009413814916527381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3783144802050598553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &4186109474006819004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,7 +1053,6 @@ GameObject:
   - component: {fileID: 4802847066881288796}
   - component: {fileID: 4802847066881288799}
   - component: {fileID: 2162473400075891313}
-  - component: {fileID: 4792077743381847049}
   m_Layer: 0
   m_Name: Cylinder.003
   m_TagString: Untagged
@@ -1346,27 +1169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &4792077743381847049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4186109474006819004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &5264157473561166805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,7 +1183,6 @@ GameObject:
   - component: {fileID: 4802847065548026560}
   - component: {fileID: 4802847065548026563}
   - component: {fileID: 5968011637762521085}
-  - component: {fileID: 2199533627428205666}
   m_Layer: 0
   m_Name: Cylinder.018
   m_TagString: Untagged
@@ -1498,27 +1299,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &2199533627428205666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5264157473561166805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &5649284301109738235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,7 +1399,6 @@ GameObject:
   - component: {fileID: 4802847066047910216}
   - component: {fileID: 4802847066047910219}
   - component: {fileID: 3320127745414213730}
-  - component: {fileID: 5883759437784949169}
   m_Layer: 0
   m_Name: Cylinder.024
   m_TagString: Untagged
@@ -1736,27 +1515,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &5883759437784949169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6604773375176102507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &6929299474676998332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,7 +1529,6 @@ GameObject:
   - component: {fileID: 4802847065083024827}
   - component: {fileID: 4802847065083024826}
   - component: {fileID: 5180280488220077924}
-  - component: {fileID: 3526750107616776265}
   m_Layer: 0
   m_Name: Cylinder.002
   m_TagString: Untagged
@@ -1888,27 +1645,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &3526750107616776265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6929299474676998332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &7240485245079129525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,7 +1659,6 @@ GameObject:
   - component: {fileID: 4802847065512125478}
   - component: {fileID: 4802847065512125481}
   - component: {fileID: 7478052818209965401}
-  - component: {fileID: 5971179963633804608}
   m_Layer: 0
   m_Name: Cylinder.005
   m_TagString: Untagged
@@ -2040,27 +1775,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &5971179963633804608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7240485245079129525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &7753556201427868163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2075,7 +1789,6 @@ GameObject:
   - component: {fileID: 4802847066587724518}
   - component: {fileID: 4802847066587724521}
   - component: {fileID: 3822934168372598200}
-  - component: {fileID: 731656778069529463}
   m_Layer: 0
   m_Name: Cylinder.015
   m_TagString: Untagged
@@ -2192,27 +1905,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &731656778069529463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7753556201427868163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &8078904043995400618
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,7 +1919,6 @@ GameObject:
   - component: {fileID: 4802847065179109352}
   - component: {fileID: 4802847065179109355}
   - component: {fileID: 5934533932829599334}
-  - component: {fileID: 6069075652843163152}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -2343,27 +2034,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &6069075652843163152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8078904043995400618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &8188350346149598806
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,7 +2048,6 @@ GameObject:
   - component: {fileID: 4802847067049341105}
   - component: {fileID: 4802847067049341104}
   - component: {fileID: 3175347198243131981}
-  - component: {fileID: 5081470924751816544}
   m_Layer: 0
   m_Name: Cylinder.008
   m_TagString: Untagged
@@ -2495,27 +2164,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &5081470924751816544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8188350346149598806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &8631774584800718722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2530,7 +2178,6 @@ GameObject:
   - component: {fileID: 4802847066124396401}
   - component: {fileID: 4802847066124396400}
   - component: {fileID: 8538854103221489378}
-  - component: {fileID: 800883935761612300}
   m_Layer: 0
   m_Name: Cylinder.006
   m_TagString: Untagged
@@ -2647,27 +2294,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &800883935761612300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8631774584800718722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &8708435734175819211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2682,7 +2308,6 @@ GameObject:
   - component: {fileID: 4802847066690185833}
   - component: {fileID: 4802847066690185832}
   - component: {fileID: 224100024749072328}
-  - component: {fileID: 4317585372024248166}
   m_Layer: 0
   m_Name: Cylinder.014
   m_TagString: Untagged
@@ -2799,27 +2424,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &4317585372024248166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8708435734175819211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &8871232906054927006
 GameObject:
   m_ObjectHideFlags: 0
@@ -2834,7 +2438,6 @@ GameObject:
   - component: {fileID: 4802847066297692981}
   - component: {fileID: 4802847066297692980}
   - component: {fileID: 4696665148732746082}
-  - component: {fileID: 3875134980977498788}
   m_Layer: 0
   m_Name: Cylinder.011
   m_TagString: Untagged
@@ -2951,27 +2554,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &3875134980977498788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8871232906054927006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &9011613743431040847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,7 +2568,6 @@ GameObject:
   - component: {fileID: 4802847065539076562}
   - component: {fileID: 4802847065539076565}
   - component: {fileID: 8339932181791611073}
-  - component: {fileID: 8139850837250695402}
   m_Layer: 0
   m_Name: Cylinder.016
   m_TagString: Untagged
@@ -3103,24 +2684,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &8139850837250695402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9011613743431040847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1

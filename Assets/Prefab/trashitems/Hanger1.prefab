@@ -106,8 +106,8 @@ GameObject:
   - component: {fileID: 8577449408090805171}
   - component: {fileID: 6974014698871959103}
   - component: {fileID: 6974014698871959102}
-  - component: {fileID: 212713670630686960}
   - component: {fileID: -6133548702191896429}
+  - component: {fileID: -5896746232195731685}
   m_Layer: 13
   m_Name: Hanger1
   m_TagString: Untagged
@@ -213,31 +213,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: f327736328b25224997b362015c81a78, type: 3}
---- !u!114 &212713670630686960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7784969736958030438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3428b41dea388448c8e8384c2809d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  safeFloating: 0
-  buoyancyOffsets:
-  - {x: 5.3, y: 0.17, z: 0.26}
-  - {x: -5.39, y: 0.17, z: 0.26}
-  - {x: 0.02, y: 0.17, z: 6.2}
-  submergenceOffset: 0.38
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!114 &-6133548702191896429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,8 +227,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Clothes Hanger
   sizes: 0
+  portalWarp: 0
+--- !u!114 &-5896746232195731685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784969736958030438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68ffba5c88d0134bb35ea7a2604b6ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   isTrash: 1
   trashType: 2
   isTargeted: 0
   timeRemaining: 10
-  portalWarp: 0

@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1970372205113838982}
   - component: {fileID: 1502258980945123563}
   - component: {fileID: 9178521404709010906}
-  - component: {fileID: 414541653717248326}
+  - component: {fileID: -4174496979507845794}
   m_Layer: 13
   m_Name: Eggs
   m_TagString: Untagged
@@ -150,10 +150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: F.Eggs
   sizes: 0
-  isTrash: 1
-  trashType: 1
-  isTargeted: 0
-  timeRemaining: 10
   portalWarp: 0
 --- !u!64 &9178521404709010906
 MeshCollider:
@@ -169,7 +165,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2212009239438826721, guid: a72b7fbfcec22c54e99e1fa534e733fa, type: 3}
---- !u!114 &414541653717248326
+--- !u!114 &-4174496979507845794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,21 +174,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3641615534790219431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3428b41dea388448c8e8384c2809d0, type: 3}
+  m_Script: {fileID: 11500000, guid: b68ffba5c88d0134bb35ea7a2604b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  safeFloating: 0
-  buoyancyOffsets:
-  - {x: 0.00324, y: 0.00139, z: 0.00039}
-  - {x: -0.00323, y: -0.00121, z: 0.00029}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
+  isTrash: 1
+  trashType: 1
+  isTargeted: 0
+  timeRemaining: 10
 --- !u!1 &4469251385205929082
 GameObject:
   m_ObjectHideFlags: 0

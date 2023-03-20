@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 5845182725207603314}
   - component: {fileID: -455387078490907958}
   - component: {fileID: -6782167662197062051}
-  - component: {fileID: -832992928883078897}
   m_Layer: 13
   m_Name: Explodable Guitar
   m_TagString: Breakable
@@ -171,27 +170,6 @@ MonoBehaviour:
   isTargeted: 0
   timeRemaining: 10
   portalWarp: 0
---- !u!114 &-832992928883078897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4788631138404640926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 0.7
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &5671663021510199957
 GameObject:
   m_ObjectHideFlags: 0

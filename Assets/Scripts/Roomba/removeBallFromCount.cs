@@ -8,30 +8,30 @@ public class removeBallFromCount : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<objectSize>() != null && other.gameObject.GetComponent<objectSize>().isTrash){
+        if (other.gameObject.GetComponent<trashItem>() != null){
 
             foreach (GameObject g in player){
                 g.GetComponent<Scan>().removeTrash(other.gameObject);
             }
-            other.gameObject.GetComponent<objectSize>().isTrash = false;
+            other.gameObject.GetComponent<trashItem>().isTrash = false;
         }
         
     }
     void OnTriggerEnter(Collider other){
-        if (other.gameObject.GetComponent<objectSize>() != null && other.gameObject.GetComponent<objectSize>().isTrash){
+        if (other.gameObject.GetComponent<trashItem>()){
 
             foreach (GameObject g in player){
                 g.GetComponent<Scan>().removeTrash(other.gameObject);
             }
-            other.gameObject.GetComponent<objectSize>().isTrash = false;
+            other.gameObject.GetComponent<trashItem>().isTrash = false;
         }
     }
     void OnTriggerExit(Collider other){
-        if(other.gameObject.GetComponent<objectSize>() != null && other.gameObject.GetComponent<objectSize>().isTrash){
+        if(other.gameObject.GetComponent<trashItem>()){
             foreach (GameObject g in player){
                 g.GetComponent<Scan>().addTrash(other.gameObject);
             }
-            other.gameObject.GetComponent<objectSize>().isTrash = true;
+            other.gameObject.GetComponent<trashItem>().isTrash = true;
         }
     }
 }

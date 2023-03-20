@@ -149,7 +149,7 @@ public class AnimationStateController : MonoBehaviour
     void Update() {
         //Debug.Log(sphere.velocity.magnitude);
         BoolAdjuster();
-        bool JumpPressed = Input.GetKey("space");
+        bool JumpPressed = Input.GetKey(sphere.controls.keys["jump"]);
         isOnGround = isOnGroundADJ;
         
         bool isSmile = animator.GetBool(isSmileHash);
@@ -190,7 +190,7 @@ public class AnimationStateController : MonoBehaviour
         }
 
         if (Swimming && !Climbing ){
-            Debug.Log("is Swimming");
+            //Debug.Log("is Swimming");
             animator.SetBool("isSwimming", true);
             if (!swimDownPressed){
                 animator.SetBool("isSwimmingDown", false);
@@ -356,20 +356,20 @@ public class AnimationStateController : MonoBehaviour
         }
 
 
-        if (!isWalking && (movementPressed && WalkPressed && !SprintPressed )){
+        if (!isWalking && (movementPressed && WalkPressed)){
             animator.SetBool(isWalkingHash, true);
             
         }
-        if (isWalking && (!movementPressed || !WalkPressed )){
+        if (isWalking && (!movementPressed || !WalkPressed)){
             animator.SetBool(isWalkingHash, false);
         }
 
 
-        if (!isSprinting && (movementPressed && SprintPressed && !isWalking )){
+        if (!isSprinting && (movementPressed && SprintPressed && !WalkPressed )){
             animator.SetBool(isSprintingHash, true);
             
         }
-        if (isSprinting && (!movementPressed || !SprintPressed )){
+        if (isSprinting && (!movementPressed || !SprintPressed || WalkPressed)){
             animator.SetBool(isSprintingHash, false);
         }
 

@@ -40,22 +40,22 @@ public class Scan : MonoBehaviour
     }
 
     public void resetTrash(){
-        shootTrash.GetComponent<objectSize>().isTrash = true;
+        shootTrash.GetComponent<trashItem>().isTrash = true;
     }
 
     public void dumpElectronics(){
         if(storage.Count > 0){
             dumping = true;
             foreach (GameObject g in prefabTrash){
-                if(storage.Count > 0 && g.GetComponent<objectSize>().objectName == storage[0] && g.GetComponent<objectSize>().trashType == objectSize.trash.electronic ){
-                    Debug.Log("dumping " + storage[0] + " into " + g.GetComponent<objectSize>().trashType);
+                if(storage.Count > 0 && g.GetComponent<objectSize>().objectName == storage[0] && g.GetComponent<trashItem>().trashType == trashItem.trash.electronic ){
+                    Debug.Log("dumping " + storage[0] + " into " + g.GetComponent<trashItem>().trashType);
                     trashMatch2 = g;
                 }
             } 
             if(trashMatch2 != null){
                 shootTrash = Instantiate(trashMatch2, trashSpawnPos.position, this.transform.rotation);
                 shootTrash.GetComponent<Rigidbody>().velocity = ((trashSpawnPos.position - this.transform.position) * magnitude );
-                shootTrash.GetComponent<objectSize>().isTrash = false;
+                shootTrash.GetComponent<trashItem>().isTrash = false;
                 Invoke("resetTrash", 5f);
                 storage.Remove(storage[0]);
                 buildTrashList();
@@ -69,8 +69,8 @@ public class Scan : MonoBehaviour
                         }
                     } 
                     Debug.Log("is the next trash the same type as the last?");
-                    if(trashMatch2.GetComponent<objectSize>().trashType == objectSize.trash.electronic){
-                        Debug.Log(trashMatch2.GetComponent<objectSize>().trashType);
+                    if(trashMatch2.GetComponent<trashItem>().trashType == trashItem.trash.electronic){
+                        Debug.Log(trashMatch2.GetComponent<trashItem>().trashType);
                         Debug.Log("yes it is, doing recursive call");
                         Invoke("dumpElectronics", .5f);
                         dumping = false;
@@ -96,15 +96,15 @@ public class Scan : MonoBehaviour
         if(storage.Count > 0){
             dumping = true;
             foreach (GameObject g in prefabTrash){
-                if(storage.Count > 0 && g.GetComponent<objectSize>().objectName == storage[0] && g.GetComponent<objectSize>().trashType == objectSize.trash.misc ){
-                    Debug.Log("dumping " + storage[0] + " into " + g.GetComponent<objectSize>().trashType);
+                if(storage.Count > 0 && g.GetComponent<objectSize>().objectName == storage[0] && g.GetComponent<trashItem>().trashType == trashItem.trash.misc ){
+                    Debug.Log("dumping " + storage[0] + " into " + g.GetComponent<trashItem>().trashType);
                     trashMatch2 = g;
                 }
             } 
             if(trashMatch2 != null){
                 shootTrash = Instantiate(trashMatch2, trashSpawnPos.position, this.transform.rotation);
                 shootTrash.GetComponent<Rigidbody>().velocity = ((trashSpawnPos.position - this.transform.position) * magnitude );
-                shootTrash.GetComponent<objectSize>().isTrash = false;
+                shootTrash.GetComponent<trashItem>().isTrash = false;
                 Invoke("resetTrash", 5f);
                 storage.Remove(storage[0]);
                 buildTrashList();
@@ -118,7 +118,7 @@ public class Scan : MonoBehaviour
                         }
                     } 
                     Debug.Log("is the next trash the same type as the last?");
-                    if(trashMatch2.GetComponent<objectSize>().trashType == objectSize.trash.misc){
+                    if(trashMatch2.GetComponent<trashItem>().trashType == trashItem.trash.misc){
                         Debug.Log("yes it is, doing recursive call");
                         Invoke("dumpMisc", .5f);
                         dumping = false;
@@ -145,15 +145,15 @@ public class Scan : MonoBehaviour
         if(storage.Count > 0){
             dumping = true;
             foreach (GameObject g in prefabTrash){
-                if(storage.Count > 0 &&g.GetComponent<objectSize>().objectName == storage[0] && g.GetComponent<objectSize>().trashType == objectSize.trash.recycleable ){
-                    Debug.Log("dumping " + storage[0] + " into " + g.GetComponent<objectSize>().trashType);
+                if(storage.Count > 0 &&g.GetComponent<objectSize>().objectName == storage[0] && g.GetComponent<trashItem>().trashType == trashItem.trash.recycleable ){
+                    Debug.Log("dumping " + storage[0] + " into " + g.GetComponent<trashItem>().trashType);
                     trashMatch2 = g;
                 }
             } 
             if(trashMatch2 != null){
                 shootTrash = Instantiate(trashMatch2, trashSpawnPos.position, this.transform.rotation);
                 shootTrash.GetComponent<Rigidbody>().velocity = ((trashSpawnPos.position - this.transform.position) * magnitude );
-                shootTrash.GetComponent<objectSize>().isTrash = false;
+                shootTrash.GetComponent<trashItem>().isTrash = false;
                 Invoke("resetTrash", 5f);
                 storage.Remove(storage[0]);
                 buildTrashList();
@@ -167,7 +167,7 @@ public class Scan : MonoBehaviour
                         }
                     } 
                     Debug.Log("is the next trash the same type as the last?");
-                    if(trashMatch2.GetComponent<objectSize>().trashType == objectSize.trash.recycleable){
+                    if(trashMatch2.GetComponent<trashItem>().trashType == trashItem.trash.recycleable){
                         Debug.Log("yes it is, doing recursive call");
                         Invoke("dumpRecyclable", .5f);
                         dumping = false;
@@ -194,15 +194,15 @@ public class Scan : MonoBehaviour
         if(storage.Count > 0){
             dumping = true;
             foreach (GameObject g in prefabTrash){
-                if(storage.Count > 0 &&g.GetComponent<objectSize>().objectName == storage[0] && g.GetComponent<objectSize>().trashType == objectSize.trash.food ){
-                    Debug.Log("dumping " + storage[0] + " into " + g.GetComponent<objectSize>().trashType);
+                if(storage.Count > 0 &&g.GetComponent<objectSize>().objectName == storage[0] && g.GetComponent<trashItem>().trashType == trashItem.trash.food ){
+                    Debug.Log("dumping " + storage[0] + " into " + g.GetComponent<trashItem>().trashType);
                     trashMatch2 = g;
                 }
             } 
             if(trashMatch2 != null){
                 shootTrash = Instantiate(trashMatch2, trashSpawnPos.position, this.transform.rotation);
                 shootTrash.GetComponent<Rigidbody>().velocity = ((trashSpawnPos.position - this.transform.position) * magnitude );
-                shootTrash.GetComponent<objectSize>().isTrash = false;
+                shootTrash.GetComponent<trashItem>().isTrash = false;
                 Invoke("resetTrash", 5f);
                 storage.Remove(storage[0]);
                 buildTrashList();
@@ -216,7 +216,7 @@ public class Scan : MonoBehaviour
                         }
                     } 
                     Debug.Log("is the next trash the same type as the last?");
-                    if(trashMatch2.GetComponent<objectSize>().trashType == objectSize.trash.food){
+                    if(trashMatch2.GetComponent<trashItem>().trashType == trashItem.trash.food){
                         Debug.Log("yes it is, doing recursive call");
                         Invoke("dumpFood", .5f);
                         dumping = false;
@@ -243,27 +243,27 @@ public class Scan : MonoBehaviour
         Debug.Log("finding which item to dump...");
         foreach (GameObject g in prefabTrash){
             if(g.GetComponent<objectSize>().objectName == storage[0]){
-                Debug.Log("dumping " + storage[0] + " into " + g.GetComponent<objectSize>().trashType);
+                Debug.Log("dumping " + storage[0] + " into " + g.GetComponent<trashItem>().trashType);
                 trashMatch2 = g;
             }
         } 
-        objectSize.trash temp;
+        trashItem.trash temp;
         shootTrash = Instantiate(trashMatch2, trashSpawnPos.position, this.transform.rotation);
         shootTrash.GetComponent<Rigidbody>().velocity = ((trashSpawnPos.position - this.transform.position) * magnitude );
-        shootTrash.GetComponent<objectSize>().isTrash = false;
+        shootTrash.GetComponent<trashItem>().isTrash = false;
         storage.Remove(storage[0]);
         buildTrashList();
-        if(trashMatch2.GetComponent<objectSize>().trashType == objectSize.trash.electronic){
-            temp = objectSize.trash.electronic;
+        if(trashMatch2.GetComponent<trashItem>().trashType == trashItem.trash.electronic){
+            temp = trashItem.trash.electronic;
         }
-        else if (trashMatch2.GetComponent<objectSize>().trashType == objectSize.trash.recycleable){
-            temp = objectSize.trash.recycleable;
+        else if (trashMatch2.GetComponent<trashItem>().trashType == trashItem.trash.recycleable){
+            temp = trashItem.trash.recycleable;
         }
-        else if (trashMatch2.GetComponent<objectSize>().trashType == objectSize.trash.food){
-            temp = objectSize.trash.food;
+        else if (trashMatch2.GetComponent<trashItem>().trashType == trashItem.trash.food){
+            temp = trashItem.trash.food;
         }
         else{
-            temp = objectSize.trash.misc;
+            temp = trashItem.trash.misc;
         } 
         
         if(storage.Count != 0){
@@ -275,7 +275,7 @@ public class Scan : MonoBehaviour
                 }
             } 
             Debug.Log("is the next trash the same type as the last?");
-            if(trashMatch2.GetComponent<objectSize>().trashType == temp){
+            if(trashMatch2.GetComponent<trashItem>().trashType == temp){
                 Debug.Log("yes it is, doing recursive call");
                 dumpInventory();
             }
@@ -302,14 +302,14 @@ public class Scan : MonoBehaviour
         buildTrashList();
         foreach (GameObject t in trash){
             float dist = Vector3.Distance(t.gameObject.transform.position, currentPos);
-            if (dist < minDist && ! t.GetComponent<objectSize>().isTargeted){
+            if (dist < minDist && ! t.GetComponent<trashItem>().isTargeted){
                 tMin = t.transform;
                 minDist = dist;
                 closestIndex = counter;
             }
             counter += 1;
         }
-        trash[closestIndex].GetComponent<objectSize>().isTargeted = true;
+        trash[closestIndex].GetComponent<trashItem>().isTargeted = true;
         counter = 0;
         closestIndex = 0;
         return tMin;
@@ -344,8 +344,8 @@ public class Scan : MonoBehaviour
         //Debug.Log("Updating List of Trash...");
         trash.Clear();
         foreach (GameObject g in GameObject.FindObjectsOfType<GameObject>()){
-            if (g.gameObject.GetComponent<objectSize>() != null){
-                objectSize item = g.gameObject.GetComponent<objectSize>();
+            if (g.gameObject.GetComponent<trashItem>() != null){
+                trashItem item = g.gameObject.GetComponent<trashItem>();
                 if(item.isTrash){
                     trash.Add(g);
                 }
@@ -372,13 +372,13 @@ public class Scan : MonoBehaviour
                 //Debug.Log("found " + trashMatch);
             }
         }    
-            if(trashMatch.GetComponent<objectSize>().trashType == objectSize.trash.electronic){
+            if(trashMatch.GetComponent<trashItem>().trashType == trashItem.trash.electronic){
                 target = dest[2];
             }
-            else if (trashMatch.GetComponent<objectSize>().trashType == objectSize.trash.recycleable){
+            else if (trashMatch.GetComponent<trashItem>().trashType == trashItem.trash.recycleable){
                 target = dest[0];
             }
-            else if (trashMatch.GetComponent<objectSize>().trashType == objectSize.trash.food){
+            else if (trashMatch.GetComponent<trashItem>().trashType == trashItem.trash.food){
                 target = dest[1];
             }
             else{
@@ -392,10 +392,10 @@ public class Scan : MonoBehaviour
             full = true;
             //Debug.Log("Dont have room for the thing");
         }
-        if (collider.gameObject.GetComponent<objectSize>() != null && collider.gameObject.GetComponent<objectSize>().isTrash && !full){
+        if (collider.gameObject.GetComponent<trashItem>() != null && collider.gameObject.GetComponent<trashItem>().isTrash && !full){
             //Debug.Log("removing isTrash tag from object");
-            collider.gameObject.GetComponent<objectSize>().isTrash = false;
-            //Debug.Log("Adding " + collision.gameObject.GetComponent<objectSize>().objectName + " to internal storage");
+            collider.gameObject.GetComponent<trashItem>().isTrash = false;
+            //Debug.Log("Adding " + collision.gameObject.GetComponent<trashItem>().objectName + " to internal storage");
             storage.Add(collider.gameObject.GetComponent<objectSize>().objectName);         
             if(storage.Count >= storageCapacity){
                 full = true;
@@ -426,7 +426,7 @@ public class Scan : MonoBehaviour
                 findDest();
             }
         }
-        else if(collider.gameObject.GetComponent<objectSize>() != null && collider.gameObject.GetComponent<objectSize>().isTrash && (full || trash.Count == 0 && storage.Count != 0)){
+        else if(collider.gameObject.GetComponent<trashItem>() != null && collider.gameObject.GetComponent<trashItem>().isTrash && (full || trash.Count == 0 && storage.Count != 0)){
             //Debug.Log("Picked up the last bit of trash in the world, heading to dump...");
             buildTrashList();
             findDest();

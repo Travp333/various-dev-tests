@@ -30,7 +30,18 @@ public class CustomGravityRigidbody : MonoBehaviour {
 
 	Rigidbody body;
 	Vector3 DummyGrav;
-	bool showSleep = false;
+	bool showSleep = true;
+	[SerializeField]
+	bool isSleep;
+	bool wakeBlock;
+	//called to wake up the object at any time
+	//added this "wakeblock" logic to prevent objects from sleeping while being held, leading to an object floating in the air
+	public void YesWakeBlock(){
+		wakeBlock = true;
+	}
+	public void NoWakeBlock(){
+		wakeBlock = false;
+	}
 
 	void Awake () {
         color = GetComponent<Renderer>();
@@ -42,7 +53,7 @@ public class CustomGravityRigidbody : MonoBehaviour {
 	}
     void FixedUpdate () {
 
-		//basically i am tryign to ensure that rigidbodies will respond to gravity changes by creating a bool that represents whether gravity is changing or not and waking the body accordingly
+		//basically i am trying to ensure that rigidbodies will respond to gravity changes by creating a bool that represents whether gravity is changing or not and waking the body accordingly
 		bool gravSwap;
 		if(DummyGrav == CustomGravity.GetGravity(body.position)){
 			gravSwap = false;
@@ -63,21 +74,27 @@ public class CustomGravityRigidbody : MonoBehaviour {
 					return;
 				}
             }
-            if (body.velocity.sqrMagnitude < 0.0001f) {
-                floatDelay += Time.deltaTime;
-                if (floatDelay >= 1f) {
-                    return;
-                }
-				if(showSleep){
-					color.material.SetColor("_EmissionColor", Color.yellow);
+			if(!wakeBlock){
+				if (body.velocity.sqrMagnitude < 0.0001f) {
+					floatDelay += Time.deltaTime;
+					if (floatDelay >= 1f) {
+						return;
+					}
+					if(showSleep){
+						isSleep = true;
+					}
 				}
-            }
-            else {              
-                floatDelay = 0f;
-				if(showSleep){
-					color.material.SetColor("_EmissionColor", Color.red);
+				else {              
+					floatDelay = 0f;
+					if(showSleep){
+						isSleep = false;
+					}
 				}
-            }
+			}
+			else{
+				body.WakeUp();
+				isSleep = false;
+			}
 		gravity = CustomGravity.GetGravity(body.position);
 		if (submergence > 0f) {
             float drag =

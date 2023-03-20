@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 1635747058136344591}
   - component: {fileID: 7219084507176642106}
   - component: {fileID: 1542547182443787842}
-  - component: {fileID: 2227494273190960933}
+  - component: {fileID: -6729164750497389780}
   m_Layer: 13
   m_Name: Briefcase
   m_TagString: Untagged
@@ -258,12 +258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: M.Briefcase
   sizes: 1
-  isTrash: 1
-  trashType: 3
-  isTargeted: 0
-  timeRemaining: 10
   portalWarp: 0
---- !u!114 &2227494273190960933
+--- !u!114 &-6729164750497389780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -272,20 +268,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7367169380688970210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3428b41dea388448c8e8384c2809d0, type: 3}
+  m_Script: {fileID: 11500000, guid: b68ffba5c88d0134bb35ea7a2604b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  safeFloating: 1
-  buoyancyOffsets:
-  - {x: -0.0408, y: 0, z: -0.0282}
-  - {x: -0.0382, y: 0, z: 0.04439}
-  - {x: 0.0369, y: 0, z: 0.04439}
-  - {x: 0.035, y: 0, z: -0.028}
-  submergenceOffset: 0.3
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
+  isTrash: 1
+  trashType: 3
+  isTargeted: 0
+  timeRemaining: 10

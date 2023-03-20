@@ -490,7 +490,6 @@ public class Movement : MonoBehaviour {
 	}
 
 	public void JumpTrigger(){
-
 		desiredJump = true;
 	}
 
@@ -525,11 +524,9 @@ public class Movement : MonoBehaviour {
 				Invoke("resetDiveGate", .5f);
 			}
 			else if (OnGround) {
-
 				jumpDirection = contactNormal;
 			}
 			else if (OnSteep) {
-
 				desiresClimbing = false;
 				jumpDirection = steepNormal;
 				// this was originally 0 but i changed it so that wall jumping doesnt count as one of your air jumps

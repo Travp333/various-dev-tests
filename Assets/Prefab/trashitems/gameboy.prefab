@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 472186955406437033}
   - component: {fileID: 3629051269684618997}
   - component: {fileID: 1247019102143286614}
-  - component: {fileID: 4359547644958992332}
+  - component: {fileID: -239955043336464293}
   m_Layer: 13
   m_Name: gameboy
   m_TagString: Untagged
@@ -132,12 +132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: E.Gameboy
   sizes: 0
-  isTrash: 1
-  trashType: 0
-  isTargeted: 0
-  timeRemaining: 10
   portalWarp: 0
---- !u!114 &4359547644958992332
+--- !u!114 &-239955043336464293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,21 +142,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3182131885513414531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3428b41dea388448c8e8384c2809d0, type: 3}
+  m_Script: {fileID: 11500000, guid: b68ffba5c88d0134bb35ea7a2604b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  safeFloating: 0
-  buoyancyOffsets:
-  - {x: -0.0216, y: -0.00297, z: 0}
-  - {x: 0.0214, y: -0.00297, z: 0}
-  submergenceOffset: 0.4
-  submergenceRange: 1
-  buoyancy: 1.5
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
+  isTrash: 1
+  trashType: 0
+  isTargeted: 0
+  timeRemaining: 10
 --- !u!1 &8051896244819226003
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1344429245}
   - component: {fileID: 1344429246}
   - component: {fileID: 7400699665504913671}
-  - component: {fileID: 8729436622049030180}
   m_Layer: 0
   m_Name: Cube.001
   m_TagString: Untagged
@@ -131,27 +130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &8729436622049030180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 21796110167210648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 0.3
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &80043628440558060
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +144,6 @@ GameObject:
   - component: {fileID: 1803862255}
   - component: {fileID: 7175844660770319654}
   - component: {fileID: 2899179690146170433}
-  - component: {fileID: 5768735620813619409}
   m_Layer: 0
   m_Name: Cube.006
   m_TagString: Untagged
@@ -282,27 +259,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &5768735620813619409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80043628440558060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &396870354123397403
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +273,6 @@ GameObject:
   - component: {fileID: 1040826972}
   - component: {fileID: 501580071390377542}
   - component: {fileID: 8424835829263601797}
-  - component: {fileID: 671169268179434987}
   m_Layer: 0
   m_Name: Cube.007
   m_TagString: Untagged
@@ -433,27 +388,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &671169268179434987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396870354123397403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &962214496204774640
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +402,6 @@ GameObject:
   - component: {fileID: 883561119}
   - component: {fileID: 4253445954401306093}
   - component: {fileID: 428084003539906525}
-  - component: {fileID: 6585809051521879454}
   m_Layer: 0
   m_Name: Cube.012
   m_TagString: Untagged
@@ -584,27 +517,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &6585809051521879454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962214496204774640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &1249567319643281015
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +531,6 @@ GameObject:
   - component: {fileID: 577640882}
   - component: {fileID: 2814814934374194017}
   - component: {fileID: 1713082392794885617}
-  - component: {fileID: 7298277405991870115}
   m_Layer: 0
   m_Name: Cube.005
   m_TagString: Untagged
@@ -735,27 +646,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &7298277405991870115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249567319643281015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &1811572323794689621
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +660,6 @@ GameObject:
   - component: {fileID: 588578701}
   - component: {fileID: 588578702}
   - component: {fileID: 242790558942707541}
-  - component: {fileID: 6630566197411543480}
   m_Layer: 0
   m_Name: Cube.017
   m_TagString: Untagged
@@ -887,27 +776,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &6630566197411543480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1811572323794689621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 0.3
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &1947477215454001056
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,7 +790,6 @@ GameObject:
   - component: {fileID: 50494263}
   - component: {fileID: 5997514576137830108}
   - component: {fileID: 4790506680626468099}
-  - component: {fileID: 6584738224549564197}
   m_Layer: 0
   m_Name: Cube.009
   m_TagString: Untagged
@@ -1038,27 +905,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &6584738224549564197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947477215454001056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &3165135830909315785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +919,6 @@ GameObject:
   - component: {fileID: 343189556}
   - component: {fileID: 8429544343994402339}
   - component: {fileID: 564838328145543011}
-  - component: {fileID: 6597303592133116253}
   m_Layer: 0
   m_Name: Cube.015
   m_TagString: Untagged
@@ -1189,27 +1034,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &6597303592133116253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3165135830909315785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &3494331255089036944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,7 +1048,6 @@ GameObject:
   - component: {fileID: 1723561519}
   - component: {fileID: 7341653498277511831}
   - component: {fileID: 1304186304372799202}
-  - component: {fileID: 1774237979967289617}
   m_Layer: 0
   m_Name: Cube.016
   m_TagString: Untagged
@@ -1340,27 +1163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &1774237979967289617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3494331255089036944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &6537799853447492204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,7 +1177,6 @@ GameObject:
   - component: {fileID: 338276916}
   - component: {fileID: 7980940481203359210}
   - component: {fileID: 8246895359109983895}
-  - component: {fileID: 4553144113323967173}
   m_Layer: 0
   m_Name: Cube.010
   m_TagString: Untagged
@@ -1491,27 +1292,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &4553144113323967173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6537799853447492204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &7173534888939223325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,7 +1306,6 @@ GameObject:
   - component: {fileID: 810738807}
   - component: {fileID: 3364719173326220387}
   - component: {fileID: 1986183147535210694}
-  - component: {fileID: 5561668638711412578}
   m_Layer: 0
   m_Name: Cube.013
   m_TagString: Untagged
@@ -1642,27 +1421,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &5561668638711412578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7173534888939223325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &7226421776920516345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,7 +1435,6 @@ GameObject:
   - component: {fileID: 1828865330}
   - component: {fileID: 1594277605918229101}
   - component: {fileID: 7834717252930588490}
-  - component: {fileID: 549313836084914368}
   m_Layer: 0
   m_Name: Cube.003
   m_TagString: Untagged
@@ -1793,27 +1550,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &549313836084914368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7226421776920516345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &7800329230730668999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,7 +1564,6 @@ GameObject:
   - component: {fileID: 1454460427}
   - component: {fileID: 6213906679675325172}
   - component: {fileID: 2605000186403465600}
-  - component: {fileID: 50808391218828035}
   m_Layer: 0
   m_Name: Cube.014
   m_TagString: Untagged
@@ -1944,27 +1679,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &50808391218828035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7800329230730668999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &7884770427108141802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,7 +1693,6 @@ GameObject:
   - component: {fileID: 1163524646}
   - component: {fileID: 360633052319079985}
   - component: {fileID: 1905841747121575744}
-  - component: {fileID: 5373715031594431185}
   m_Layer: 0
   m_Name: Cube.004
   m_TagString: Untagged
@@ -2095,27 +1808,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &5373715031594431185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7884770427108141802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
 --- !u!1 &8384142459413333977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,7 +1903,6 @@ GameObject:
   - component: {fileID: 817458217}
   - component: {fileID: 1386296566945739325}
   - component: {fileID: 4167354331898638682}
-  - component: {fileID: 1154685522065257732}
   m_Layer: 0
   m_Name: Cube.008
   m_TagString: Untagged
@@ -2327,24 +2018,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 5
   lifeMax: 10
---- !u!114 &1154685522065257732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8895250070690840159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966f9c74f6c8de4dac6d993fd0e5ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancyOffset: {x: 0, y: 0, z: 0}
-  submergenceOffset: 0.5
-  submergenceRange: 1
-  buoyancy: 2
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1

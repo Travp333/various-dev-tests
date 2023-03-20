@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7532057054898681807}
   - component: {fileID: 6409990899544360383}
   - component: {fileID: 3208265192229375364}
-  - component: {fileID: 8695164630743546810}
+  - component: {fileID: -9213880321757186762}
   m_Layer: 13
   m_Name: pretzel
   m_TagString: Untagged
@@ -149,12 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: F.Pretzel
   sizes: 0
-  isTrash: 1
-  trashType: 1
-  isTargeted: 0
-  timeRemaining: 10
   portalWarp: 0
---- !u!114 &8695164630743546810
+--- !u!114 &-9213880321757186762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,23 +159,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 597629067131313158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3428b41dea388448c8e8384c2809d0, type: 3}
+  m_Script: {fileID: 11500000, guid: b68ffba5c88d0134bb35ea7a2604b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  safeFloating: 1
-  buoyancyOffsets:
-  - {x: 0.00694, y: 0.00331, z: 0}
-  - {x: -0.00737, y: 0.00344, z: 0}
-  - {x: -0.00672, y: -0.00722, z: 0}
-  - {x: 0.00684, y: -0.00689, z: 0}
-  submergenceOffset: 0.3
-  submergenceRange: 1
-  buoyancy: 1.3
-  waterDrag: 1
-  waterMask:
-    serializedVersion: 2
-    m_Bits: 16
-  floatToSleep: 1
+  isTrash: 1
+  trashType: 1
+  isTargeted: 0
+  timeRemaining: 10
 --- !u!1 &4641024763048261198
 GameObject:
   m_ObjectHideFlags: 0

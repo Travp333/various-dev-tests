@@ -229,7 +229,7 @@ public class HandAnim : MonoBehaviour
             else {
                 animator.SetBool("isSprinting", false);
             }
-            if (Input.GetKey("c")) {
+            if (Input.GetKey(controls.keys["duck"])) {
                 animator.SetBool("walkPressed", true);
             }
             else {

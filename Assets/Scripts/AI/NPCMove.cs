@@ -409,104 +409,104 @@ public class NPCMove : MonoBehaviour
         else if (runner){
             GetClosestNPC();
         }
-        
-        float dist = Vector3.Distance(this.transform.position, Min.transform.position);
-        Vector3 dirToThreat = this.transform.position - Min.transform.position;
-        dirToThreat.Normalize();
-        Vector3 newPos = (transform.position + dirToThreat);
-        raycastCount = raycastCount + Time.deltaTime;
-        if(dist < criticalDist){
-            //Debug.Log(this.gameObject.name + " is in Critical Distance");
-            if(NavMesh.CalculatePath(transform.position, carrot.transform.position, NavMesh.AllAreas, path)){
+        if(Min == null){
+            PanicRoam();
+        }
+        else{
+            float dist = Vector3.Distance(this.transform.position, Min.transform.position);
+            Vector3 dirToThreat = this.transform.position - Min.transform.position;
+
+            dirToThreat.Normalize();
+            Vector3 newPos = (transform.position + dirToThreat);
+            raycastCount = raycastCount + Time.deltaTime;
+            if(dist < criticalDist){
+                //Debug.Log(this.gameObject.name + " is in Critical Distance");
+                if(NavMesh.CalculatePath(transform.position, carrot.transform.position, NavMesh.AllAreas, path)){
+                    agent.ResetPath();
+                    agent.SetPath(path);
+                    Quaternion toRotation = Quaternion.LookRotation(dirToThreat, Vector3.up);
+                    this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
+                }
+            }
+            //check if a wall is in front of you
+            else if(Physics.Raycast(transform.position, this.transform.forward, out hit, reflectRange, mask) && ! raycastBlock){
+                //There is a wall! clear current path, stop movement
+                agent.ResetPath();
+                moveBlocked = true; 
+                //Debug.Log("Hit wall");
+                //Debug.DrawRay(transform.position, hit.point - transform.position, Color.red, 1f);
+                //reflect off of that wall to find alternate escape route
+                reflect = (Vector3.Reflect(hit.point - transform.position, hit.normal));
+                spreadAngle = Quaternion.AngleAxis(Random.Range(-runningAngle, runningAngle), new Vector3(0, 1, 0));
+                reflect = spreadAngle * reflect;
+                reflect = ProjectDirectionOnPlane(reflect, this.transform.up);
+                //check if wall is in front of reflected ray
+                if(Physics.Raycast(hit.point, reflect, out hit2, reflectRange, mask)){
+                    //yes something is in the way of the reflected ray, reflect again!
+                    reflect2 = (Vector3.Reflect(((hit2.point - hit.point).normalized * (hit.point - transform.position).magnitude), hit2.normal));
+                    spreadAngle = Quaternion.AngleAxis(Random.Range(-runningAngle, runningAngle), new Vector3(0, 1, 0));
+                    reflect2 = spreadAngle * reflect2;
+                    reflect2 = ProjectDirectionOnPlane(reflect2, this.transform.up);
+                    //Debug.DrawRay(hit.point, reflect, Color.magenta, 1f);
+                    //is something in the way of that reflection?
+                    if(Physics.Raycast(hit2.point, reflect2, out hit3, reflectRange, mask)){
+                        //yes, then just run somewhere random??
+                        PanicRoam();
+                        //Debug.DrawLine(hit2.point, hit3.point, Color.green, 1f);
+                    }
+                    else{
+                        //nothing in the way, navigate to that point!
+                        Ray ble2 = new Ray(hit2.point, reflect2);
+                        if(NavMesh.CalculatePath(transform.position, ble2.GetPoint(reflectRange * 5), NavMesh.AllAreas, path)){
+                            raycastBlock = true;
+                            Invoke("resetRaycastBlock", raycastCap);
+                            // yes, navigate there
+                            //Debug.DrawRay(hit2.point, reflect2 * 5, Color.green,1f);
+                            agent.ResetPath();
+                            agent.SetPath(path);
+                            
+                            //agent.SetDestination(reflect2);
+                            //rotate towards that point
+                            Quaternion toRotation = Quaternion.LookRotation(reflect2, Vector3.up);
+                            this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
+                            //Debug.Log("navigating to second reflected point");
+                        }
+
+                    }
+                }
+                // theres nothing in the way of the reflected ray, navigate there!
+                else{
+                    //is the path to the reflected point valid? 
+                    Ray ble = new Ray(hit.point, reflect);
+                    if(NavMesh.CalculatePath(transform.position, ble.GetPoint(reflectRange), NavMesh.AllAreas, path)){
+                        raycastBlock = true;
+                        Invoke("resetRaycastBlock", raycastCap);
+                        // yes, navigate there
+                        //Debug.DrawRay(hit.point, reflect, Color.magenta,1f);
+                        agent.ResetPath();
+                        agent.SetPath(path);
+                        //agent.SetDestination(reflect);
+                        //rotate towards that point
+                        Quaternion toRotation = Quaternion.LookRotation(reflect, Vector3.up);
+                        this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
+                        //Debug.Log("navigating to reflected point");
+                    }
+                }
+
+            }
+            if(moveBlocked){
+                if(Vector3.Distance(transform.position, agent.pathEndPosition) < 3){
+                    moveBlocked = false;
+                }
+            }
+            if(NavMesh.CalculatePath(transform.position, carrot.transform.position, NavMesh.AllAreas, path) && !moveBlocked){
+                //Debug.Log(this.gameObject.name + "is Running Straight Away");
                 agent.ResetPath();
                 agent.SetPath(path);
                 Quaternion toRotation = Quaternion.LookRotation(dirToThreat, Vector3.up);
                 this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
             }
         }
-        //check if a wall is in front of you
-        else if(Physics.Raycast(transform.position, this.transform.forward, out hit, reflectRange, mask) && ! raycastBlock){
-            //There is a wall! clear current path, stop movement
-            agent.ResetPath();
-            moveBlocked = true; 
-            //Debug.Log("Hit wall");
-            //Debug.DrawRay(transform.position, hit.point - transform.position, Color.red, 1f);
-            //reflect off of that wall to find alternate escape route
-            reflect = (Vector3.Reflect(hit.point - transform.position, hit.normal));
-            spreadAngle = Quaternion.AngleAxis(Random.Range(-runningAngle, runningAngle), new Vector3(0, 1, 0));
-            reflect = spreadAngle * reflect;
-            reflect = ProjectDirectionOnPlane(reflect, this.transform.up);
-            //check if wall is in front of reflected ray
-            if(Physics.Raycast(hit.point, reflect, out hit2, reflectRange, mask)){
-                //yes something is in the way of the reflected ray, reflect again!
-                reflect2 = (Vector3.Reflect(((hit2.point - hit.point).normalized * (hit.point - transform.position).magnitude), hit2.normal));
-                spreadAngle = Quaternion.AngleAxis(Random.Range(-runningAngle, runningAngle), new Vector3(0, 1, 0));
-                reflect2 = spreadAngle * reflect2;
-                reflect2 = ProjectDirectionOnPlane(reflect2, this.transform.up);
-                //Debug.DrawRay(hit.point, reflect, Color.magenta, 1f);
-                //is something in the way of that reflection?
-                if(Physics.Raycast(hit2.point, reflect2, out hit3, reflectRange, mask)){
-                    //yes, then just run somewhere random??
-                    PanicRoam();
-                    //Debug.DrawLine(hit2.point, hit3.point, Color.green, 1f);
-                }
-                else{
-                    //nothing in the way, navigate to that point!
-                    Ray ble2 = new Ray(hit2.point, reflect2);
-                    if(NavMesh.CalculatePath(transform.position, ble2.GetPoint(reflectRange * 5), NavMesh.AllAreas, path)){
-                        raycastBlock = true;
-                        Invoke("resetRaycastBlock", raycastCap);
-                        // yes, navigate there
-                        //Debug.DrawRay(hit2.point, reflect2 * 5, Color.green,1f);
-                        agent.ResetPath();
-                        agent.SetPath(path);
-                        
-                        //agent.SetDestination(reflect2);
-                        //rotate towards that point
-                        Quaternion toRotation = Quaternion.LookRotation(reflect2, Vector3.up);
-                        this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
-                        //Debug.Log("navigating to second reflected point");
-                    }
-
-                }
-            }
-            // theres nothing in the way of the reflected ray, navigate there!
-            else{
-                //is the path to the reflected point valid? 
-                Ray ble = new Ray(hit.point, reflect);
-                if(NavMesh.CalculatePath(transform.position, ble.GetPoint(reflectRange), NavMesh.AllAreas, path)){
-                    raycastBlock = true;
-                    Invoke("resetRaycastBlock", raycastCap);
-                    // yes, navigate there
-                    //Debug.DrawRay(hit.point, reflect, Color.magenta,1f);
-                    agent.ResetPath();
-                    agent.SetPath(path);
-                    //agent.SetDestination(reflect);
-                    //rotate towards that point
-                    Quaternion toRotation = Quaternion.LookRotation(reflect, Vector3.up);
-                    this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
-                    //Debug.Log("navigating to reflected point");
-                }
-            }
-
-        }
-        else{
-            //Raycast hit nothing! 
-            PanicRoam();
-        }
-        if(moveBlocked){
-            if(Vector3.Distance(transform.position, agent.pathEndPosition) < 3){
-                moveBlocked = false;
-            }
-        }
-        if(NavMesh.CalculatePath(transform.position, carrot.transform.position, NavMesh.AllAreas, path) && !moveBlocked){
-            //Debug.Log(this.gameObject.name + "is Running Straight Away");
-            agent.ResetPath();
-            agent.SetPath(path);
-            Quaternion toRotation = Quaternion.LookRotation(dirToThreat, Vector3.up);
-            this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (turnRate) * Time.deltaTime);
-        }
-        
        
     }
     void Roam(){

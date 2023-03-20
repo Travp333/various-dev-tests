@@ -66,10 +66,12 @@ public class Interact : MonoBehaviour
     //If not already holding an object, get object components, pass to Grab to do the work
     public void pickUp(GameObject obj){
         if (!grab.isHolding) { 
+            
             prop = obj.GetComponent<Transform>();
             propParent = prop.transform.root;
             propRB = obj.GetComponent<Rigidbody>();
-
+            //added wake block logic, see custom gravityrigidbody for elaboration
+            prop.GetComponent<CustomGravityRigidbody>().YesWakeBlock();
             if(prop.gameObject.tag == "ragdoll"){
                 ragdollParent = prop.parent;
                 
@@ -110,8 +112,6 @@ public class Interact : MonoBehaviour
         //opposite of the pick up section, just undoing all of that back to its default state
         grab.isgrabCharging = false;
         bone.toggle(false);
-       // body = prop.gameObject.GetComponent<CustomGravityRigidbody>();
-       // body.enabled = true;
         propRB.isKinematic=(false);
         grab.isHolding = false;
         foreach (GameObject G in GameObject.FindGameObjectsWithTag("ragdoll")){
@@ -128,7 +128,8 @@ public class Interact : MonoBehaviour
                 child2.transform.gameObject.layer = 13;
             }
         }
-        //Debug.Log("DROPPED");
+        //added wake block logic, see custom gravityrigidbody for elaboration
+        prop.GetComponent<CustomGravityRigidbody>().NoWakeBlock();
     }
 
     //removes the "thru hoop" status of any basketballs you pick up
