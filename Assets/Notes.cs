@@ -2,6 +2,8 @@
 
 stuff I think needs work, or needs to be implemented, or whatever. just a to do list basically. THis list will likely just keep getting bigger and bigger
 
+IDEA: keep the mall as a pizza slice inside of blender, then recreate the 6 sided symmetry inside unity. 
+
 make animations to transition from idle rto running/ springitng, might help with skiing and just feel better overall
 
 the wall at the end of wings doesnt trigger on steep on the side facing the inside of the mall
