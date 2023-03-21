@@ -70,8 +70,14 @@ public class Interact : MonoBehaviour
             prop = obj.GetComponent<Transform>();
             propParent = prop.transform.root;
             propRB = obj.GetComponent<Rigidbody>();
-            //added wake block logic, see custom gravityrigidbody for elaboration
-            prop.GetComponent<CustomGravityRigidbody>().YesWakeBlock();
+            //added wake block logic, see custom gravityrigidbody for elaboration, also added null checking
+            if(prop.GetComponent<CustomGravityRigidbody>() != null){
+                prop.GetComponent<CustomGravityRigidbody>().YesWakeBlock();
+            }
+            else if (prop.GetComponent<StableFloatingRigidbody>() != null ){
+                prop.GetComponent<StableFloatingRigidbody>().YesWakeBlock();
+            }
+            
             if(prop.gameObject.tag == "ragdoll"){
                 ragdollParent = prop.parent;
                 
@@ -128,8 +134,14 @@ public class Interact : MonoBehaviour
                 child2.transform.gameObject.layer = 13;
             }
         }
-        //added wake block logic, see custom gravityrigidbody for elaboration
-        prop.GetComponent<CustomGravityRigidbody>().NoWakeBlock();
+        //added wake block logic, see custom gravityrigidbody / stablefloatingrigidbody for elaboration
+        if(prop.GetComponent<CustomGravityRigidbody>()!= null){
+            prop.GetComponent<CustomGravityRigidbody>().NoWakeBlock();
+        }
+        else if (prop.GetComponent<StableFloatingRigidbody>() != null){
+            prop.GetComponent<StableFloatingRigidbody>().NoWakeBlock();
+        }
+        
     }
 
     //removes the "thru hoop" status of any basketballs you pick up

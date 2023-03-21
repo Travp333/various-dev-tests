@@ -26,12 +26,17 @@ public class StableFloatingRigidbody  : MonoBehaviour {
     [SerializeField]
     bool floatToSleep = false;
     float floatDelay;
-    //Renderer color;
-
 	Rigidbody body;
+	bool wakeBlock;
+
+	public void YesWakeBlock(){
+		wakeBlock = true;
+	}
+	public void NoWakeBlock(){
+		wakeBlock = false;
+	}
 
 	void Awake () {
-        //color = GetComponent<Renderer>();
 		body = GetComponent<Rigidbody>();
 		body.useGravity = false;
 		submergence = new float[buoyancyOffsets.Length];
@@ -43,17 +48,20 @@ public class StableFloatingRigidbody  : MonoBehaviour {
                 floatDelay = 0f;
                 return;
             }
-            if (body.velocity.sqrMagnitude < 0.0001f) {
-                //color.material.SetColor("_Color", Color.yellow);
-                floatDelay += Time.deltaTime;
-                if (floatDelay >= 1f) {
-                    return;
-                }
-            }
-            else { 
-                //color.material.SetColor("_Color", Color.red);
-                floatDelay = 0f;
-            }
+			//added wakeblock logic to force props awake in certain situations
+			if(!wakeBlock){
+				if (body.velocity.sqrMagnitude < 0.0001f) {
+					//color.material.SetColor("_Color", Color.yellow);
+					floatDelay += Time.deltaTime;
+					if (floatDelay >= 1f) {
+						return;
+					}
+				}
+				else { 
+					//color.material.SetColor("_Color", Color.red);
+					floatDelay = 0f;
+				}
+			}
 		gravity = CustomGravity.GetGravity(body.position);
 		float dragFactor = waterDrag * Time.deltaTime / buoyancyOffsets.Length;
 		float buoyancyFactor = -buoyancy / buoyancyOffsets.Length;
