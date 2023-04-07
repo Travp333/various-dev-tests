@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StaticMall.unity
-    guid: e64bcf9c2cfa839469b8504392ba4a54
-  - enabled: 1
-    path: Assets/Scenes/Static Mall All Lights.unity
-    guid: 0b37ea93f72bbde4486c1bdfedf824d6
-  - enabled: 1
-    path: Assets/Scenes/Static Mall No Lights 1.unity
-    guid: ba1ad9f64cc2142468ff5333bfdd38d9
-  - enabled: 1
-    path: Assets/Scenes/Static Mall Wing Lights.unity
-    guid: ecaed0adec559da4d998b25522825fa6
-  - enabled: 1
-    path: Assets/Scenes/Static Mall Center Lights.unity
-    guid: ccdfc34bc901f0e4393868553c28275b
-  - enabled: 1
     path: Assets/Scenes/Mall.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Static Mall.unity
+    guid: 79ba7e9f6597f3241bb4d3b22ac8825a
+  - enabled: 1
+    path: Assets/Scenes/Old/Static Mall Wing Lights.unity
+    guid: ecaed0adec559da4d998b25522825fa6
+  - enabled: 1
+    path: Assets/Scenes/Old/Static Mall No Lights 1.unity
+    guid: ba1ad9f64cc2142468ff5333bfdd38d9
+  - enabled: 1
+    path: Assets/Scenes/Old/Static Mall Center Lights.unity
+    guid: ccdfc34bc901f0e4393868553c28275b
+  - enabled: 1
+    path: Assets/Scenes/Old/Static Mall All Lights.unity
+    guid: 0b37ea93f72bbde4486c1bdfedf824d6
   m_configObjects: {}

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Celing
-  m_Shader: {fileID: 4800000, guid: b23a00e68ea3cb845aab7a49c063281d, type: 3}
+  m_Shader: {fileID: 4800000, guid: 92acb86d12af5cb42b56649a2a592e03, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - MOCHIE_PBR
@@ -18,7 +18,6 @@ Material:
   - VIGNETTE_MASKED
   - _LIGHTINGMODE_REALISTIC
   - _NORMALMAP
-  - _RIMSTYLE_POIYOMI
   - _SPECGLOSSMAP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -2757,7 +2756,7 @@ Material:
     - m_end_vertexManipulation: 0
     - m_lightingCategory: 0
     - m_lightingOptions: 1
-    - m_mainCategory: 0
+    - m_mainCategory: 1
     - m_mainOptions: 1
     - m_modifierCategory: 0
     - m_outlineOptions: 0
